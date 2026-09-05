@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Development\\VisualStudio\\W3Manager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|W3Manager\\W3Manager.csproj|c:\\development\\visualstudio\\w3manager\\w3manager\\triggers\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|W3Manager\\W3Manager.csproj|solutionrelative:w3manager\\triggers\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|W3Manager\\W3Manager.csproj|c:\\development\\visualstudio\\w3manager\\w3manager\\w3map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|W3Manager\\W3Manager.csproj|solutionrelative:w3manager\\w3map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WtgFile.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\W3Manager\\W3Manager\\Triggers\\WtgFile.cs",
+              "RelativeDocumentMoniker": "W3Manager\\Triggers\\WtgFile.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\W3Manager\\W3Manager\\Triggers\\WtgFile.cs",
+              "RelativeToolTip": "W3Manager\\Triggers\\WtgFile.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T19:06:44.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "W3Map.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\W3Manager\\W3Manager\\W3Map.cs",
+              "RelativeDocumentMoniker": "W3Manager\\W3Map.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\W3Manager\\W3Manager\\W3Map.cs",
+              "RelativeToolTip": "W3Manager\\W3Map.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T18:41:58.849Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

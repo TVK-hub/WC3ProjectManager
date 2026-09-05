@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12112.369
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WC3ProjectManager", "WC3ProjectManager\WC3ProjectManager.csproj", "{6011FA5C-AECD-4A8B-A29C-487887F99E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WC3Files", "WC3Files\WC3Files.csproj", "{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6011FA5C-AECD-4A8B-A29C-487887F99E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6011FA5C-AECD-4A8B-A29C-487887F99E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6011FA5C-AECD-4A8B-A29C-487887F99E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6011FA5C-AECD-4A8B-A29C-487887F99E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D1F2366-660D-425C-B5E8-FDD98DC08AFE}
+	EndGlobalSection
+EndGlobal
