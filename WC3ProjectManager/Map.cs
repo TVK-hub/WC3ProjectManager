@@ -1,5 +1,4 @@
 ﻿using WC3Files.MPQ;
-using WC3Files.Triggers;
 namespace WC3ProjectManager
 {
     public class Map
@@ -27,11 +26,11 @@ namespace WC3ProjectManager
         }
 
         //Загруить
-        public static Map Load(string path)
+        public static Map FromFile(string path)
         {
-            return Load(new FileInfo(path));
+            return FromFile(new FileInfo(path));
         }
-        public static Map Load(FileInfo fInfo)
+        public static Map FromFile(FileInfo fInfo)
         {
             //Карта
             Map m = new Map();
@@ -46,17 +45,17 @@ namespace WC3ProjectManager
             }
             return m;
         }
-        public static Map LoadFirstFromDir(string dir)
+        public static Map FirstFromDir(string dir)
         {
             //Файлы
             SearchOption opt = SearchOption.TopDirectoryOnly;
             FileInfo[] files = new DirectoryInfo(dir).GetFiles("*.w3x", opt);
 
             //Карта
-            Map map = Load(files[0]);
+            Map map = FromFile(files[0]);
             return map;
         }
-        public static Map[] LoadFromDir(string dir, bool subfolders=true)
+        public static Map[] FromDir(string dir, bool subfolders=true)
         {
             //Файлы
             SearchOption opt = (subfolders) ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
@@ -66,7 +65,7 @@ namespace WC3ProjectManager
             Map[] maps = new Map[files.Length];
             for (int i = 0; i < files.Length; i++)
             {
-                maps[i] = Load(files[i]);
+                maps[i] = FromFile(files[i]);
             }
             return maps;
         }
@@ -79,6 +78,19 @@ namespace WC3ProjectManager
                 Triggers.SaveToMPQ(mpq);
                 mpq.Compact();
             }
+        }
+
+        //Копировать
+        public Map CopyTo(string path)
+        {
+            FileInfo f = FileInfo.CopyTo(path, true);
+            return FromFile(f);
+        }
+
+        //Удалить
+        public void Delete()
+        {
+            FileInfo.Delete();
         }
     }
 }

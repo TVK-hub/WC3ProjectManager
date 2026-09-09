@@ -57,6 +57,12 @@ internal class Program
                     WC3Project.Current.Clear();
                 }
                 break;
+            //Проверка
+            case "check":
+                {
+                    WC3Project.Current.Check();
+                }
+                break;
         }
     }
 }

@@ -10,6 +10,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WC3Files\WC3Files.csproj" />
+	<None Include="Tools\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tools\" />
   </ItemGroup>
 
 </Project>

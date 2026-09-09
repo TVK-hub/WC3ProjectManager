@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WC3Files.Triggers;
+using WC3ProjectManager.Jass;
 namespace WC3ProjectManager
 {
     public class Trigger : ITrigger
@@ -27,7 +28,7 @@ namespace WC3ProjectManager
         } = "";
 
         //ГУИ
-        public List<WtgEca> GUI;
+        public List<WtgEca>? GUI = null;
 
         //Включён
         public bool Enabled = true;
@@ -38,7 +39,7 @@ namespace WC3ProjectManager
         public static Trigger FromFile(string path)
         {
             Trigger trg = new Trigger();
-            trg.Name = Path.GetFileNameWithoutExtension(path);
+            trg.Name = JassUtils.ToTriggerName(Path.GetFileNameWithoutExtension(path));
             trg.Code = File.ReadAllText(path);
             trg.Enabled = true;
             TriggerDirectives.Parse(trg);

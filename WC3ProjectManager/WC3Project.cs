@@ -1,5 +1,6 @@
 ﻿using System.Reflection.PortableExecutable;
 using System.Text.Json;
+using WC3ProjectManager.Jass;
 
 namespace WC3ProjectManager
 {
@@ -64,11 +65,11 @@ namespace WC3ProjectManager
             Map map;
             if (string.IsNullOrEmpty(path))
             {
-                map = Map.LoadFirstFromDir(Dirs.Maps);
+                map = Map.FirstFromDir(Dirs.Maps);
             }
             else
             {
-                map = Map.Load(path);
+                map = Map.FromFile(path);
             }
 
             //Триггеры
@@ -91,40 +92,14 @@ namespace WC3ProjectManager
         public void Inject()
         {
             //Триггеры на внедрение
-            List<Trigger> triggers = new(Trigger.FromDir(Dirs.Triggers));
-            Trigger header = null; int hInx = triggers.FindIndex(trg=>trg.Name=="code");
-            if (hInx > -1) { header = triggers[hInx]; triggers.RemoveAt(hInx); }
+            Triggers triggers = Triggers.FromDir(Name, Dirs.Triggers);
 
             //Карты
-            Map[] maps = Map.LoadFromDir(Dirs.Maps);
+            Map[] maps = Map.FromDir(Dirs.Maps);
             foreach (Map m in maps)
             {
-                //Заголовок
-                if (header != null)
-                {
-                    m.Triggers.Header = header;
-                }
-
-                //Категория
-                TriggerCategory cat = m.Triggers.Categories.FirstOrDefault(kv => kv.Name == Name);
-                if (cat != null)
-                {
-                    cat.Triggers.Clear();
-                }
-                else
-                {
-                    cat = new TriggerCategory();
-                    cat.Id = 1;
-                    foreach (TriggerCategory c in m.Triggers.Categories)
-                    {
-                        if (cat.Id <= c.Id) { cat.Id = c.Id + 1; }
-                    }
-                    cat.Name = Name;
-                    m.Triggers.Categories.Insert(0, cat);
-                }
-
-                //Добавить триггеры
-                cat.Triggers.AddRange(triggers);
+                //Внедрить
+                m.Triggers.Inject(triggers);
 
                 //Сохранить карту
                 m.Save();
@@ -136,18 +111,31 @@ namespace WC3ProjectManager
         /// </summary>
         public void Clear()
         {
-            Map[] maps = Map.LoadFromDir(Dirs.Maps);
+            Map[] maps = Map.FromDir(Dirs.Maps);
             foreach (Map m in maps)
             {
                 //Очистка
-                m.Triggers.GlobalVars.Clear();
-                m.Triggers.Header.Code = "";
-                m.Triggers.Header.Description = "";
-                m.Triggers.Categories.Clear();
+                m.Triggers.Clear();
 
                 //Сохранить карту
                 m.Save();
             }
+        }
+
+        /// <summary>
+        /// Проверить триггеры проекта.
+        /// </summary>
+        public void Check()
+        {
+            //Тестовый файл
+            Triggers triggers = Triggers.FromDir(Name, Dirs.Triggers);
+            JassFile testFile = JassFile.Build(Path + "\\test.j", triggers);
+
+            //Проверка
+            testFile.Check();
+
+            //Удаление
+            testFile.Delete();
         }
     }
 }

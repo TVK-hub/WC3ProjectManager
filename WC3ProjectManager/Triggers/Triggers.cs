@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Headers;
+using System.Reflection.PortableExecutable;
+using System.Xml.Linq;
 using WC3Files.MPQ;
 using WC3Files.Triggers;
 namespace WC3ProjectManager
@@ -44,6 +46,54 @@ namespace WC3ProjectManager
 
         //Триггеры
         public IEnumerable<ITrigger> All => Categories.SelectMany(c => c.Triggers);
+
+        //Внедрить
+        public void Inject(Triggers src)
+        {
+            //Заголовок
+            if (src.Header.Code!="")       { Header.Code = src.Header.Code; }
+            if (src.Header.Description!=""){ Header.Description = src.Header.Description; }
+
+            //Категории
+            foreach (TriggerCategory srcCat in src.Categories)
+            {
+                //Категория
+                TriggerCategory? cat = Categories.FirstOrDefault(kv => kv.Name == srcCat.Name);
+                if (cat != null)
+                {
+                    //Очистить триггеры
+                    cat.Triggers.Clear();
+                }
+                else
+                {
+                    //Создать категорию
+                    cat = new TriggerCategory();
+                    cat.Id = 1;
+                    cat.Name = srcCat.Name;
+
+                    //Рассчитать ID
+                    foreach (TriggerCategory c in Categories)
+                    {
+                        if (cat.Id <= c.Id) { cat.Id = c.Id + 1; }
+                    }
+
+                    //Добавить в список
+                    Categories.Insert(0, cat);
+                }
+
+                //Добавить триггеры
+                cat.Triggers.AddRange(srcCat.Triggers);
+            }
+        }
+
+        //Очистить
+        public void Clear()
+        {
+            GlobalVars.Clear();
+            Header.Code = "";
+            Header.Description = "";
+            Categories.Clear();
+        }
 
         //Загрузить
         private void Load(WtgFile wtg, WctFile wct)
@@ -114,6 +164,26 @@ namespace WC3ProjectManager
             WtgFile wtg = WtgFile.LoadFromMPQ(mpq);
             WctFile wct = WctFile.LoadFromMPQ(mpq);
             Load(wtg, wct);
+        }
+        public static Triggers FromDir(string catName, string path)
+        {
+            //Триггеры
+            Triggers t = new Triggers();
+
+            //Чтение файлов
+            List<Trigger> trgsLst = new(Trigger.FromDir(path));
+            
+            //Заголовок
+            int hInx = trgsLst.FindIndex(trg => trg.Name == "code");
+            if (hInx > -1) { t.Header = trgsLst[hInx]; trgsLst.RemoveAt(hInx); }
+
+            //Триггеры
+            TriggerCategory cat = new TriggerCategory();
+            cat.Id = 1;
+            cat.Name = catName;
+            cat.Triggers.AddRange(trgsLst);
+            t.Categories.Add(cat);
+            return t;
         }
 
         //Сохранить
