@@ -51,7 +51,8 @@ namespace WC3ProjectManager
             SearchOption opt = (subfolders) ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
             var files = Directory.EnumerateFiles(dir, "*", opt).Where(x =>
                     Path.GetExtension(x).Equals(".j", StringComparison.OrdinalIgnoreCase) ||
-                    Path.GetExtension(x).Equals(".vj", StringComparison.OrdinalIgnoreCase)).ToArray();
+                    Path.GetExtension(x).Equals(".vj", StringComparison.OrdinalIgnoreCase) ||
+                    Path.GetExtension(x).Equals(".cj", StringComparison.OrdinalIgnoreCase)).ToArray();
 
             //Триггеры
             Trigger[] triggers = new Trigger[files.Length];
