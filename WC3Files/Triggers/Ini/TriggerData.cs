@@ -22,8 +22,8 @@ namespace WC3Files.Triggers
         //Парсинг
         public static TriggerData Load(string path)
         {
-            TriggerDataParser parser = new TriggerDataParser();
-            return parser.Parse(path);
+            TriggerDataReader parser = new TriggerDataReader(path);
+            return parser.ReadData();
         }
     }
 }

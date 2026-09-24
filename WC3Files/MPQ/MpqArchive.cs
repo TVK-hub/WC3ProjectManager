@@ -17,21 +17,33 @@ namespace WC3Files.MPQ
         }
 
         //Открыть
-        public MpqArchive(IntPtr ptr)
+        public bool Opened
         {
-            Ptr = ptr;
+            get;
+            private set;
+        } = false;
+        public static MpqArchive Load(string path)
+        {
+            MpqArchive arc = new MpqArchive();
+            if (!arc.TryOpen(path))
+            {
+                throw new Exception($"Не удались открыть файл \"{path}\".");
+            }
+            return arc;
         }
-        public static MpqArchive Open(string path)
+        public bool TryOpen(string path)
         {
-            IntPtr ptr; StormLib.SFileOpenArchive(path, 0u, 0u, out ptr);
-            MpqArchive mpq = new MpqArchive(ptr);
-            return mpq;
+            Close();
+            IntPtr ptr;
+            Opened = StormLib.SFileOpenArchive(path, 0u, 0u, out ptr);
+            Ptr = ptr;
+            return Opened;
         }
 
         //Закрыть
         public void Close()
         {
-            StormLib.SFileCloseArchive(Ptr);
+            if (Opened) { StormLib.SFileCloseArchive(Ptr); }
         }
         public void Dispose()
         {
@@ -52,6 +64,10 @@ namespace WC3Files.MPQ
         public void CreateFile(string path, byte[] data)
         {
             MpqFile.Create(this, path, data);
+        }
+        public bool DeleteFile(string path)
+        {
+            return StormLib.SFileRemoveFile(Ptr, path, 0u);
         }
         //public bool RemoveFile(string path)
         //{

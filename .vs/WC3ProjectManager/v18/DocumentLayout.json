@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Development\\VisualStudio\\WC3ProjectManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\triggers\\trigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\triggers\\trigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\triggers\\wtg\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\triggers\\wtg\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\jass\\jassutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\jass\\jassutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\mpq\\mpqarchive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\mpq\\mpqarchive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\jass\\jassfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\jass\\jassfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\import\\import.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\import\\import.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\wc3project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\wc3project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "JassUtils.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Jass\\JassUtils.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Jass\\JassUtils.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Jass\\JassUtils.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Jass\\JassUtils.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "MpqArchive.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\MPQ\\MpqArchive.cs",
+              "RelativeDocumentMoniker": "WC3Files\\MPQ\\MpqArchive.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\MPQ\\MpqArchive.cs",
+              "RelativeToolTip": "WC3Files\\MPQ\\MpqArchive.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAABwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T10:13:02.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WC3Project.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\WC3Project.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\WC3Project.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\WC3Project.cs",
-              "RelativeToolTip": "WC3ProjectManager\\WC3Project.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAawIYAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T09:50:24.92Z"
+              "WhenOpened": "2026-09-24T10:58:16.102Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Trigger.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Triggers\\Trigger.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Triggers\\Trigger.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Triggers\\Trigger.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Triggers\\Trigger.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAADQAAAA5AAAAAAAAAA==",
+              "Title": "WtgFile.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgFile.cs",
+              "RelativeDocumentMoniker": "WC3Files\\Triggers\\Wtg\\WtgFile.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgFile.cs",
+              "RelativeToolTip": "WC3Files\\Triggers\\Wtg\\WtgFile.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAlwC4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T09:40:28.338Z",
+              "WhenOpened": "2026-09-24T10:37:05.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "JassFile.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Jass\\JassFile.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Jass\\JassFile.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Jass\\JassFile.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Jass\\JassFile.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACwAAAAiAAAAAAAAAA==",
+              "Title": "Import.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Import\\Import.cs",
+              "RelativeDocumentMoniker": "WC3ProjectManager\\Import\\Import.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Import\\Import.cs",
+              "RelativeToolTip": "WC3ProjectManager\\Import\\Import.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAlwEsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T08:15:10.545Z"
+              "WhenOpened": "2026-09-19T12:44:08.805Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Tools.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Tools.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Tools.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Tools.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Tools.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwDAAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Map.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map.cs",
+              "RelativeDocumentMoniker": "WC3ProjectManager\\Map.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map.cs",
+              "RelativeToolTip": "WC3ProjectManager\\Map.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAwFMAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T10:02:38.746Z"
+              "WhenOpened": "2026-09-24T09:14:17.14Z",
+              "EditorCaption": ""
             }
           ]
         }

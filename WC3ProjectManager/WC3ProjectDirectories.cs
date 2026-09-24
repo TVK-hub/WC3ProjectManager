@@ -15,6 +15,7 @@ namespace WC3ProjectManager
         public string Build => Path.Combine(Root, "Build");
         public string Maps => Path.Combine(Root, "Maps");
         public string Triggers => Path.Combine(Root, "Triggers");
+        public string Import => Path.Combine(Root, "Import");
 
         //Конструктор
         public WC3ProjectDirectories(string root)

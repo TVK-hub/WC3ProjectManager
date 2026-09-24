@@ -1,5 +1,5 @@
-﻿using System.Reflection.PortableExecutable;
-using System.Text.Json;
+﻿using System.Text.Json;
+using WC3Files.MPQ;
 using WC3ProjectManager.Jass;
 
 namespace WC3ProjectManager
@@ -57,9 +57,9 @@ namespace WC3ProjectManager
         public static WC3Project Current;
 
         /// <summary>
-        /// Извлечь триггеры из карты.
+        /// Извлечь данные из карты.
         /// </summary>
-        public void Extract(string path="")
+        public void Extract(string path, WC3DataType dataType)
         {
             //Карта
             Map map;
@@ -73,52 +73,101 @@ namespace WC3ProjectManager
             }
 
             //Триггеры
-            map.Triggers.Header.Save($"{Dirs.Triggers}\\code.j");
-            foreach (TriggerCategory cat in map.Triggers.Categories)
+            if (dataType.HasFlag(WC3DataType.Triggers))
             {
-                foreach (ITrigger itrg in cat.Triggers)
+                map.Triggers.Header.Save($"{Dirs.Triggers}\\code.j");
+                foreach (TriggerCategory cat in map.Triggers.Categories)
                 {
-                    if (itrg is Trigger trg)
+                    foreach (ITrigger itrg in cat.Triggers)
                     {
-                        trg.Save($"{Dirs.Triggers}\\{cat.Name}\\{trg.Name}.j");
+                        if (itrg is Trigger trg)
+                        {
+                            trg.Save($"{Dirs.Triggers}\\{cat.Name}\\{trg.Name}.j");
+                        }
                     }
                 }
+            }
+
+            //Импорт
+            if (dataType.HasFlag(WC3DataType.Import))
+            {
+                map.Import.SaveToDir(Dirs.Import);
+            }
+
+            //Объекты
+            if (dataType.HasFlag(WC3DataType.Objects))
+            {
+                //TODO
             }
         }
 
         /// <summary>
         /// Внедрить триггеры проекта в карты.
         /// </summary>
-        public void Inject()
+        public void Inject(string path, WC3DataType dataType)
         {
-            //Триггеры на внедрение
-            Triggers triggers = Triggers.FromDir(Name, Dirs.Triggers);
+            //Данные на внедрение
+            Triggers? triggers = dataType.HasFlag(WC3DataType.Triggers) ? Triggers.LoadFromDir(Name, Dirs.Triggers) : null;
+            Import?   import   = dataType.HasFlag(WC3DataType.Import)   ? Import.LoadFromDir(Dirs.Import)           : null;
 
             //Карты
-            Map[] maps = Map.FromDir(Dirs.Maps);
+            Map[] maps;
+            if (string.IsNullOrEmpty(path))
+            {
+                maps = Map.FromDir(Dirs.Maps);
+            }
+            else
+            {
+                maps = [Map.FromFile(path)];
+            }
+
+            //Перечисление
             foreach (Map m in maps)
             {
-                //Внедрить
-                m.Triggers.Inject(triggers);
+                //Триггеры
+                if (triggers != null) { m.Triggers.Inject(triggers); }
+
+                //Импорт
+                if (import!=null) { m.Import.Inject(import); }
+
+                //Объекты
+                if (dataType.HasFlag(WC3DataType.Objects)) { /*TODO*/ }
 
                 //Сохранить карту
-                m.Save();
+                m.Save(dataType);
             }
         }
 
         /// <summary>
-        /// Очистить триггеры во всех картах.
+        /// Очистить триггеры в картах.
         /// </summary>
-        public void Clear()
+        public void Clear(string path, WC3DataType dataType)
         {
-            Map[] maps = Map.FromDir(Dirs.Maps);
+            //Карты
+            Map[] maps;
+            if (string.IsNullOrEmpty(path))
+            {
+                maps = Map.FromDir(Dirs.Maps);
+            }
+            else
+            {
+                maps = [Map.FromFile(path)];
+            }
+
+            //Перечисление
             foreach (Map m in maps)
             {
-                //Очистка
-                m.Triggers.Clear();
+                //Триггеры
+                if (dataType.HasFlag(WC3DataType.Triggers)){ m.Triggers.Clear(); }
+
+                //Импорт
+                if (dataType.HasFlag(WC3DataType.Import)){ m.Import.Clear(); }
+
+                //Объекты
+                if (dataType.HasFlag(WC3DataType.Objects)){ /*TODO*/ }
 
                 //Сохранить карту
-                m.Save();
+                m.Save(dataType);
             }
         }
 
@@ -128,7 +177,7 @@ namespace WC3ProjectManager
         public void Check()
         {
             //Тестовый файл
-            Triggers triggers = Triggers.FromDir(Name, Dirs.Triggers);
+            Triggers triggers = Triggers.LoadFromDir(Name, Dirs.Triggers);
             JassFile testFile = JassFile.Build(Path + "\\test.j", triggers);
 
             //Проверка

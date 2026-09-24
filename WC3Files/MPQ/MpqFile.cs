@@ -31,12 +31,15 @@ namespace WC3Files.MPQ
         }
         public static MpqFile Open(MpqArchive arch, string path)
         {
-            IntPtr ptr; StormLib.SFileOpenFileEx(arch.Ptr, path, 0u, out ptr);
+            IntPtr ptr;
+            bool res = StormLib.SFileOpenFileEx(arch.Ptr, path, 0u, out ptr);
             MpqFile f = new MpqFile(ptr);
             return f;
         }
         public static void Create(MpqArchive arch, string path, byte[] data)
         {
+            //if (StormLib.SFileHasFile(arch.Ptr, path))
+            //    StormLib.SFileRemoveFile(arch.Ptr, path, 0);
             IntPtr ptr; StormLib.SFileCreateFile(arch.Ptr, path, 0ul, (uint)data.Length, 0u, 0x80000200u, out ptr);
             MpqFile f = new MpqFile(ptr);
             f.Write(data);

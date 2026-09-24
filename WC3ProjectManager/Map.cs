@@ -18,6 +18,11 @@ namespace WC3ProjectManager
             get;
             set;
         } = new();
+        public Import Import
+        {
+            get;
+            set;
+        } = new();
 
         //Конструктор
         public Map()
@@ -39,9 +44,10 @@ namespace WC3ProjectManager
             m.FileInfo = fInfo;
 
             //Архив
-            using (MpqArchive mpq = MpqArchive.Open(m.Path))
+            using (MpqArchive mpq = MpqArchive.Load(m.Path))
             {
                 m.Triggers.LoadFromMPQ(mpq);
+                m.Import.LoadFromMPQ(mpq);
             }
             return m;
         }
@@ -71,12 +77,13 @@ namespace WC3ProjectManager
         }
 
         //Сохранить
-        public void Save()
+        public void Save(WC3DataType dataType=WC3DataType.All)
         {
-            using (MpqArchive mpq = MpqArchive.Open(Path))
+            using (MpqArchive mpq = MpqArchive.Load(Path))
             {
-                Triggers.SaveToMPQ(mpq);
-                mpq.Compact();
+                if (dataType.HasFlag(WC3DataType.Triggers)) Triggers.SaveToMPQ(mpq);
+                if (dataType.HasFlag(WC3DataType.Import  )) Import.SaveToMPQ(mpq);
+                //mpq.Compact();
             }
         }
 

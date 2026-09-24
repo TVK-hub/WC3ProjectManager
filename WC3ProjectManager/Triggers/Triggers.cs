@@ -1,7 +1,4 @@
-﻿using System.Net.Http.Headers;
-using System.Reflection.PortableExecutable;
-using System.Xml.Linq;
-using WC3Files.MPQ;
+﻿using WC3Files.MPQ;
 using WC3Files.Triggers;
 namespace WC3ProjectManager
 {
@@ -123,7 +120,7 @@ namespace WC3ProjectManager
             //Триггеры
             for (int i = 0; i < wtg.Triggers.Count; i++)
             {
-                ITrigger itrg = null;
+                ITrigger itrg;
                 WtgTrigger wtgTrg = wtg.Triggers[i];
                 if (!wtgTrg.IsComment)
                 {
@@ -165,7 +162,7 @@ namespace WC3ProjectManager
             WctFile wct = WctFile.LoadFromMPQ(mpq);
             Load(wtg, wct);
         }
-        public static Triggers FromDir(string catName, string path)
+        public static Triggers LoadFromDir(string catName, string path)
         {
             //Триггеры
             Triggers t = new Triggers();
