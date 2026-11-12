@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using WC3Files.Metadata;
 
 namespace WC3Files.Triggers
 {
@@ -12,10 +7,14 @@ namespace WC3Files.Triggers
         //Ридер
         WC3Reader Reader;
 
+        //Метаданные
+        WC3Metadata Metadata;
+
         //Конструктор
-        public WtgReader(byte[] data)
+        public WtgReader(byte[] data, string gameVer)
         {
             Reader = new WC3Reader(data);
+            Metadata = WC3Metadata.GetByVers(gameVer);
         }
 
         //Чтение
@@ -110,7 +109,7 @@ namespace WC3Files.Triggers
             eca.IsEnabled = Reader.ReadInt32() == 1;
 
             //Параметры
-            int prmsCount = WC3Metadata.Trigger.GetFunction(eca.Name).Parameters.Count;
+            int prmsCount = Metadata.Triggers.GetFunction(eca.Name).Parameters.Count;
             for (int i = 0; i < prmsCount; i++)
             {
                 WtgParameter p = ReadParameter();
@@ -157,7 +156,7 @@ namespace WC3Files.Triggers
             bool hasParams = Reader.ReadInt32() > 0;
             if (hasParams)
             {
-                int len = WC3Metadata.Trigger.GetFunction(p.Name).Parameters.Count;
+                int len = Metadata.Triggers.GetFunction(p.Name).Parameters.Count;
                 p.Parameters = new WtgParameter[len];
                 for (int i = 0; i < len; i++)
                 {

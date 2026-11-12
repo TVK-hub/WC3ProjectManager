@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WC3Files.MPQ;
+using WC3Files.Common.MPQ;
 
 namespace WC3Files.Triggers
 {
@@ -34,29 +34,29 @@ namespace WC3Files.Triggers
         }
 
         //Загрузить
-        public static WtgFile Load(byte[] data)
+        public static WtgFile Load(byte[] data, string gameVer)
         {
-            WtgReader r = new WtgReader(data);
+            WtgReader r = new WtgReader(data, gameVer);
             return r.ReadFile();
         }
-        public static WtgFile LoadFromMPQ(MpqArchive mpq, string path="war3map.wtg")
+        public static WtgFile LoadFromMPQ(MpqArchive mpq, string gameVer, string path="war3map.wtg")
         {
             byte[] data;
             using (MpqFile f = mpq.OpenFile(path))
             {
                 data = f.Read();
             }
-            return Load(data);
+            return Load(data, gameVer);
         }
 
         //Сохранить
-        public void SaveToMPQ(MpqArchive mpq, string path = "war3map.wtg")
+        public void SaveToMPQ(MpqArchive mpq, string gameVer, string path = "war3map.wtg")
         {
             //Данные
             byte[] data = null;
             using (MemoryStream stream = new MemoryStream())
             {
-                WtgWriter r = new WtgWriter(stream);
+                WtgWriter r = new WtgWriter(stream, gameVer);
                 r.WriteFile(this);
                 data = stream.ToArray();
             }

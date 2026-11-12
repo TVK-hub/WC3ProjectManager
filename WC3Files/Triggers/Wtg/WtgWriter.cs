@@ -1,4 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
+﻿using WC3Files.Metadata;
 
 namespace WC3Files.Triggers
 {
@@ -7,10 +7,14 @@ namespace WC3Files.Triggers
         //Ридер
         WC3Writer Writer;
 
+        //Метаданные
+        WC3Metadata Metadata;
+
         //Конструктор
-        public WtgWriter(MemoryStream stream)
+        public WtgWriter(MemoryStream stream, string gameVer)
         {
             Writer = new WC3Writer(stream);
+            Metadata = WC3Metadata.GetByVers(gameVer);
         }
 
         //Запись
@@ -88,7 +92,7 @@ namespace WC3Files.Triggers
             Writer.Write(eca.IsEnabled ? 1:0);
 
             //Параметры
-            int prmsCount = WC3Metadata.Trigger.GetFunction(eca.Name).Parameters.Count;
+            int prmsCount = Metadata.Triggers.GetFunction(eca.Name).Parameters.Count;
             foreach (WtgParameter p in eca.Parameters)
             {
                 WriteParameter(p);

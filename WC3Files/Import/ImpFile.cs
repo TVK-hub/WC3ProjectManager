@@ -1,4 +1,4 @@
-﻿using WC3Files.MPQ;
+﻿using WC3Files.Common.MPQ;
 using WC3Files.Triggers;
 namespace WC3Files
 {
@@ -29,15 +29,31 @@ namespace WC3Files
         //Загрузить
         public static ImpFile Load(byte[] data)
         {
-            ImpReader r = new ImpReader(data);
-            return r.ReadFile();
+            ImpFile f;
+            if (data.Length > 0)
+            {
+                ImpReader r = new ImpReader(data);
+                f = r.ReadFile();
+            }
+            else
+            {
+                f = new();
+            }
+            return f;
         }
         public static ImpFile LoadFromMPQ(MpqArchive mpq, string path = "war3map.imp")
         {
             byte[] data;
             using (MpqFile f = mpq.OpenFile(path))
             {
-                data = f.Read();
+                if (f != null)
+                {
+                    data = f.Read();
+                }
+                else
+                {
+                    data = new byte[0];
+                }
             }
             return Load(data);
         }

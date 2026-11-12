@@ -1,4 +1,4 @@
-﻿using WC3Files.MPQ;
+﻿using WC3Files.Common.MPQ;
 
 namespace WC3Files.Triggers
 {

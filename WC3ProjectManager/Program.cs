@@ -1,27 +1,24 @@
-﻿using WC3Files;
-using WC3ProjectManager;
-using WC3ProjectManager.Cmd;
+﻿using WC3ProjectManager;
 internal class Program
 {
     static void Main(string[] args)
     {
-        //Метаданные
-        WC3Metadata.Load();
-
-        //Консоль
-        while (true)
+#if DEBUG
+        ConsoleEx.ProjectAutoload();
+        ConsoleEx.ProgramLoop();
+#else
+        try
         {
-            //Вввод
-            string? input = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(input)) continue;
-            string[] lines = input.Split('\n');
-
-            //Обработка
-            foreach (string line in lines)
-            {
-                Command cmd = Command.Parse(line);
-                cmd.Execute();
-            }
+            ConsoleEx.ProjectAutoload();
+            ConsoleEx.ProgramLoop();
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            Console.WriteLine();
+            Console.WriteLine("Нажмите любую клавишу для выхода...");
+            Console.ReadKey();
+        }
+#endif
     }
 }

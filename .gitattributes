@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.j linguist-vendored
+*.jass linguist-vendored
