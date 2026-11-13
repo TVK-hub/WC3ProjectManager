@@ -265,5 +265,19 @@ namespace WC3ProjectManager.Map.Triggers
             wtg.SaveToMPQ(mpq, gameVer);
             wct.SaveToMPQ(mpq);
         }
+        public void SaveToProject(string dir)
+        {
+            Header.Save($"{dir}\\code.j");
+            foreach (WC3TriggerCategory cat in Categories)
+            {
+                foreach (IWC3Trigger itrg in cat.Triggers)
+                {
+                    if (itrg is WC3Trigger trg)
+                    {
+                        trg.Save($"{dir}\\{cat.Name}\\{trg.Name}.j");
+                    }
+                }
+            }
+        }
     }
 }

@@ -15,5 +15,14 @@ namespace WC3Files.Common.Ini
         {
             Section = s;
         }
+
+        //Клонировать
+        public IniEntry Clone(IniSection sec)
+        {
+            IniEntry clone = new(sec);
+            clone.Name = this.Name;
+            clone.Value = this.Value;
+            return clone;
+        }
     }
 }

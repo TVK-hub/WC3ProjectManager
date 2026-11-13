@@ -100,7 +100,7 @@ namespace WC3ProjectManager.Map.Objects
         }
 
         //Сохранить
-        public void SaveToDir(string dir, WC3Strings strings)
+        public void SaveToProject(string dir, WC3Strings strings)
         {
             foreach (var itm in this)
             {

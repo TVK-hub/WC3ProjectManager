@@ -1,4 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-*.j linguist-vendored
-*.jass linguist-vendored
+
+# Exclude Warcraft III scripts from language statistics
+*.j linguist-vendored=true
+*.jass linguist-vendored=true
+
+# Exclude game data from language statistics
+WC3ProjectManager/GameData/** linguist-vendored=true

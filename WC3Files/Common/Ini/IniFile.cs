@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using WC3Files.Common.MPQ;
+using WC3Files.Objects;
 using WC3Files.Triggers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WC3Files.Common.Ini
 {
@@ -24,10 +28,18 @@ namespace WC3Files.Common.Ini
             get;
         } = new List<IniSection>();
 
+        //Форматирование
+        public bool SpacesAroundDelimiter
+        {
+            get;
+            set;
+        } = true;
+
         //Загрузка
         public static IniFile Load(string path)
         {
-            IniReader r = new IniReader(path);
+            var lines = File.ReadLines(path);
+            IniReader r = new IniReader(lines);
             return r.ReadFile();
         }
         public static IniFile[] LoadFromDir(string dir, bool subfolders = false)
@@ -52,14 +64,62 @@ namespace WC3Files.Common.Ini
             }
             return ini;
         }
+        public static IniFile? LoadFromMPQ(MpqArchive mpq, string path)
+        {
+            IniFile? ini = null;
+            using (MpqFile f = mpq.OpenFile(path))
+            {
+                if (f != null)
+                {
+                    byte[] data = f.Read();
+                    string[] lines = Regex.Split(Encoding.UTF8.GetString(data), "\r\n|\r|\n");
+                    IniReader r = new IniReader(lines);
+                    ini = r.ReadFile();
+                }
+
+            }
+            return ini;
+        }
 
         //Сохранение
         public void Save(string path)
         {
-            using (IniWriter writer = new IniWriter(path))
+            //Директория
+            string? dir = Path.GetDirectoryName(path);
+            if (dir!=null && !Directory.Exists(dir)) Directory.CreateDirectory(dir);
+            
+            //Файл
+            using (FileStream stream = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
+                IniWriter writer = new IniWriter(stream);
                 writer.WriteFile(this);
+                writer.Dispose();
             }
+        }
+        public void SaveToMPQ(MpqArchive mpq, string path)
+        {
+            byte[] data = null;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                IniWriter writer = new IniWriter(stream);
+                writer.WriteFile(this);
+                writer.Dispose();
+                data = stream.ToArray();
+            }
+            mpq.CreateFile(path, data);
+        }
+
+        //Клонировать
+        public IniFile Clone()
+        {
+            IniFile clone = new();
+            clone.SpacesAroundDelimiter = SpacesAroundDelimiter;
+            foreach (IniSection sec in this.Sections)
+            {
+                IniSection secClone = sec.Clone();
+                clone.Sections.Add(secClone);
+            }
+            return clone;
         }
     }
 }

@@ -91,16 +91,20 @@ namespace WC3ProjectManager
                 string part = inputParts[i];
                 switch (part)
                 {
+                    case "-c":
+                        cmd.DataType |= WC3DataType.Config;
+                        pathReading = false;
+                        break;
+                    case "-o":
+                        cmd.DataType |= WC3DataType.Objects;
+                        pathReading = false;
+                        break;
                     case "-t":
                         cmd.DataType |= WC3DataType.Triggers;
                         pathReading = false;
                         break;
                     case "-i":
                         cmd.DataType |= WC3DataType.Import;
-                        pathReading = false;
-                        break;
-                    case "-o":
-                        cmd.DataType |= WC3DataType.Objects;
                         pathReading = false;
                         break;
                     default:

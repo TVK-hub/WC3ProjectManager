@@ -6,9 +6,9 @@
         private IEnumerable<string> Lines;
 
         //Конструктор
-        public IniReader(string path)
+        public IniReader(IEnumerable<string> lines)
         {
-            Lines = File.ReadLines(path);
+            Lines = lines;
         }
 
         //Парсинг

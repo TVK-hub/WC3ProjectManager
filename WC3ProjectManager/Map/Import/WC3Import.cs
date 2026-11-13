@@ -139,7 +139,7 @@ namespace WC3ProjectManager.Map.Import
             //Сохранение в архив
             imp.SaveToMPQ(mpq);
         }
-        public void SaveToDir(string dir)
+        public void SaveToProject(string dir)
         {
             //Файлы
             for (int i = 0; i < Records.Count; i++)

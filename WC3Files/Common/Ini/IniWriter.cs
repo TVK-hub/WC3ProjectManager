@@ -5,22 +5,19 @@ namespace WC3Files.Common.Ini
     public class IniWriter : IDisposable
     {
         //Райтер
-        FileStream Stream;
         StreamWriter Writer;
 
         //Конструктор
-        public IniWriter(string path)
+        public IniWriter(Stream stream)
         {
-            Stream = new FileStream(path, FileMode.Create, FileAccess.Write);
-            Writer = new StreamWriter(Stream, Encoding.UTF8);
+            Writer = new StreamWriter(stream, new UTF8Encoding(false));
         }
         public void Dispose()
         {
             Writer.Dispose();
-            Stream.Dispose();
         }
 
-        //Чтение
+        //Запись
         public void WriteFile(IniFile f)
         {
             for (int secInx = 0; secInx < f.Sections.Count; secInx++)
@@ -33,10 +30,11 @@ namespace WC3Files.Common.Ini
                 }
 
                 //Записи
+                string del = (!f.SpacesAroundDelimiter) ? "=" : " = ";
                 for (int eInx = 0; eInx < sec.Entries.Count; eInx++)
                 {
                     IniEntry e = sec.Entries[eInx];
-                    Writer.Write($"{e.Name} = {e.Value}");
+                    Writer.Write($"{e.Name}{del}{e.Value}");
                     if (eInx < sec.Entries.Count - 1) { Writer.Write("\n"); }
                 }
                 if (secInx < f.Sections.Count - 1) { Writer.Write("\n\n"); }

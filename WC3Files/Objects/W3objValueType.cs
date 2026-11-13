@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using WC3Files.Metadata.Objects;
-
-namespace WC3Files.Objects
+﻿namespace WC3Files.Objects
 {
     public enum W3objValueType
     {
@@ -19,6 +16,8 @@ namespace WC3Files.Objects
             {
                 case "int":
                 case "bool":
+                case "attackBits":
+                case "deathType":
                 case "teamColor":
                     valueType = W3objValueType.Int;
                     break;

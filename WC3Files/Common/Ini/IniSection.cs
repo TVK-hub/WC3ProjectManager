@@ -16,5 +16,17 @@
         {
             Name = name;
         }
+
+        //Клонировать
+        public IniSection Clone()
+        {
+            IniSection clone = new(Name);
+            foreach (IniEntry en in this.Entries)
+            {
+                IniEntry enClone = en.Clone(clone);
+                clone.Entries.Add(enClone);
+            }
+            return clone;
+        }
     }
 }

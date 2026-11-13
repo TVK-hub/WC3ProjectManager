@@ -1,8 +1,10 @@
-﻿using WC3ProjectManager;
+﻿using System.Text;
+using WC3ProjectManager;
 internal class Program
 {
     static void Main(string[] args)
     {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 #if DEBUG
         ConsoleEx.ProjectAutoload();
         ConsoleEx.ProgramLoop();

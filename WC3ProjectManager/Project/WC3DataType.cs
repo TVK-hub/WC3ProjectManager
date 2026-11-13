@@ -3,11 +3,12 @@
     [Flags]
     public enum WC3DataType
     {
-        Objects  = 1 << 0,
-        Triggers = 1 << 1,
-        Import   = 1 << 2,
-        Strings  = 1 << 3,
+        Config   = 1 << 0,
+        Objects  = 1 << 1,
+        Triggers = 1 << 2,
+        Import   = 1 << 3,
+        Strings  = 1 << 4,
 
-        All = Objects | Triggers | Import | Strings
+        All = Config | Objects | Triggers | Import | Strings
     }
 }

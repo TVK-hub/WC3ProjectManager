@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using WC3ProjectManager.Map;
+using WC3ProjectManager.Map.Config;
 using WC3ProjectManager.Map.Import;
 using WC3ProjectManager.Map.Jass;
 using WC3ProjectManager.Map.Objects;
-using WC3ProjectManager.Map.Strings;
 using WC3ProjectManager.Map.Triggers;
 namespace WC3ProjectManager.Project
 {
@@ -123,32 +123,28 @@ namespace WC3ProjectManager.Project
                 map = WC3Map.FromFile(path, BaseBuild.GameVersion, dataType);
             }
 
-            //Триггеры
-            if (dataType.HasFlag(WC3DataType.Triggers))
+            //Конфигурация
+            if (dataType.HasFlag(WC3DataType.Config))
             {
-                map.Triggers.Header.Save($"{Dirs.Triggers}\\code.j");
-                foreach (WC3TriggerCategory cat in map.Triggers.Categories)
-                {
-                    foreach (IWC3Trigger itrg in cat.Triggers)
-                    {
-                        if (itrg is WC3Trigger trg)
-                        {
-                            trg.Save($"{Dirs.Triggers}\\{cat.Name}\\{trg.Name}.j");
-                        }
-                    }
-                }
-            }
-
-            //Импорт
-            if (dataType.HasFlag(WC3DataType.Import))
-            {
-                map.Import.SaveToDir(Dirs.Import);
+                map.Config.SaveToProject(Dirs.Config);
             }
 
             //Объекты
             if (dataType.HasFlag(WC3DataType.Objects))
             {
-                map.Objects.SaveToDir(Dirs.Objects, map.Strings);
+                map.Objects.SaveToProject(Dirs.Objects, map.Strings);
+            }
+
+            //Триггеры
+            if (dataType.HasFlag(WC3DataType.Triggers))
+            {
+                map.Triggers.SaveToProject(Dirs.Triggers);
+            }
+
+            //Импорт
+            if (dataType.HasFlag(WC3DataType.Import))
+            {
+                map.Import.SaveToProject(Dirs.Import);
             }
         }
 
@@ -158,9 +154,10 @@ namespace WC3ProjectManager.Project
         public void Inject(string path, WC3DataType dataType)
         {
             //Данные на внедрение
+            WC3Config?     cf = dataType.HasFlag(WC3DataType.Config) ? WC3Config.LoadFromDir(Dirs.Config) : null;
+            WC3ObjectsSet? objs = dataType.HasFlag(WC3DataType.Objects) ? WC3ObjectsSet.LoadFromDir(Dirs.Objects, BaseBuild.GameVersion) : null;
             WC3Triggers?   triggers = dataType.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromDir(Dirs.Triggers) : null;
             WC3Import?     import   = dataType.HasFlag(WC3DataType.Import)   ? WC3Import.LoadFromDir(Dirs.Import) : null;
-            WC3ObjectsSet? objs     = dataType.HasFlag(WC3DataType.Objects)  ? WC3ObjectsSet.LoadFromDir(Dirs.Objects, BaseBuild.GameVersion) : null;
 
             //Карты
             WC3Map[] maps;
@@ -180,14 +177,17 @@ namespace WC3ProjectManager.Project
             //Перечисление
             foreach (WC3Map m in maps)
             {
+                //Конфигурация
+                if (cf != null) { m.Config.Inject(cf); }
+
+                //Объекты
+                if (objs!=null) { m.Objects.Inject(objs);  }
+
                 //Триггеры
                 if (triggers != null) { m.Triggers.Inject(triggers); }
 
                 //Импорт
                 if (import!=null) { m.Import.Inject(import); }
-
-                //Объекты
-                if (objs!=null) { m.Objects.Inject(objs);  }
 
                 //Сохранить карту
                 m.Save(dataType);
@@ -217,14 +217,17 @@ namespace WC3ProjectManager.Project
             //Перечисление
             foreach (WC3Map m in maps)
             {
+                //Конфигурация
+                if (dataType.HasFlag(WC3DataType.Config)) { m.Config.Reset(); }
+
+                //Объекты
+                if (dataType.HasFlag(WC3DataType.Objects)){ m.Objects.Reset(); }
+
                 //Триггеры
                 if (dataType.HasFlag(WC3DataType.Triggers)){ m.Triggers.Clear(); }
 
                 //Импорт
                 if (dataType.HasFlag(WC3DataType.Import)){ m.Import.Clear(); }
-
-                //Объекты
-                if (dataType.HasFlag(WC3DataType.Objects)){ m.Objects.Reset(); }
 
                 //Сохранить карту
                 m.Save(dataType);

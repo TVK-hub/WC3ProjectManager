@@ -8,6 +8,7 @@
         //Директории
         public string Build     => Path.Combine(Project.Path, "Build");
         public string Maps      => Path.Combine(Project.Path, "Maps");
+        public string Config    => Path.Combine(Project.Path, "Config");
         public string Objects   => Path.Combine(Project.Path, "Objects");
         public string Triggers  => Path.Combine(Project.Path, "Triggers");
         public string Import    => Path.Combine(Project.Path, "Import");

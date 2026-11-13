@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WC3Files.Common.MPQ;
 using WC3Files.Info;
+using WC3ProjectManager.Map.Config;
 using WC3ProjectManager.Map.Import;
 using WC3ProjectManager.Map.Objects;
 using WC3ProjectManager.Map.Strings;
@@ -33,6 +34,11 @@ namespace WC3ProjectManager.Map
             private set;
         }
         public WC3Strings Strings
+        {
+            private set;
+            get;
+        }
+        public WC3Config Config
         {
             private set;
             get;
@@ -80,9 +86,10 @@ namespace WC3ProjectManager.Map
             {
                 m.Info     = W3iFile.LoadFromMPQ(mpq);
                 m.Strings  = WC3Strings.LoadFromMPQ(mpq, m.GameVers);
-                m.Triggers = allowedData.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromMPQ(mpq, gameVer)     : new();
-                m.Import   = allowedData.HasFlag(WC3DataType.Import  ) ? WC3Import.LoadFromMPQ(mpq)                 : new();
+                m.Config   = allowedData.HasFlag(WC3DataType.Config)   ? WC3Config.LoadFromMPQ(mpq, m.Strings)      : new();
                 m.Objects  = allowedData.HasFlag(WC3DataType.Objects ) ? WC3ObjectsSet.LoadFromMPQ(mpq, m.GameVers) : new(m.GameVers);
+                m.Triggers = allowedData.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromMPQ(mpq, gameVer)      : new();
+                m.Import   = allowedData.HasFlag(WC3DataType.Import  ) ? WC3Import.LoadFromMPQ(mpq)                 : new();
             }
             return m;
         }
@@ -117,14 +124,15 @@ namespace WC3ProjectManager.Map
             using (MpqArchive mpq = MpqArchive.Load(Path))
             {
                 //Размер
-                int filesCount = 20;
+                int filesCount = 30;
                 if (dataType.HasFlag(WC3DataType.Import  )) filesCount += Import.Records.Count;
                 mpq.SetMaxFileCount((uint)filesCount);
 
                 //Запись
+                if (dataType.HasFlag(WC3DataType.Config)) Config.SaveToMPQ(mpq);
+                if (dataType.HasFlag(WC3DataType.Objects)) Objects.SaveToMPQ(mpq);
                 if (dataType.HasFlag(WC3DataType.Triggers)) Triggers.SaveToMPQ(mpq, GameVers);
                 if (dataType.HasFlag(WC3DataType.Import  )) Import.SaveToMPQ(mpq);
-                if (dataType.HasFlag(WC3DataType.Objects )) Objects.SaveToMPQ(mpq);
                 //mpq.Compact();
             }
         }
