@@ -18,7 +18,7 @@ namespace WC3Files.Common.Ini
         }
 
         //Запись
-        public void WriteFile(IniFile f)
+        public void WriteFile(IniFile f, bool spacesDel)
         {
             for (int secInx = 0; secInx < f.Sections.Count; secInx++)
             {
@@ -30,7 +30,7 @@ namespace WC3Files.Common.Ini
                 }
 
                 //Записи
-                string del = (!f.SpacesAroundDelimiter) ? "=" : " = ";
+                string del = (!spacesDel) ? "=" : " = ";
                 for (int eInx = 0; eInx < sec.Entries.Count; eInx++)
                 {
                     IniEntry e = sec.Entries[eInx];

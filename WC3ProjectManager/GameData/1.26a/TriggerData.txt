@@ -31,11 +31,15 @@ TC_EVENTRESPONSE=WESTRING_TRIGCAT_EVENTRESPONSE,ReplaceableTextures\WorldEditUI\
 TC_TEXTTAG=WESTRING_TRIGCAT_TEXTTAG,ReplaceableTextures\WorldEditUI\Actions-Nothing
 TC_GAME=WESTRING_TRIGCAT_GAME,ReplaceableTextures\WorldEditUI\Actions-Game
 TC_GAMECACHE=WESTRING_TRIGCAT_GAMECACHE,ReplaceableTextures\WorldEditUI\Actions-SetVariables
+TC_HASHTABLE=WESTRING_TRIGCAT_HASHTABLE,ReplaceableTextures\WorldEditUI\Actions-SetVariables
 TC_HERO=WESTRING_TRIGCAT_HERO,ReplaceableTextures\WorldEditUI\Actions-Hero
 TC_ITEM=WESTRING_TRIGCAT_ITEM,ReplaceableTextures\WorldEditUI\Actions-Item
+TC_IMAGE=WESTRING_TRIGCAT_IMAGE,ReplaceableTextures\WorldEditUI\Actions-Nothing
 TC_LEADERBOARD=WESTRING_TRIGCAT_LEADERBOARD,ReplaceableTextures\WorldEditUI\Actions-Quest
+TC_LIGHTNING=WESTRING_TRIGCAT_LIGHTNING,ReplaceableTextures\WorldEditUI\Actions-Nothing
 TC_MATH=WESTRING_TRIGCAT_MATH,ReplaceableTextures\WorldEditUI\Actions-Logical
 TC_MELEE=WESTRING_TRIGCAT_MELEE,ReplaceableTextures\WorldEditUI\Actions-Melee
+TC_MULTIBOARD=WESTRING_TRIGCAT_MULTIBOARD,ReplaceableTextures\WorldEditUI\Actions-Quest
 TC_NEUTRALBUILDING=WESTRING_TRIGCAT_NEUTRALBUILDING,ReplaceableTextures\WorldEditUI\Actions-Goldmine
 TC_PLAYER=WESTRING_TRIGCAT_PLAYER,ReplaceableTextures\WorldEditUI\Actions-Player
 TC_PLAYERGROUP=WESTRING_TRIGCAT_PLAYERGROUP,ReplaceableTextures\WorldEditUI\Actions-PlayerGroup
@@ -48,6 +52,7 @@ TC_TIME=WESTRING_TRIGCAT_TIME,ReplaceableTextures\WorldEditUI\Events-Time
 TC_TRIGGER=WESTRING_TRIGCAT_TRIGGER,ReplaceableTextures\WorldEditUI\Actions-Nothing
 TC_UNIT=WESTRING_TRIGCAT_UNIT,ReplaceableTextures\WorldEditUI\Actions-Unit
 TC_UNITGROUP=WESTRING_TRIGCAT_UNITGROUP,ReplaceableTextures\WorldEditUI\Actions-UnitGroup
+TC_UBERSPLAT=WESTRING_TRIGCAT_UBERSPLAT,ReplaceableTextures\WorldEditUI\Actions-Nothing
 TC_VISIBILITY=WESTRING_TRIGCAT_VISIBILITY,ReplaceableTextures\WorldEditUI\Actions-Visibility
 //%%% DEBUG - Remove for retail
 //TC_OBSOLETE=WESTRING_TRIGCAT_OBSOLETE,ReplaceableTextures\WorldEditUI\Editor-TriggerFunction
@@ -77,39 +82,57 @@ TC_AI_COMMAND=WESTRING_TRIGCAT_AI_COMMAND,none
 // Trigger Variable Types
 // These are sorted so that they appear as such in the Variables dialog.
 abilcode=0,1,1,WESTRING_TRIGTYPE_abilcode,integer
+attacktype=1,1,1,WESTRING_TRIGTYPE_attacktype
 boolean=0,1,1,WESTRING_TRIGTYPE_boolean
+buffcode=1,1,1,WESTRING_TRIGTYPE_buffcode,integer
 camerasetup=0,1,0,WESTRING_TRIGTYPE_camerasetup
+weapontype=1,1,1,WESTRING_TRIGTYPE_weapontype
+damagetype=1,1,1,WESTRING_TRIGTYPE_damagetype
 destructable=0,1,1,WESTRING_TRIGTYPE_destructable
 destructablecode=0,1,1,WESTRING_TRIGTYPE_destructablecode,integer
 defeatcondition=0,1,0,WESTRING_TRIGTYPE_defeatcondition
 dialog=0,1,0,WESTRING_TRIGTYPE_dialog
 button=0,1,0,WESTRING_TRIGTYPE_button
+effecttype=1,1,1,WESTRING_TRIGTYPE_effecttype
 texttag=1,1,0,WESTRING_TRIGTYPE_texttag
 gamecache=0,1,0,WESTRING_TRIGTYPE_gamecache
 gamespeed=0,1,1,WESTRING_TRIGTYPE_gamespeed
+handle=0,1,0,WESTRING_TRIGTYPE_handle
+hashtable=0,1,0,WESTRING_TRIGTYPE_hashtable
+image=1,1,1,WESTRING_TRIGTYPE_image
+imagetype=1,1,1,WESTRING_TRIGTYPE_imagetype,integer
 integer=0,1,1,WESTRING_TRIGTYPE_integer
 item=0,1,1,WESTRING_TRIGTYPE_item
 itemtype=1,1,1,WESTRING_TRIGTYPE_itemtype
 itemcode=0,1,1,WESTRING_TRIGTYPE_itemcode,integer
 leaderboard=0,1,0,WESTRING_TRIGTYPE_leaderboard
+lightning=1,1,1,WESTRING_TRIGTYPE_lightning
+lightningtype=1,1,1,WESTRING_TRIGTYPE_lightningtype,string
+multiboard=1,1,0,WESTRING_TRIGTYPE_multiboard
 ordercode=0,1,1,WESTRING_TRIGTYPE_ordercode,integer
 player=0,1,1,WESTRING_TRIGTYPE_player
 playercolor=0,1,1,WESTRING_TRIGTYPE_playercolor
 force=0,1,0,WESTRING_TRIGTYPE_force
 location=0,1,1,WESTRING_TRIGTYPE_location
+pathingtype=1,1,1,WESTRING_TRIGTYPE_pathingtype
 quest=0,1,0,WESTRING_TRIGTYPE_quest
 questitem=0,1,0,WESTRING_TRIGTYPE_questitem
 race=0,1,1,WESTRING_TRIGTYPE_race
 real=0,1,1,WESTRING_TRIGTYPE_real
 rect=0,1,1,WESTRING_TRIGTYPE_rect
 sound=0,1,0,WESTRING_TRIGTYPE_sound
+soundtype=1,1,1,WESTRING_TRIGTYPE_soundtype
 effect=0,1,0,WESTRING_TRIGTYPE_effect
 string=0,1,1,WESTRING_TRIGTYPE_string
 techcode=0,1,1,WESTRING_TRIGTYPE_techcode,integer
 terraindeformation=1,1,0,WESTRING_TRIGTYPE_terraindeformation
+terrainshape=1,1,1,WESTRING_TRIGTYPE_terrainshape,integer
+terraintype=1,1,1,WESTRING_TRIGTYPE_terraintype,integer
 timer=0,1,0,WESTRING_TRIGTYPE_timer
 timerdialog=0,1,0,WESTRING_TRIGTYPE_timerdialog
 trigger=0,1,1,WESTRING_TRIGTYPE_trigger
+ubersplat=1,1,1,WESTRING_TRIGTYPE_ubersplat
+ubersplattype=1,1,1,WESTRING_TRIGTYPE_ubersplattype,string
 unit=0,1,1,WESTRING_TRIGTYPE_unit
 group=0,1,0,WESTRING_TRIGTYPE_group
 unitcode=0,1,1,WESTRING_TRIGTYPE_unitcode,integer
@@ -127,12 +150,14 @@ boolexpr=0,0,0,WESTRING_TRIGTYPE_boolexpr
 unittype=0,0,0,WESTRING_TRIGTYPE_unittype
 alliancetype=0,0,0,WESTRING_TRIGTYPE_alliancetype
 playerstate=0,0,0,WESTRING_TRIGTYPE_playerstate
+playerscore=1,0,0,WESTRING_TRIGTYPE_playerscore
 playergameresult=0,0,0,WESTRING_TRIGTYPE_playergameresult
 unitstate=0,0,0,WESTRING_TRIGTYPE_unitstate
 playerunitevent=0,0,0,WESTRING_TRIGTYPE_playerunitevent
 unitevent=0,0,0,WESTRING_TRIGTYPE_unitevent
 limitop=0,0,0,WESTRING_TRIGTYPE_limitop
 gamedifficulty=0,0,1,WESTRING_TRIGTYPE_gamedifficulty
+gameevent=1,0,0,WESTRING_TRIGTYPE_gameevent
 aidifficulty=0,0,1,WESTRING_TRIGTYPE_aidifficulty
 mapdensity=0,0,1,WESTRING_TRIGTYPE_mapdensity
 mapcontrol=0,0,1,WESTRING_TRIGTYPE_mapcontrol
@@ -157,6 +182,7 @@ cameraorientationoption=0,0,0,WESTRING_TRIGTYPE_cameraorientationoption,boolean
 invulnerableoption=0,0,0,WESTRING_TRIGTYPE_invulnerableoption,boolean
 availabilityoption=0,0,0,WESTRING_TRIGTYPE_availabilityoption,boolean
 showhideoption=0,0,0,WESTRING_TRIGTYPE_showhideoption,boolean
+minimizeoption=1,0,0,WESTRING_TRIGTYPE_minimizeoption,boolean
 skymodelstring=0,0,0,WESTRING_TRIGTYPE_skymodelstring,string,Model
 cinefiltertexture=0,0,0,WESTRING_TRIGTYPE_cinefiltertexture,string,Image
 pathingoption=0,0,0,WESTRING_TRIGTYPE_pathingoption,boolean
@@ -173,6 +199,7 @@ fadedontoption=0,0,0,WESTRING_TRIGTYPE_fadedontoption,boolean
 unitorderutarg=0,0,0,WESTRING_TRIGTYPE_unitorderutarg,string
 unitorderptarg=0,0,0,WESTRING_TRIGTYPE_unitorderptarg,string
 unitorderdtarg=0,0,0,WESTRING_TRIGTYPE_unitorderdtarg,string
+unitorderitarg=1,0,0,WESTRING_TRIGTYPE_unitorderitarg,string
 unitordernotarg=0,0,0,WESTRING_TRIGTYPE_unitordernotarg,string
 heroskillcode=0,0,0,WESTRING_TRIGTYPE_heroskillcode,integer
 weathereffectcode=0,0,0,WESTRING_TRIGTYPE_weathereffectcode,integer
@@ -214,12 +241,14 @@ ambientthemenight=0,0,0,WESTRING_TRIGTYPE_ambientthemenight,string
 unitstatemethod=0,0,0,WESTRING_TRIGTYPE_unitstatemethod,string
 checkingignoringoption=0,0,0,WESTRING_TRIGTYPE_checkingignoringoption,string
 playerflag=0,0,0,WESTRING_TRIGTYPE_playerflag,playerstate
+playerresource=1,0,0,WESTRING_TRIGTYPE_playerresource,playerstate
 gateoperation=0,0,0,WESTRING_TRIGTYPE_gateoperation,integer
 elevatorwallop=1,0,0,WESTRING_TRIGTYPE_elevatorwallop,boolean
 elevatorwalltype=1,0,0,WESTRING_TRIGTYPE_elevatorwalltype,integer
 useskipoption=0,0,0,WESTRING_TRIGTYPE_useskipoption,boolean
 seldeseloption=0,0,0,WESTRING_TRIGTYPE_seldeseloption,boolean
 cachevaluetype=1,0,0,WESTRING_TRIGTYPE_cachevaluetype,integer
+hashtablevaluetype=1,0,0,WESTRING_TRIGTYPE_hashtablevaluetype,integer
 fogstyle=0,0,0,WESTRING_TRIGTYPE_fogstyle,integer
 timedlifebuffcode=1,0,0,WESTRING_TRIGTYPE_timedlifebuffcode,integer
 aicaptaintype=1,0,0,WESTRING_TRIGTYPE_aicaptaintype,boolean
@@ -229,6 +258,7 @@ itemstatus=1,0,0,WESTRING_TRIGTYPE_itemstatus,integer
 itemcodestatus=1,0,0,WESTRING_TRIGTYPE_itemcodestatus,integer
 minimappingstyle=1,0,0,WESTRING_TRIGTYPE_minimappingstyle,integer
 corpsetype=1,0,0,WESTRING_TRIGTYPE_corpsetype,integer
+stringcaseoption=1,0,0,WESTRING_TRIGTYPE_stringcaseoption,boolean
 
 // Trigger Non-Variable Types - File strings
 aiscript=0,0,0,WESTRING_TRIGTYPE_aiscript,string,AIScript,1
@@ -423,12 +453,17 @@ GameResultDraw=0,playergameresult,PLAYER_GAME_RESULT_TIE,WESTRING_DRAW
 // Map flags
 MapFlagUseHandicaps=0,mapflag,MAP_USE_HANDICAPS,WESTRING_MAPFLAG_USEHANDICAPS
 MapFlagObservers=0,mapflag,MAP_OBSERVERS,WESTRING_MAPFLAG_OBSERVERS
-MapFlagObserversChat=0,mapflag,MAP_OBSERVERS_CHAT,WESTRING_MAPFLAG_OBSERVERSCHAT
+MapFlagObserversChat=0,mapflag,MAP_OBSERVERS_ON_DEATH,WESTRING_MAPFLAG_OBSERVERSONDEATH
 MapFlagResourceTradingLock=0,mapflag,MAP_LOCK_RESOURCE_TRADING,WESTRING_MAPFLAG_RESOURCETRADINGLOCK
 MapFlagResourceTradingAllies=0,mapflag,MAP_RESOURCE_TRADING_ALLIES_ONLY,WESTRING_MAPFLAG_RESOURCETRADINGALLIES
 MapFlagAllianceChangesLock=0,mapflag,MAP_LOCK_ALLIANCE_CHANGES,WESTRING_MAPFLAG_ALLIANCECHANGESLOCK
 MapFlagAllianceChangesHidden=0,mapflag,MAP_ALLIANCE_CHANGES_HIDDEN,WESTRING_MAPFLAG_ALLIANCECHANGESHIDDEN
 MapFlagMapReloaded=1,mapflag,MAP_RELOADED,WESTRING_MAPFLAG_MAPRELOADED
+MapFlagRandomHeroes=1,mapflag,MAP_RANDOM_HERO,WESTRING_MAPFLAG_RANDOM_HERO
+MapFlagRandomRaces=1,mapflag,MAP_RANDOM_RACES,WESTRING_MAPFLAG_RANDOM_RACES
+MapFlagFogHideTerrain=1,mapflag,MAP_FOG_HIDE_TERRAIN,WESTRING_MAPFLAG_FOG_HIDE_TERRAIN
+MapFlagFogMapExplored=1,mapflag,MAP_FOG_MAP_EXPLORED,WESTRING_MAPFLAG_FOG_MAP_EXPLORED
+MapFlagFogAlwaysVisible=1,mapflag,MAP_FOG_ALWAYS_VISIBLE,WESTRING_MAPFLAG_FOG_ALWAYS_VISIBLE
 
 // Player states
 PlayerStateGold=0,playerstate,PLAYER_STATE_RESOURCE_GOLD,WESTRING_PSTATE_GOLD
@@ -442,6 +477,37 @@ PlayerStateFoodUsed=0,playerstate,PLAYER_STATE_RESOURCE_FOOD_USED,WESTRING_PSTAT
 PlayerStateFoodCap=0,playerstate,PLAYER_STATE_RESOURCE_FOOD_CAP,WESTRING_PSTATE_FOODCAP
 PlayerStateFoodLimit=0,playerstate,PLAYER_STATE_FOOD_CAP_CEILING,WESTRING_PSTATE_FOODCAPLIMIT
 PlayerStateGameResult=0,playerstate,PLAYER_STATE_GAME_RESULT,WESTRING_PSTATE_GAMERESULT
+
+// Player states - resources only
+PlayerResourceGold=1,playerresource,PLAYER_STATE_RESOURCE_GOLD,WESTRING_PRESOURCE_GOLD
+PlayerResourceLumber=1,playerresource,PLAYER_STATE_RESOURCE_LUMBER,WESTRING_PRESOURCE_LUMBER
+
+// Player scores
+PlayerScoreUnitsTrained=1,playerscore,PLAYER_SCORE_UNITS_TRAINED,WESTRING_PSCORE_UNITSTRAINED
+PlayerScoreUnitsKilled=1,playerscore,PLAYER_SCORE_UNITS_KILLED,WESTRING_PSCORE_UNITSKILLED
+PlayerScoreStructBuilt=1,playerscore,PLAYER_SCORE_STRUCT_BUILT,WESTRING_PSCORE_STRUCTBUILT
+PlayerScoreStructRazed=1,playerscore,PLAYER_SCORE_STRUCT_RAZED,WESTRING_PSCORE_STRUCTRAZED
+PlayerScoreTechPercent=1,playerscore,PLAYER_SCORE_TECH_PERCENT,WESTRING_PSCORE_TECHPERCENT
+PlayerScoreFoodProd=1,playerscore,PLAYER_SCORE_FOOD_MAXPROD,WESTRING_PSCORE_FOODPROD
+PlayerScoreFoodUsed=1,playerscore,PLAYER_SCORE_FOOD_MAXUSED,WESTRING_PSCORE_FOODUSED
+PlayerScoreHeroesKilled=1,playerscore,PLAYER_SCORE_HEROES_KILLED,WESTRING_PSCORE_HEROESKILLED
+PlayerScoreItemsGained=1,playerscore,PLAYER_SCORE_ITEMS_GAINED,WESTRING_PSCORE_ITEMSGAINED
+PlayerScoreMercsHired=1,playerscore,PLAYER_SCORE_MERCS_HIRED,WESTRING_PSCORE_MERCSHIRED
+PlayerScoreGoldTotal=1,playerscore,PLAYER_SCORE_GOLD_MINED_TOTAL,WESTRING_PSCORE_GOLDTOTAL
+PlayerScoreGoldUpkeep=1,playerscore,PLAYER_SCORE_GOLD_MINED_UPKEEP,WESTRING_PSCORE_GOLDUPKEEP
+PlayerScoreGoldLostUpkeep=1,playerscore,PLAYER_SCORE_GOLD_LOST_UPKEEP,WESTRING_PSCORE_GOLDLOSTUPKEEP
+PlayerScoreGoldLostTax=1,playerscore,PLAYER_SCORE_GOLD_LOST_TAX,WESTRING_PSCORE_GOLDLOSTTAX
+PlayerScoreGoldGiven=1,playerscore,PLAYER_SCORE_GOLD_GIVEN,WESTRING_PSCORE_GOLDGIVEN
+PlayerScoreGoldReceived=1,playerscore,PLAYER_SCORE_GOLD_RECEIVED,WESTRING_PSCORE_GOLDRECEIVED
+PlayerScoreLumberTotal=1,playerscore,PLAYER_SCORE_LUMBER_TOTAL,WESTRING_PSCORE_LUMBERTOTAL
+PlayerScoreLumberLostUpkeep=1,playerscore,PLAYER_SCORE_LUMBER_LOST_UPKEEP,WESTRING_PSCORE_LUMBERLOSTUPKEEP
+PlayerScoreLumberLostTax=1,playerscore,PLAYER_SCORE_LUMBER_LOST_TAX,WESTRING_PSCORE_LUMBERLOSTTAX
+PlayerScoreLumberGiven=1,playerscore,PLAYER_SCORE_LUMBER_GIVEN,WESTRING_PSCORE_LUMBERGIVEN
+PlayerScoreLumberReceived=1,playerscore,PLAYER_SCORE_LUMBER_RECEIVED,WESTRING_PSCORE_LUMBERECEIVED
+PlayerScoreUnitTotal=1,playerscore,PLAYER_SCORE_UNIT_TOTAL,WESTRING_PSCORE_UNITTOTAL
+PlayerScoreHeroTotal=1,playerscore,PLAYER_SCORE_HERO_TOTAL,WESTRING_PSCORE_HEROTOTAL
+PlayerScoreResourceTotal=1,playerscore,PLAYER_SCORE_RESOURCE_TOTAL,WESTRING_PSCORE_RESOURCETOTAL
+PlayerScoreTotal=1,playerscore,PLAYER_SCORE_TOTAL,WESTRING_PSCORE_TOTAL
 
 // Player flags
 PlayerFlagUnfollowable=0,playerflag,PLAYER_STATE_UNFOLLOWABLE,WESTRING_PFLAG_UNFOLLOWABLE
@@ -487,6 +553,13 @@ CacheValueTypeReal=1,cachevaluetype,bj_GAMECACHE_REAL,WESTRING_CACHEVALUETYPE_RE
 CacheValueTypeUnit=1,cachevaluetype,bj_GAMECACHE_UNIT,WESTRING_CACHEVALUETYPE_UNIT
 CacheValueTypeString=1,cachevaluetype,bj_GAMECACHE_STRING,WESTRING_CACHEVALUETYPE_STRING
 
+// Hashtable value types (localization stolen from gamecache)
+HashtableValueTypeBoolean=1,hashtablevaluetype,bj_HASHTABLE_BOOLEAN,WESTRING_CACHEVALUETYPE_BOOLEAN
+HashtableValueTypeInteger=1,hashtablevaluetype,bj_HASHTABLE_INTEGER,WESTRING_CACHEVALUETYPE_INTEGER
+HashtableValueTypeReal=1,hashtablevaluetype,bj_HASHTABLE_REAL,WESTRING_CACHEVALUETYPE_REAL
+HashtableValueTypeString=1,hashtablevaluetype,bj_HASHTABLE_STRING,WESTRING_CACHEVALUETYPE_STRING
+HashtableValueTypeHandle=1,hashtablevaluetype,bj_HASHTABLE_HANDLE,WESTRING_CACHEVALUETYPE_HANDLE
+
 // Map Control
 MapControlNone=0,mapcontrol,MAP_CONTROL_NONE,WESTRING_MAPCONTROL_NONE
 MapControlUser=0,mapcontrol,MAP_CONTROL_USER,WESTRING_MAPCONTROL_USER
@@ -512,6 +585,7 @@ PlayerUnitEventHeroPickUpItem=0,playerunitevent,EVENT_PLAYER_UNIT_PICKUP_ITEM,WE
 PlayerUnitEventHeroDropItem=0,playerunitevent,EVENT_PLAYER_UNIT_DROP_ITEM,WESTRING_PUEVENT_HERODROPITEM
 PlayerUnitEventSell=1,playerunitevent,EVENT_PLAYER_UNIT_SELL,WESTRING_PUEVENT_SELL
 PlayerUnitEventSellItem=1,playerunitevent,EVENT_PLAYER_UNIT_SELL_ITEM,WESTRING_PUEVENT_SELLITEM
+PlayerUnitEventPawnItem=1,playerunitevent,EVENT_PLAYER_UNIT_PAWN_ITEM,WESTRING_PUEVENT_PAWNITEM
 PlayerUnitEventAttacked=0,playerunitevent,EVENT_PLAYER_UNIT_ATTACKED,WESTRING_PUEVENT_ATTACKED
 PlayerUnitEventRescued=0,playerunitevent,EVENT_PLAYER_UNIT_RESCUED,WESTRING_PUEVENT_RESCUED
 PlayerUnitEventSummoned=0,playerunitevent,EVENT_PLAYER_UNIT_SUMMON,WESTRING_PUEVENT_SUMMONED
@@ -553,6 +627,7 @@ UnitEventHeroPickUpItem=0,unitevent,EVENT_UNIT_PICKUP_ITEM,WESTRING_UEVENT_HEROP
 UnitEventHeroDropItem=0,unitevent,EVENT_UNIT_DROP_ITEM,WESTRING_UEVENT_HERODROPITEM
 UnitEventSell=1,unitevent,EVENT_UNIT_SELL,WESTRING_UEVENT_SELL
 UnitEventSellItem=1,unitevent,EVENT_UNIT_SELL_ITEM,WESTRING_UEVENT_SELLITEM
+UnitEventPawnItem=1,unitevent,EVENT_UNIT_PAWN_ITEM,WESTRING_UEVENT_PAWNITEM
 UnitEventAttacked=0,unitevent,EVENT_UNIT_ATTACKED,WESTRING_UEVENT_ATTACKED
 UnitEventRescued=0,unitevent,EVENT_UNIT_RESCUED,WESTRING_UEVENT_RESCUED
 UnitEventSelected=0,unitevent,EVENT_UNIT_SELECTED,WESTRING_UEVENT_SELECTED
@@ -607,12 +682,21 @@ UnitTypeAttacksFlying=0,unittype,UNIT_TYPE_ATTACKS_FLYING,WESTRING_UNITTYPE_ATTA
 UnitTypeMeleeAttacker=0,unittype,UNIT_TYPE_MELEE_ATTACKER,WESTRING_UNITTYPE_MELEEATTACKER
 UnitTypeRangedAttacker=0,unittype,UNIT_TYPE_RANGED_ATTACKER,WESTRING_UNITTYPE_RANGEDATTACKER
 UnitTypeSummoned=0,unittype,UNIT_TYPE_SUMMONED,WESTRING_UNITTYPE_SUMMONED
+UnitTypePlagued=0,unittype,UNIT_TYPE_PLAGUED,WESTRING_UNITTYPE_PLAGUED
+UnitTypeSnared=0,unittype,UNIT_TYPE_SNARED,WESTRING_UNITTYPE_SNARED
+UnitTypeStunned=0,unittype,UNIT_TYPE_STUNNED,WESTRING_UNITTYPE_STUNNED
 UnitTypeUndead=0,unittype,UNIT_TYPE_UNDEAD,WESTRING_UNITTYPE_UNDEAD
 UnitTypeMechanical=0,unittype,UNIT_TYPE_MECHANICAL,WESTRING_UNITTYPE_MECHANICAL
 UnitTypeAncient=0,unittype,UNIT_TYPE_ANCIENT,WESTRING_UNITTYPE_ANCIENT
 UnitTypePeon=0,unittype,UNIT_TYPE_PEON,WESTRING_UNITTYPE_PEON
 UnitTypeTownHall=0,unittype,UNIT_TYPE_TOWNHALL,WESTRING_UNITTYPE_TOWNHALL
 UnitTypeSapper=0,unittype,UNIT_TYPE_SAPPER,WESTRING_UNITTYPE_SAPPER
+UnitTypePoisoned=0,unittype,UNIT_TYPE_POISONED,WESTRING_UNITTYPE_POISONED
+UnitTypePolymorphed=0,unittype,UNIT_TYPE_POLYMORPHED,WESTRING_UNITTYPE_POLYMORPHED
+UnitTypeSleeping=0,unittype,UNIT_TYPE_SLEEPING,WESTRING_UNITTYPE_SLEEPING
+UnitTypeResistant=1,unittype,UNIT_TYPE_RESISTANT,WESTRING_UNITTYPE_RESISTANT
+UnitTypeEthereal=1,unittype,UNIT_TYPE_ETHEREAL,WESTRING_UNITTYPE_ETHEREAL
+UnitTypeMagicImmune=0,unittype,UNIT_TYPE_MAGIC_IMMUNE,WESTRING_UNITTYPE_MAGICIMMUNE
 
 // Game speeds
 GameSpeedSlowest=0,gamespeed,MAP_SPEED_SLOWEST,WESTRING_GAMESPEED_SLOWEST
@@ -657,6 +741,63 @@ AllianceTypeSpells=0,alliancetype,ALLIANCE_SHARED_SPELLS,WESTRING_ALLIANCE_SPELL
 AllianceTypeHelpRequest=0,alliancetype,ALLIANCE_HELP_REQUEST,WESTRING_ALLIANCE_HELPREQUEST
 AllianceTypeHelpResponse=0,alliancetype,ALLIANCE_HELP_RESPONSE,WESTRING_ALLIANCE_HELPRESPONSE
 
+// Attack types
+AttackTypeNormal=1,attacktype,ATTACK_TYPE_NORMAL,WESTRING_UE_ATTACKTYPE_SPELLS
+AttackTypeMelee=1,attacktype,ATTACK_TYPE_MELEE,WESTRING_UE_ATTACKTYPE_NORMAL
+AttackTypePierce=1,attacktype,ATTACK_TYPE_PIERCE,WESTRING_UE_ATTACKTYPE_PIERCE
+AttackTypeSiege=1,attacktype,ATTACK_TYPE_SIEGE,WESTRING_UE_ATTACKTYPE_SIEGE
+AttackTypeMagic=1,attacktype,ATTACK_TYPE_MAGIC,WESTRING_UE_ATTACKTYPE_MAGIC
+AttackTypeChaos=1,attacktype,ATTACK_TYPE_CHAOS,WESTRING_UE_ATTACKTYPE_CHAOS
+AttackTypeHero=1,attacktype,ATTACK_TYPE_HERO,WESTRING_UE_ATTACKTYPE_HERO
+
+// Damage types
+DamageTypeUnknown=1,damagetype,DAMAGE_TYPE_UNKNOWN,WESTRING_DAMAGE_TYPE_UNKNOWN
+DamageTypeNormal=1,damagetype,DAMAGE_TYPE_NORMAL,WESTRING_DAMAGE_TYPE_NORMAL
+DamageTypeEnhanced=1,damagetype,DAMAGE_TYPE_ENHANCED,WESTRING_DAMAGE_TYPE_ENHANCED
+DamageTypeFire=1,damagetype,DAMAGE_TYPE_FIRE,WESTRING_DAMAGE_TYPE_FIRE
+DamageTypeCold=1,damagetype,DAMAGE_TYPE_COLD,WESTRING_DAMAGE_TYPE_COLD
+DamageTypeLightning=1,damagetype,DAMAGE_TYPE_LIGHTNING,WESTRING_DAMAGE_TYPE_LIGHTNING
+DamageTypePoison=1,damagetype,DAMAGE_TYPE_POISON,WESTRING_DAMAGE_TYPE_POISON
+DamageTypeDisease=1,damagetype,DAMAGE_TYPE_DISEASE,WESTRING_DAMAGE_TYPE_DISEASE
+DamageTypeDivine=1,damagetype,DAMAGE_TYPE_DIVINE,WESTRING_DAMAGE_TYPE_DIVINE
+DamageTypeMagic=1,damagetype,DAMAGE_TYPE_MAGIC,WESTRING_DAMAGE_TYPE_MAGIC
+DamageTypeSonic=1,damagetype,DAMAGE_TYPE_SONIC,WESTRING_DAMAGE_TYPE_SONIC
+DamageTypeAcid=1,damagetype,DAMAGE_TYPE_ACID,WESTRING_DAMAGE_TYPE_ACID
+DamageTypeForce=1,damagetype,DAMAGE_TYPE_FORCE,WESTRING_DAMAGE_TYPE_FORCE
+DamageTypeDeath=1,damagetype,DAMAGE_TYPE_DEATH,WESTRING_DAMAGE_TYPE_DEATH
+DamageTypeMind=1,damagetype,DAMAGE_TYPE_MIND,WESTRING_DAMAGE_TYPE_MIND
+DamageTypePlant=1,damagetype,DAMAGE_TYPE_PLANT,WESTRING_DAMAGE_TYPE_PLANT
+DamageTypeDefensive=1,damagetype,DAMAGE_TYPE_DEFENSIVE,WESTRING_DAMAGE_TYPE_DEFENSIVE
+DamageTypeDemolition=1,damagetype,DAMAGE_TYPE_DEMOLITION,WESTRING_DAMAGE_TYPE_DEMOLITION
+DamageTypeSlowPoison=1,damagetype,DAMAGE_TYPE_SLOW_POISON,WESTRING_DAMAGE_TYPE_SLOW_POISON
+DamageTypeSpiritLink=1,damagetype,DAMAGE_TYPE_SPIRIT_LINK,WESTRING_DAMAGE_TYPE_SPIRIT_LINK
+DamageTypeShadowStrike=1,damagetype,DAMAGE_TYPE_SHADOW_STRIKE,WESTRING_DAMAGE_TYPE_SHADOW_STRIKE
+DamageTypeUniversal=1,damagetype,DAMAGE_TYPE_UNIVERSAL,WESTRING_DAMAGE_TYPE_UNIVERSAL
+
+// Weapon types
+WeaponTypeMetalLightChop=1,weapontype,WEAPON_TYPE_METAL_LIGHT_CHOP,WESTRING_UE_COMBATSOUND_METALLIGHTCHOP
+WeaponTypeMetalMediumChop=1,weapontype,WEAPON_TYPE_METAL_MEDIUM_CHOP,WESTRING_UE_COMBATSOUND_METALMEDIUMCHOP
+WeaponTypeMetalHeavyChop=1,weapontype,WEAPON_TYPE_METAL_HEAVY_CHOP,WESTRING_UE_COMBATSOUND_METALHEAVYCHOP
+WeaponTypeMetalLightSlice=1,weapontype,WEAPON_TYPE_METAL_LIGHT_SLICE,WESTRING_UE_COMBATSOUND_METALLIGHTSLICE
+WeaponTypeMetalMediumSlice=1,weapontype,WEAPON_TYPE_METAL_MEDIUM_SLICE,WESTRING_UE_COMBATSOUND_METALMEDIUMSLICE
+WeaponTypeMetalHeavySlice=1,weapontype,WEAPON_TYPE_METAL_HEAVY_SLICE,WESTRING_UE_COMBATSOUND_METALHEAVYSLICE
+WeaponTypeMetalMediumBash=1,weapontype,WEAPON_TYPE_METAL_MEDIUM_BASH,WESTRING_UE_COMBATSOUND_METALMEDIUMBASH
+WeaponTypeMetalHeavyBash=1,weapontype,WEAPON_TYPE_METAL_HEAVY_BASH,WESTRING_UE_COMBATSOUND_METALHEAVYBASH
+WeaponTypeWoodLightBash=1,weapontype,WEAPON_TYPE_WOOD_LIGHT_BASH,WESTRING_UE_COMBATSOUND_WOODLIGHTBASH
+WeaponTypeWoodMediumBash=1,weapontype,WEAPON_TYPE_WOOD_MEDIUM_BASH,WESTRING_UE_COMBATSOUND_WOODMEDIUMBASH
+WeaponTypeWoodHeavyBash=1,weapontype,WEAPON_TYPE_WOOD_HEAVY_BASH,WESTRING_UE_COMBATSOUND_WOODHEAVYBASH
+WeaponTypeAxeMediumChop=1,weapontype,WEAPON_TYPE_AXE_MEDIUM_CHOP,WESTRING_UE_COMBATSOUND_AXEMEDIUMCHOP
+WeaponTypeRockHeavyBash=1,weapontype,WEAPON_TYPE_ROCK_HEAVY_BASH,WESTRING_UE_COMBATSOUND_ROCKHEAVYBASH
+
+PathingTypeAny=1,pathingtype,PATHING_TYPE_ANY,WESTRING_PATHINGTYPE_ANY
+PathingTypeWalkability=1,pathingtype,PATHING_TYPE_WALKABILITY,WESTRING_PATHINGTYPE_WALKABILITY
+PathingTypeFlyability=1,pathingtype,PATHING_TYPE_FLYABILITY,WESTRING_PATHINGTYPE_FLYABILITY
+PathingTypeBuildability=1,pathingtype,PATHING_TYPE_BUILDABILITY,WESTRING_PATHINGTYPE_BUILDABILITY
+PathingTypePeonHarvestPathing=1,pathingtype,PATHING_TYPE_PEONHARVESTPATHING,WESTRING_PATHINGTYPE_PEONHARVESTPATHING
+PathingTypeBlightPathing=1,pathingtype,PATHING_TYPE_BLIGHTPATHING,WESTRING_PATHINGTYPE_BLIGHTPATHING
+PathingTypeFloatability=1,pathingtype,PATHING_TYPE_FLOATABILITY,WESTRING_PATHINGTYPE_FLOATABILITY
+PathingTypeAmphibiousPathing=1,pathingtype,PATHING_TYPE_AMPHIBIOUSPATHING,WESTRING_PATHINGTYPE_AMPHIBIOUSPATHING
+
 // Camera fields
 CameraFieldTargetDistance=0,camerafield,CAMERA_FIELD_TARGET_DISTANCE,WESTRING_CAMERA_TARGETDISTANCE
 CameraFieldFarZ=0,camerafield,CAMERA_FIELD_FARZ,WESTRING_CAMERA_FARZ
@@ -664,6 +805,7 @@ CameraFieldAOA=0,camerafield,CAMERA_FIELD_ANGLE_OF_ATTACK,WESTRING_CAMERA_AOA
 CameraFieldFOV=0,camerafield,CAMERA_FIELD_FIELD_OF_VIEW,WESTRING_CAMERA_FOV
 CameraFieldRoll=0,camerafield,CAMERA_FIELD_ROLL,WESTRING_CAMERA_ROLL
 CameraFieldRotation=0,camerafield,CAMERA_FIELD_ROTATION,WESTRING_CAMERA_ROTATION
+CameraFieldZOffset=1,camerafield,CAMERA_FIELD_ZOFFSET,WESTRING_CAMERA_ZOFFSET
 
 // Animation rarity controls
 RarityControlFrequent=0,raritycontrol,RARITY_FREQUENT,WESTRING_RARITY_FREQUENT
@@ -686,6 +828,17 @@ VolumeGroupMusic=0,volumegroup,SOUND_VOLUMEGROUP_MUSIC,WESTRING_VOLUMEGROUP_MUSI
 VolumeGroupUnitMovement=0,volumegroup,SOUND_VOLUMEGROUP_UNITMOVEMENT,WESTRING_VOLUMEGROUP_UNITMOVEMENT
 VolumeGroupUnitSounds=0,volumegroup,SOUND_VOLUMEGROUP_UNITSOUNDS,WESTRING_VOLUMEGROUP_UNITSOUNDS
 VolumeGroupUI=0,volumegroup,SOUND_VOLUMEGROUP_UI,WESTRING_VOLUMEGROUP_UI
+
+EffectTypeEffect=1,effecttype,EFFECT_TYPE_EFFECT,WESTRING_EFFECT_TYPE_EFFECT
+EffectTypeTarget=1,effecttype,EFFECT_TYPE_TARGET,WESTRING_EFFECT_TYPE_TARGET
+EffectTypeCaster=1,effecttype,EFFECT_TYPE_CASTER,WESTRING_EFFECT_TYPE_CASTER
+EffectTypeSpecial=1,effecttype,EFFECT_TYPE_SPECIAL,WESTRING_EFFECT_TYPE_SPECIAL
+EffectTypeAreaEffect=1,effecttype,EFFECT_TYPE_AREA_EFFECT,WESTRING_EFFECT_TYPE_AREA_EFFECT
+EffectTypeMissile=1,effecttype,EFFECT_TYPE_MISSILE,WESTRING_EFFECT_TYPE_MISSILE
+EffectTypeLightning=1,effecttype,EFFECT_TYPE_LIGHTNING,WESTRING_EFFECT_TYPE_LIGHTNING
+
+SoundTypeEffect=1,soundtype,SOUND_TYPE_EFFECT,WESTRING_SOUND_TYPE_EFFECT
+SoundTypeEffectLooped=1,soundtype,SOUND_TYPE_EFFECT_LOOPED,WESTRING_SOUND_TYPE_EFFECT_LOOPED
 
 // Fog states
 FogStateMasked=0,fogstate,FOG_OF_WAR_MASKED,WESTRING_FOGSTATE_MASKED
@@ -728,6 +881,10 @@ MinimapPingStyleAttack=1,minimappingstyle,bj_MINIMAPPINGSTYLE_ATTACK,WESTRING_MI
 CorpseTypeFlesh=1,corpsetype,bj_CORPSETYPE_FLESH,WESTRING_CORPSETYPE_FLESH
 CorpseTypeBone=1,corpsetype,bj_CORPSETYPE_BONE,WESTRING_CORPSETYPE_BONE
 
+// String case option
+StringCaseLower=1,stringcaseoption,false,WESTRING_STRINGCASE_LOWER
+StringCaseUpper=1,stringcaseoption,true,WESTRING_STRINGCASE_UPPER
+
 // Change color option
 ChangeColorTrue=0,colorchangeoption,true,WESTRING_CHANGECOLOR_CHANGE
 ChangeColorFalse=0,colorchangeoption,false,WESTRING_CHANGECOLOR_RETAIN
@@ -767,6 +924,10 @@ AvailabilityOptionUnavailable=0,availabilityoption,false,WESTRING_AVAILABILITY_U
 // ShowHide option
 ShowHideHide=0,showhideoption,false,WESTRING_SHOWHIDE_HIDE
 ShowHideShow=0,showhideoption,true,WESTRING_SHOWHIDE_SHOW
+
+// Minimize option
+Minimize=1,minimizeoption,true,WESTRING_MINIMIZEOPTION_MINIMIZE
+Maximize=1,minimizeoption,false,WESTRING_MINIMIZEOPTION_MAXIMIZE
 
 // Sky Model
 SkyModelNone=0,skymodelstring,null,WESTRING_SKYMODEL_NONE
@@ -1069,6 +1230,11 @@ ExplodeDontDont=0,explodedontoption,false,WESTRING_EXPLODEDONTOPTION_DONT
 SuspendResumeSuspend=0,suspendresumeoption,true,WESTRING_SUSPENDRESUMEOPTION_SUSPEND
 SuspendResumeResume=0,suspendresumeoption,true,WESTRING_SUSPENDRESUMEOPTION_RESUME
 
+// Tournament Game Event Types
+GameEventTourneySoon=1,gameevent,EVENT_GAME_TOURNAMENT_FINISH_SOON,WESTRING_GAMEEVENT_TOURNAMENTFINISHSOON
+GameEventTourneyNow=1,gameevent,EVENT_GAME_TOURNAMENT_FINISH_NOW,WESTRING_GAMEEVENT_TOURNAMENTFINISHNOW
+
+
 // Mission Index
 // Tutorial
 MissionIndexT00=0,missionindex,bj_MISSION_INDEX_T00,WESTRING_MISSION_INDEX_T00
@@ -1220,6 +1386,7 @@ UnitOrderDevour=0,unitorderutarg,`devour`,WESTRING_UNITORDERUTARG_DEVOUR
 UnitOrderChainLightning=0,unitorderutarg,`chainlightning`,WESTRING_UNITORDERUTARG_CHAINLIGHTNING
 UnitOrderHealingWave=1,unitorderutarg,`healingwave`,WESTRING_UNITORDERUTARG_HEALINGWAVE
 UnitOrderHex=1,unitorderutarg,`hex`,WESTRING_UNITORDERUTARG_HEX
+UnitOrderAncestralSpiritTarg=1,unitorderutarg,`ancestralspirittarg`,WESTRING_UNITORDERUTARG_ANCESTRALSPIRIT
 // Night Elf
 UnitOrderRenew=0,unitorderutarg,`renew`,WESTRING_UNITORDERUTARG_RENEW
 UnitOrderEntangle=0,unitorderutarg,`entangle`,WESTRING_UNITORDERUTARG_ENTANGLE
@@ -1269,8 +1436,13 @@ UnitOrderCharm=1,unitorderutarg,`charm`,WESTRING_UNITORDERUTARG_CHARM
 UnitOrderLifeDrain=1,unitorderutarg,`drain`,WESTRING_UNITORDERUTARG_LIFEDRAIN
 UnitOrderColdArrow=1,unitorderutarg,`coldarrowstarg`,WESTRING_UNITORDERUTARG_COLDARROW
 UnitOrderForkedLightning=1,unitorderutarg,`forkedlightning`,WESTRING_UNITORDERUTARG_FORKEDLIGHTNING
-UnitOrderStrongDrink=1,unitorderutarg,`strongdrink`,WESTRING_UNITORDERUTARG_STRONGDRINK
+UnitOrderStrongDrink=1,unitorderutarg,`drunkenhaze`,WESTRING_UNITORDERUTARG_STRONGDRINK
 UnitOrderDoom=1,unitorderutarg,`doom`,WESTRING_UNITORDERUTARG_DOOM
+UnitOrderAcidBomb=1,unitorderutarg,`acidbomb`,WESTRING_UNITORDERUTARG_ACIDBOMB
+UnitOrderTransmute=1,unitorderutarg,`transmute`,WESTRING_UNITORDERUTARG_TRANSMUTE
+UnitOrderSoulBurn=1,unitorderutarg,`soulburn`,WESTRING_UNITORDERUTARG_SOULBURN
+UnitOrderPoisonArrow=0,unitorderutarg,`poisonarrowstarg`,WESTRING_UNITORDERUTARG_POISONARROW
+UnitOrderIncinerateArrow=1,unitorderutarg,`incineratearrow`,WESTRING_UNITORDERUTARG_INCINERATEARROW
 // Special
 UnitOrderFingerOfDeath=0,unitorderutarg,`fingerofdeath`,WESTRING_UNITORDERUTARG_FINGEROFDEATH
 UnitOrderDarkConversion=0,unitorderutarg,`darkconversion`,WESTRING_UNITORDERUTARG_DARKCONVERSION
@@ -1321,6 +1493,10 @@ UnitOrderSilence=1,unitorderptarg,`silence`,WESTRING_UNITORDERPTARG_SILENCE
 UnitOrderTornado=1,unitorderptarg,`tornado`,WESTRING_UNITORDERPTARG_TORNADO
 UnitOrderBreathOfFire=1,unitorderptarg,`breathoffire`,WESTRING_UNITORDERPTARG_BREATHOFFIRE
 UnitOrderHeroRainOfFire=1,unitorderptarg,`rainoffire`,WESTRING_UNITORDERPTARG_HERORAINOFFIRE
+UnitOrderHealingSpray=1,unitorderptarg,`healingspray`,WESTRING_UNITORDERPTARG_HEALINGSPRAY
+UnitOrderClusterRockets=1,unitorderptarg,`clusterrockets`,WESTRING_UNITORDERPTARG_CLUSTERROCKETS
+UnitOrderSummonFactory=1,unitorderptarg,`summonfactory`,WESTRING_UNITORDERPTARG_SUMMONFACTORY
+UnitOrderVolcano=1,unitorderptarg,`volcano`,WESTRING_UNITORDERPTARG_VOLCANO
 // Special
 UnitOrderDarkPortal=0,unitorderptarg,`darkportal`,WESTRING_UNITORDERPTARG_DARKPORTAL
 UnitOrderRainOfChaos=0,unitorderptarg,`rainoffire`,WESTRING_UNITORDERPTARG_RAINOFCHAOS
@@ -1342,6 +1518,13 @@ UnitOrderGrabTree=1,unitorderdtarg,`grabtree`,WESTRING_UNITORDERDTARG_GRABTREE
 // Undead
 // Neutral
 // Special
+
+// Trigger Item-Targeted Unit Orders
+// Common
+UnitOrderAttackItem=1,unitorderitarg,`attack`,WESTRING_UNITORDERITARG_ATTACK
+UnitOrderAttackItemOnce=1,unitorderitarg,`attackonce`,WESTRING_UNITORDERITARG_ATTACKONCE
+UnitOrderMoveItem=1,unitorderitarg,`move`,WESTRING_UNITORDERITARG_MOVE
+UnitOrderSmartItem=1,unitorderitarg,`smart`,WESTRING_UNITORDERITARG_SMART
 
 // Trigger Immediate / Untargeted Unit Orders
 // Common
@@ -1465,6 +1648,7 @@ UnitOrderReplenishManaOn=1,unitordernotarg,`replenishmanaon`,WESTRING_UNITORDERN
 UnitOrderReplenishManaOff=1,unitordernotarg,`replenishmanaoff`,WESTRING_UNITORDERNOTARG_REPLENISHMANAOFF
 UnitOrderCarrionScarabsOn=1,unitordernotarg,`carrionscarabson`,WESTRING_UNITORDERNOTARG_CARRIONSCARABSON
 UnitOrderCarrionScarabsOff=1,unitordernotarg,`carrionscarabsoff`,WESTRING_UNITORDERNOTARG_CARRIONSCARABSOFF
+UnitOrderCarrionScarabsInstant=1,unitordernotarg,`carrionscarabsinstant`,WESTRING_UNITORDERNOTARG_CARRIONSCARABS
 UnitOrderLocustSwarm=1,unitordernotarg,`locustswarm`,WESTRING_UNITORDERNOTARG_LOCUSTSWARM
 UnitOrderAnimateDead=0,unitordernotarg,`animatedead`,WESTRING_UNITORDERNOTARG_ANIMATEDEAD
 UnitOrderFrostArmorOn=0,unitordernotarg,`frostarmoron`,WESTRING_UNITORDERNOTARG_FROSTARMORON
@@ -1490,6 +1674,14 @@ UnitOrderManaShieldOn=1,unitordernotarg,`manashieldon`,WESTRING_UNITORDERNOTARG_
 UnitOrderManaShieldOff=1,unitordernotarg,`manashieldoff`,WESTRING_UNITORDERNOTARG_MANASHIELDOFF
 UnitOrderElementalFury=1,unitordernotarg,`elementalfury`,WESTRING_UNITORDERNOTARG_ELEMENTALFURY
 UnitOrderHowlOfTerror=1,unitordernotarg,`howlofterror`,WESTRING_UNITORDERNOTARG_HOWLOFTERROR
+UnitOrderPoisonArrows=0,unitordernotarg,`poisonarrows`,WESTRING_UNITORDERNOTARG_POISONARROWON
+UnitOrderUnPoisonArrows=0,unitordernotarg,`unpoisonarrows`,WESTRING_UNITORDERNOTARG_POISONARROWOFF
+UnitOrderChemicalRage=1,unitordernotarg,`chemicalrage`,WESTRING_UNITORDERNOTARG_CHEMICALRAGE
+UnitOrderRoboGoblin=1,unitordernotarg,`robogoblin`,WESTRING_UNITORDERNOTARG_ROBOGOBLIN
+UnitOrderUnRoboGoblin=1,unitordernotarg,`unrobogoblin`,WESTRING_UNITORDERNOTARG_UNROBOGOBLIN
+UnitOrderLavaMonster=1,unitordernotarg,`lavamonster`,WESTRING_UNITORDERNOTARG_LAVAMONSTER
+UnitOrderIncinerateArrowOn=1,unitordernotarg,`incineratearrowon`,WESTRING_UNITORDERNOTARG_INCINERATEARROWON
+UnitOrderIncinerateArrowOff=1,unitordernotarg,`incineratearrowoff`,WESTRING_UNITORDERNOTARG_INCINERATEARROWOFF
 // Special
 UnitOrderChannel=1,unitordernotarg,`channel`,WESTRING_UNITORDERNOTARG_CHANNEL
 UnitOrderMedivhRavenForm=0,unitordernotarg,`ravenform`,WESTRING_UNITORDERNOTARG_MEDIVHRAVENFORM
@@ -1604,6 +1796,22 @@ HeroSkillRainOfFire=1,heroskillcode,'ANrf',WESTRING_HEROSKILL_RAINOFFIRE
 HeroSkillHowlOfTerror=1,heroskillcode,'ANht',WESTRING_HEROSKILL_HOWLOFTERROR
 HeroSkillCleavingAttack=1,heroskillcode,'ANca',WESTRING_HEROSKILL_CLEAVINGATTACK
 HeroSkillDoom=1,heroskillcode,'ANdo',WESTRING_HEROSKILL_DOOM
+// Neutral Alchemist
+HeroSkillAcidBomb=1,heroskillcode,'ANab',WESTRING_HEROSKILL_ACIDBOMB
+HeroSkillChemicalRage=1,heroskillcode,'ANcr',WESTRING_HEROSKILL_CHEMICALRAGE
+HeroSkillHealingSpray=1,heroskillcode,'ANhs',WESTRING_HEROSKILL_HEALINGSPRAY
+HeroSkillTransmute=1,heroskillcode,'ANtm',WESTRING_HEROSKILL_TRANSMUTE
+// Neutral Tinker
+HeroSkillEngineeringUpgrade=1,heroskillcode,'ANeg',WESTRING_HEROSKILL_ENGINEERINGUPGRADE
+HeroSkillClusterRockets=1,heroskillcode,'ANcs',WESTRING_HEROSKILL_CLUSTERROCKETS
+HeroSkillSummonFactory=1,heroskillcode,'ANsy',WESTRING_HEROSKILL_SUMMONFACTORY
+HeroSkillRoboGoblin=1,heroskillcode,'ANrg',WESTRING_HEROSKILL_ROBOGOBLIN
+// Neutral Fire Lord
+HeroSkillIncinerate=1,heroskillcode,'ANic',WESTRING_HEROSKILL_INCINERATE
+HeroSkillIncinerateArrow=1,heroskillcode,'ANia',WESTRING_HEROSKILL_INCINERATEARROW
+HeroSkillSoulBurn=1,heroskillcode,'ANso',WESTRING_HEROSKILL_SOULBURN
+HeroSkillLavaMonster=1,heroskillcode,'ANlm',WESTRING_HEROSKILL_LAVAMONSTER
+HeroSkillVolcano=1,heroskillcode,'ANvc',WESTRING_HEROSKILL_VOLCANO
 // Special Akama
 HeroSkillChainLightning2=1,heroskillcode,'AOcl',WESTRING_HEROSKILL_AKAMA_CHAINLIGHTNING
 HeroSkillSpiritBeast=1,heroskillcode,'ACs7',WESTRING_HEROSKILL_AKAMA_FERALSPIRIT
@@ -1694,6 +1902,266 @@ WeatherRaysOfLight=0,weathereffectcode,'LRaa',WESTRING_WEATHER_RAYSOFLIGHT
 WeatherRaysOfMoonlight=0,weathereffectcode,'LRma',WESTRING_WEATHER_RAYSOFMOONLIGHT
 WeatherHeavyWind=0,weathereffectcode,'WNcw',WESTRING_WEATHER_WIND
 
+// Tile IDs
+TerrainTypeLdrt=1,terraintype,'Ldrt',WESTRING_TERRAINTYPE_Ldrt
+TerrainTypeLdro=1,terraintype,'Ldro',WESTRING_TERRAINTYPE_Ldro
+TerrainTypeLdrg=1,terraintype,'Ldrg',WESTRING_TERRAINTYPE_Ldrg
+TerrainTypeLrok=1,terraintype,'Lrok',WESTRING_TERRAINTYPE_Lrok
+TerrainTypeLgrs=1,terraintype,'Lgrs',WESTRING_TERRAINTYPE_Lgrs
+TerrainTypeLgrd=1,terraintype,'Lgrd',WESTRING_TERRAINTYPE_Lgrd
+TerrainTypeFdrt=1,terraintype,'Fdrt',WESTRING_TERRAINTYPE_Fdrt
+TerrainTypeFdro=1,terraintype,'Fdro',WESTRING_TERRAINTYPE_Fdro
+TerrainTypeFdrg=1,terraintype,'Fdrg',WESTRING_TERRAINTYPE_Fdrg
+TerrainTypeFrok=1,terraintype,'Frok',WESTRING_TERRAINTYPE_Frok
+TerrainTypeFgrs=1,terraintype,'Fgrs',WESTRING_TERRAINTYPE_Fgrs
+TerrainTypeFgrd=1,terraintype,'Fgrd',WESTRING_TERRAINTYPE_Fgrd
+TerrainTypeWdrt=1,terraintype,'Wdrt',WESTRING_TERRAINTYPE_Wdrt
+TerrainTypeWdro=1,terraintype,'Wdro',WESTRING_TERRAINTYPE_Wdro
+TerrainTypeWsng=1,terraintype,'Wsng',WESTRING_TERRAINTYPE_Wsng
+TerrainTypeWrok=1,terraintype,'Wrok',WESTRING_TERRAINTYPE_Wrok
+TerrainTypeWgrs=1,terraintype,'Wgrs',WESTRING_TERRAINTYPE_Wgrs
+TerrainTypeWsnw=1,terraintype,'Wsnw',WESTRING_TERRAINTYPE_Wsnw
+TerrainTypeBdrt=1,terraintype,'Bdrt',WESTRING_TERRAINTYPE_Bdrt
+TerrainTypeBdrh=1,terraintype,'Bdrh',WESTRING_TERRAINTYPE_Bdrh
+TerrainTypeBdrr=1,terraintype,'Bdrr',WESTRING_TERRAINTYPE_Bdrr
+TerrainTypeBdrg=1,terraintype,'Bdrg',WESTRING_TERRAINTYPE_Bdrg
+TerrainTypeBdsr=1,terraintype,'Bdsr',WESTRING_TERRAINTYPE_Bdsr
+TerrainTypeBdsd=1,terraintype,'Bdsd',WESTRING_TERRAINTYPE_Bdsd
+TerrainTypeBflr=1,terraintype,'Bflr',WESTRING_TERRAINTYPE_Bflr
+TerrainTypeBgrr=1,terraintype,'Bgrr',WESTRING_TERRAINTYPE_Bgrr
+TerrainTypeAdrt=1,terraintype,'Adrt',WESTRING_TERRAINTYPE_Adrt
+TerrainTypeAdrd=1,terraintype,'Adrd',WESTRING_TERRAINTYPE_Adrd
+TerrainTypeAgrs=1,terraintype,'Agrs',WESTRING_TERRAINTYPE_Agrs
+TerrainTypeArck=1,terraintype,'Arck',WESTRING_TERRAINTYPE_Arck
+TerrainTypeAgrd=1,terraintype,'Agrd',WESTRING_TERRAINTYPE_Agrd
+TerrainTypeAvin=1,terraintype,'Avin',WESTRING_TERRAINTYPE_Avin
+TerrainTypeAdrg=1,terraintype,'Adrg',WESTRING_TERRAINTYPE_Adrg
+TerrainTypeAlvd=1,terraintype,'Alvd',WESTRING_TERRAINTYPE_Alvd
+TerrainTypeCdrt=1,terraintype,'Cdrt',WESTRING_TERRAINTYPE_Cdrt
+TerrainTypeCdrd=1,terraintype,'Cdrd',WESTRING_TERRAINTYPE_Cdrd
+TerrainTypeCpos=1,terraintype,'Cpos',WESTRING_TERRAINTYPE_Cpos
+TerrainTypeCrck=1,terraintype,'Crck',WESTRING_TERRAINTYPE_Crck
+TerrainTypeCvin=1,terraintype,'Cvin',WESTRING_TERRAINTYPE_Cvin
+TerrainTypeCgrs=1,terraintype,'Cgrs',WESTRING_TERRAINTYPE_Cgrs
+TerrainTypeClvg=1,terraintype,'Clvg',WESTRING_TERRAINTYPE_Clvg
+TerrainTypeNdrt=1,terraintype,'Ndrt',WESTRING_TERRAINTYPE_Ndrt
+TerrainTypeNdrd=1,terraintype,'Ndrd',WESTRING_TERRAINTYPE_Ndrd
+TerrainTypeNrck=1,terraintype,'Nrck',WESTRING_TERRAINTYPE_Nrck
+TerrainTypeNgrs=1,terraintype,'Ngrs',WESTRING_TERRAINTYPE_Ngrs
+TerrainTypeNice=1,terraintype,'Nice',WESTRING_TERRAINTYPE_Nice
+TerrainTypeNsnw=1,terraintype,'Nsnw',WESTRING_TERRAINTYPE_Nsnw
+TerrainTypeNsnr=1,terraintype,'Nsnr',WESTRING_TERRAINTYPE_Nsnr
+TerrainTypeYdrt=1,terraintype,'Ydrt',WESTRING_TERRAINTYPE_Ydrt
+TerrainTypeYdtr=1,terraintype,'Ydtr',WESTRING_TERRAINTYPE_Ydtr
+TerrainTypeYblm=1,terraintype,'Yblm',WESTRING_TERRAINTYPE_Yblm
+TerrainTypeYbtl=1,terraintype,'Ybtl',WESTRING_TERRAINTYPE_Ybtl
+TerrainTypeYsqd=1,terraintype,'Ysqd',WESTRING_TERRAINTYPE_Ysqd
+TerrainTypeYrtl=1,terraintype,'Yrtl',WESTRING_TERRAINTYPE_Yrtl
+TerrainTypeYgsb=1,terraintype,'Ygsb',WESTRING_TERRAINTYPE_Ygsb
+TerrainTypeYhdg=1,terraintype,'Yhdg',WESTRING_TERRAINTYPE_Yhdg
+TerrainTypeYwmb=1,terraintype,'Ywmb',WESTRING_TERRAINTYPE_Ywmb
+TerrainTypeVdrt=1,terraintype,'Vdrt',WESTRING_TERRAINTYPE_Vdrt
+TerrainTypeVdrr=1,terraintype,'Vdrr',WESTRING_TERRAINTYPE_Vdrr
+TerrainTypeVcrp=1,terraintype,'Vcrp',WESTRING_TERRAINTYPE_Vcrp
+TerrainTypeVcbp=1,terraintype,'Vcbp',WESTRING_TERRAINTYPE_Vcbp
+TerrainTypeVstp=1,terraintype,'Vstp',WESTRING_TERRAINTYPE_Vstp
+TerrainTypeVgrs=1,terraintype,'Vgrs',WESTRING_TERRAINTYPE_Vgrs
+TerrainTypeVrck=1,terraintype,'Vrck',WESTRING_TERRAINTYPE_Vrck
+TerrainTypeVgrt=1,terraintype,'Vgrt',WESTRING_TERRAINTYPE_Vgrt
+TerrainTypeQdrt=1,terraintype,'Qdrt',WESTRING_TERRAINTYPE_Qdrt
+TerrainTypeQdrr=1,terraintype,'Qdrr',WESTRING_TERRAINTYPE_Qdrr
+TerrainTypeQcrp=1,terraintype,'Qcrp',WESTRING_TERRAINTYPE_Qcrp
+TerrainTypeQcbp=1,terraintype,'Qcbp',WESTRING_TERRAINTYPE_Qcbp
+TerrainTypeQstp=1,terraintype,'Qstp',WESTRING_TERRAINTYPE_Qstp
+TerrainTypeQgrs=1,terraintype,'Qgrs',WESTRING_TERRAINTYPE_Qgrs
+TerrainTypeQrck=1,terraintype,'Qrck',WESTRING_TERRAINTYPE_Qrck
+TerrainTypeQgrt=1,terraintype,'Qgrt',WESTRING_TERRAINTYPE_Qgrt
+TerrainTypeXdrt=1,terraintype,'Xdrt',WESTRING_TERRAINTYPE_Xdrt
+TerrainTypeXdtr=1,terraintype,'Xdtr',WESTRING_TERRAINTYPE_Xdtr
+TerrainTypeXblm=1,terraintype,'Xblm',WESTRING_TERRAINTYPE_Xblm
+TerrainTypeXbtl=1,terraintype,'Xbtl',WESTRING_TERRAINTYPE_Xbtl
+TerrainTypeXsqd=1,terraintype,'Xsqd',WESTRING_TERRAINTYPE_Xsqd
+TerrainTypeXrtl=1,terraintype,'Xrtl',WESTRING_TERRAINTYPE_Xrtl
+TerrainTypeXgsb=1,terraintype,'Xgsb',WESTRING_TERRAINTYPE_Xgsb
+TerrainTypeXhdg=1,terraintype,'Xhdg',WESTRING_TERRAINTYPE_Xhdg
+TerrainTypeXwmb=1,terraintype,'Xwmb',WESTRING_TERRAINTYPE_Xwmb
+TerrainTypeDdrt=1,terraintype,'Ddrt',WESTRING_TERRAINTYPE_Ddrt
+TerrainTypeDbrk=1,terraintype,'Dbrk',WESTRING_TERRAINTYPE_Dbrk
+TerrainTypeDrds=1,terraintype,'Drds',WESTRING_TERRAINTYPE_Drds
+TerrainTypeDlvc=1,terraintype,'Dlvc',WESTRING_TERRAINTYPE_Dlvc
+TerrainTypeDlav=1,terraintype,'Dlav',WESTRING_TERRAINTYPE_Dlav
+TerrainTypeDdkr=1,terraintype,'Ddkr',WESTRING_TERRAINTYPE_Ddkr
+TerrainTypeDgrs=1,terraintype,'Dgrs',WESTRING_TERRAINTYPE_Dgrs
+TerrainTypeDsqd=1,terraintype,'Dsqd',WESTRING_TERRAINTYPE_Dsqd
+TerrainTypeGdrt=1,terraintype,'Gdrt',WESTRING_TERRAINTYPE_Gdrt
+TerrainTypeGbrk=1,terraintype,'Gbrk',WESTRING_TERRAINTYPE_Gbrk
+TerrainTypeGrds=1,terraintype,'Grds',WESTRING_TERRAINTYPE_Grds
+TerrainTypeGlvc=1,terraintype,'Glvc',WESTRING_TERRAINTYPE_Glvc
+TerrainTypeGlav=1,terraintype,'Glav',WESTRING_TERRAINTYPE_Glav
+TerrainTypeGdkr=1,terraintype,'Gdkr',WESTRING_TERRAINTYPE_Gdkr
+TerrainTypeGgrs=1,terraintype,'Ggrs',WESTRING_TERRAINTYPE_Ggrs
+TerrainTypeGsqd=1,terraintype,'Gsqd',WESTRING_TERRAINTYPE_Gsqd
+TerrainTypeZdrt=1,terraintype,'Zdrt',WESTRING_TERRAINTYPE_Zdrt
+TerrainTypeZdtr=1,terraintype,'Zdtr',WESTRING_TERRAINTYPE_Zdtr
+TerrainTypeZdrg=1,terraintype,'Zdrg',WESTRING_TERRAINTYPE_Zdrg
+TerrainTypeZbks=1,terraintype,'Zbks',WESTRING_TERRAINTYPE_Zbks
+TerrainTypeZsan=1,terraintype,'Zsan',WESTRING_TERRAINTYPE_Zsan
+TerrainTypeZbkl=1,terraintype,'Zbkl',WESTRING_TERRAINTYPE_Zbkl
+TerrainTypeZtil=1,terraintype,'Ztil',WESTRING_TERRAINTYPE_Ztil
+TerrainTypeZgrs=1,terraintype,'Zgrs',WESTRING_TERRAINTYPE_Zgrs
+TerrainTypeZvin=1,terraintype,'Zvin',WESTRING_TERRAINTYPE_Zvin
+TerrainTypeIdrt=1,terraintype,'Idrt',WESTRING_TERRAINTYPE_Idrt
+TerrainTypeIdtr=1,terraintype,'Idtr',WESTRING_TERRAINTYPE_Idtr
+TerrainTypeIdki=1,terraintype,'Idki',WESTRING_TERRAINTYPE_Idki
+TerrainTypeIbkb=1,terraintype,'Ibkb',WESTRING_TERRAINTYPE_Ibkb
+TerrainTypeIrbk=1,terraintype,'Irbk',WESTRING_TERRAINTYPE_Irbk
+TerrainTypeItbk=1,terraintype,'Itbk',WESTRING_TERRAINTYPE_Itbk
+TerrainTypeIice=1,terraintype,'Iice',WESTRING_TERRAINTYPE_Iice
+TerrainTypeIbsq=1,terraintype,'Ibsq',WESTRING_TERRAINTYPE_Ibsq
+TerrainTypeIsnw=1,terraintype,'Isnw',WESTRING_TERRAINTYPE_Isnw
+TerrainTypeOdrt=1,terraintype,'Odrt',WESTRING_TERRAINTYPE_Odrt
+TerrainTypeOdtr=1,terraintype,'Odtr',WESTRING_TERRAINTYPE_Odtr
+TerrainTypeOsmb=1,terraintype,'Osmb',WESTRING_TERRAINTYPE_Osmb
+TerrainTypeOfst=1,terraintype,'Ofst',WESTRING_TERRAINTYPE_Ofst
+TerrainTypeOlgb=1,terraintype,'Olgb',WESTRING_TERRAINTYPE_Olgb
+TerrainTypeOrok=1,terraintype,'Orok',WESTRING_TERRAINTYPE_Orok
+TerrainTypeOfsl=1,terraintype,'Ofsl',WESTRING_TERRAINTYPE_Ofsl
+TerrainTypeOaby=1,terraintype,'Oaby',WESTRING_TERRAINTYPE_Oaby
+TerrainTypeKdrt=1,terraintype,'Kdrt',WESTRING_TERRAINTYPE_Kdrt
+TerrainTypeKfsl=1,terraintype,'Kfsl',WESTRING_TERRAINTYPE_Kfsl
+TerrainTypeKdtr=1,terraintype,'Kdtr',WESTRING_TERRAINTYPE_Kdtr
+TerrainTypeKfst=1,terraintype,'Kfst',WESTRING_TERRAINTYPE_Kfst
+TerrainTypeKsmb=1,terraintype,'Ksmb',WESTRING_TERRAINTYPE_Ksmb
+TerrainTypeKlgb=1,terraintype,'Klgb',WESTRING_TERRAINTYPE_Klgb
+TerrainTypeKsqt=1,terraintype,'Ksqt',WESTRING_TERRAINTYPE_Ksqt
+TerrainTypeKdkt=1,terraintype,'Kdkt',WESTRING_TERRAINTYPE_Kdkt
+TerrainTypeJdrt=1,terraintype,'Jdrt',WESTRING_TERRAINTYPE_Jdrt
+TerrainTypeJdtr=1,terraintype,'Jdtr',WESTRING_TERRAINTYPE_Jdtr
+TerrainTypeJblm=1,terraintype,'Jblm',WESTRING_TERRAINTYPE_Jblm
+TerrainTypeJbtl=1,terraintype,'Jbtl',WESTRING_TERRAINTYPE_Jbtl
+TerrainTypeJsqd=1,terraintype,'Jsqd',WESTRING_TERRAINTYPE_Jsqd
+TerrainTypeJrtl=1,terraintype,'Jrtl',WESTRING_TERRAINTYPE_Jrtl
+TerrainTypeJgsb=1,terraintype,'Jgsb',WESTRING_TERRAINTYPE_Jgsb
+TerrainTypeJhdg=1,terraintype,'Jhdg',WESTRING_TERRAINTYPE_Jhdg
+TerrainTypeJwmb=1,terraintype,'Jwmb',WESTRING_TERRAINTYPE_Jwmb
+TerrainTypecAc2=1,terraintype,'cAc2',WESTRING_TERRAINTYPE_cAc2
+TerrainTypecAc1=1,terraintype,'cAc1',WESTRING_TERRAINTYPE_cAc1
+TerrainTypecBc2=1,terraintype,'cBc2',WESTRING_TERRAINTYPE_cBc2
+TerrainTypecBc1=1,terraintype,'cBc1',WESTRING_TERRAINTYPE_cBc1
+TerrainTypecKc1=1,terraintype,'cKc1',WESTRING_TERRAINTYPE_cKc1
+TerrainTypecKc2=1,terraintype,'cKc2',WESTRING_TERRAINTYPE_cKc2
+TerrainTypecYc2=1,terraintype,'cYc2',WESTRING_TERRAINTYPE_cYc2
+TerrainTypecYc1=1,terraintype,'cYc1',WESTRING_TERRAINTYPE_cYc1
+TerrainTypecXc2=1,terraintype,'cXc2',WESTRING_TERRAINTYPE_cXc2
+TerrainTypecXc1=1,terraintype,'cXc1',WESTRING_TERRAINTYPE_cXc1
+TerrainTypecJc2=1,terraintype,'cJc2',WESTRING_TERRAINTYPE_cJc2
+TerrainTypecJc1=1,terraintype,'cJc1',WESTRING_TERRAINTYPE_cJc1
+TerrainTypecDc2=1,terraintype,'cDc2',WESTRING_TERRAINTYPE_cDc2
+TerrainTypecDc1=1,terraintype,'cDc1',WESTRING_TERRAINTYPE_cDc1
+TerrainTypecCc2=1,terraintype,'cCc2',WESTRING_TERRAINTYPE_cCc2
+TerrainTypecCc1=1,terraintype,'cCc1',WESTRING_TERRAINTYPE_cCc1
+TerrainTypecIc2=1,terraintype,'cIc2',WESTRING_TERRAINTYPE_cIc2
+TerrainTypecIc1=1,terraintype,'cIc1',WESTRING_TERRAINTYPE_cIc1
+TerrainTypecFc2=1,terraintype,'cFc2',WESTRING_TERRAINTYPE_cFc2
+TerrainTypecFc1=1,terraintype,'cFc1',WESTRING_TERRAINTYPE_cFc1
+TerrainTypecLc2=1,terraintype,'cLc2',WESTRING_TERRAINTYPE_cLc2
+TerrainTypecLc1=1,terraintype,'cLc1',WESTRING_TERRAINTYPE_cLc1
+TerrainTypecWc2=1,terraintype,'cWc2',WESTRING_TERRAINTYPE_cWc2
+TerrainTypecWc1=1,terraintype,'cWc1',WESTRING_TERRAINTYPE_cWc1
+TerrainTypecNc2=1,terraintype,'cNc2',WESTRING_TERRAINTYPE_cNc2
+TerrainTypecNc1=1,terraintype,'cNc1',WESTRING_TERRAINTYPE_cNc1
+TerrainTypecOc1=1,terraintype,'cOc1',WESTRING_TERRAINTYPE_cOc1
+TerrainTypecOc2=1,terraintype,'cOc2',WESTRING_TERRAINTYPE_cOc2
+TerrainTypecZc2=1,terraintype,'cZc2',WESTRING_TERRAINTYPE_cZc2
+TerrainTypecZc1=1,terraintype,'cZc1',WESTRING_TERRAINTYPE_cZc1
+TerrainTypecGc2=1,terraintype,'cGc2',WESTRING_TERRAINTYPE_cGc2
+TerrainTypecGc1=1,terraintype,'cGc1',WESTRING_TERRAINTYPE_cGc1
+TerrainTypecVc2=1,terraintype,'cVc2',WESTRING_TERRAINTYPE_cVc2
+TerrainTypecVc1=1,terraintype,'cVc1',WESTRING_TERRAINTYPE_cVc1
+TerrainTypecQc2=1,terraintype,'cQc2',WESTRING_TERRAINTYPE_cQc2
+TerrainTypecQc1=1,terraintype,'cQc1',WESTRING_TERRAINTYPE_cQc1
+
+//  Terrain Shapes
+TerrainShapeCircle=1,terrainshape,0,WESTRING_TERRAINSHAPE_CIRCLE
+TerrainShapeSquare=1,terrainshape,1,WESTRING_TERRAINSHAPE_SQUARE
+
+//  Lightning Types
+LightningTypeCLPB=1,lightningtype,`CLPB`,WESTRING_LIGHTNINGTYPE_CLPB
+LightningTypeCLSB=1,lightningtype,`CLSB`,WESTRING_LIGHTNINGTYPE_CLSB
+LightningTypeDRAB=1,lightningtype,`DRAB`,WESTRING_LIGHTNINGTYPE_DRAB
+LightningTypeDRAL=1,lightningtype,`DRAL`,WESTRING_LIGHTNINGTYPE_DRAL
+LightningTypeDRAM=1,lightningtype,`DRAM`,WESTRING_LIGHTNINGTYPE_DRAM
+LightningTypeAFOD=1,lightningtype,`AFOD`,WESTRING_LIGHTNINGTYPE_AFOD
+LightningTypeFORK=1,lightningtype,`FORK`,WESTRING_LIGHTNINGTYPE_FORK
+LightningTypeHWPB=1,lightningtype,`HWPB`,WESTRING_LIGHTNINGTYPE_HWPB
+LightningTypeHWSB=1,lightningtype,`HWSB`,WESTRING_LIGHTNINGTYPE_HWSB
+LightningTypeCHIM=1,lightningtype,`CHIM`,WESTRING_LIGHTNINGTYPE_CHIM
+LightningTypeLEAS=1,lightningtype,`LEAS`,WESTRING_LIGHTNINGTYPE_LEAS
+LightningTypeMBUR=1,lightningtype,`MBUR`,WESTRING_LIGHTNINGTYPE_MBUR
+LightningTypeMFPB=1,lightningtype,`MFPB`,WESTRING_LIGHTNINGTYPE_MFPB
+LightningTypeSPLK=1,lightningtype,`SPLK`,WESTRING_LIGHTNINGTYPE_SPLK
+
+//  Image types
+ImageTypeShadow=1,imagetype,0,WESTRING_IMAGETYPE_SHADOW
+ImageTypeSelection=1,imagetype,1,WESTRING_IMAGETYPE_SELECTION
+ImageTypeIndicator=1,imagetype,2,WESTRING_IMAGETYPE_INDICATOR
+ImageTypeOcclusionMark=1,imagetype,3,WESTRING_IMAGETYPE_OCCLUSIONMARK
+ImageTypeUbersplat=1,imagetype,4,WESTRING_IMAGETYPE_UBERSPLAT
+ImageTypeLast=1,imagetype,5,WESTRING_IMAGETYPE_LAST
+
+//  Ubersplat codes
+UbersplatTypeTEST=1,ubersplattype,`TEST`,WESTRING_UBERSPLAT_TEST
+UbersplatTypeLSDS=1,ubersplattype,`LSDS`,WESTRING_UBERSPLAT_LSDS
+UbersplatTypeLSDM=1,ubersplattype,`LSDM`,WESTRING_UBERSPLAT_LSDM
+UbersplatTypeLSDL=1,ubersplattype,`LSDL`,WESTRING_UBERSPLAT_LSDL
+UbersplatTypeHCRT=1,ubersplattype,`HCRT`,WESTRING_UBERSPLAT_HCRT
+UbersplatTypeUDSU=1,ubersplattype,`UDSU`,WESTRING_UBERSPLAT_UDSU
+UbersplatTypeDNCS=1,ubersplattype,`DNCS`,WESTRING_UBERSPLAT_DNCS
+UbersplatTypeHMTP=1,ubersplattype,`HMTP`,WESTRING_UBERSPLAT_HMTP
+UbersplatTypeSCTP=1,ubersplattype,`SCTP`,WESTRING_UBERSPLAT_SCTP
+UbersplatTypeAMRC=1,ubersplattype,`AMRC`,WESTRING_UBERSPLAT_AMRC
+UbersplatTypeDRKC=1,ubersplattype,`DRKC`,WESTRING_UBERSPLAT_DRKC
+UbersplatTypeDOSB=1,ubersplattype,`DOSB`,WESTRING_UBERSPLAT_DOSB
+UbersplatTypeDOMB=1,ubersplattype,`DOMB`,WESTRING_UBERSPLAT_DOMB
+UbersplatTypeDOLB=1,ubersplattype,`DOLB`,WESTRING_UBERSPLAT_DOLB
+UbersplatTypeDHSB=1,ubersplattype,`DHSB`,WESTRING_UBERSPLAT_DHSB
+UbersplatTypeDHMB=1,ubersplattype,`DHMB`,WESTRING_UBERSPLAT_DHMB
+UbersplatTypeDHLB=1,ubersplattype,`DHLB`,WESTRING_UBERSPLAT_DHLB
+UbersplatTypeDUSB=1,ubersplattype,`DUSB`,WESTRING_UBERSPLAT_DUSB
+UbersplatTypeDUMB=1,ubersplattype,`DUMB`,WESTRING_UBERSPLAT_DUMB
+UbersplatTypeDULB=1,ubersplattype,`DULB`,WESTRING_UBERSPLAT_DULB
+UbersplatTypeDNSB=1,ubersplattype,`DNSB`,WESTRING_UBERSPLAT_DNSB
+UbersplatTypeDNMB=1,ubersplattype,`DNMB`,WESTRING_UBERSPLAT_DNMB
+UbersplatTypeDNSA=1,ubersplattype,`DNSA`,WESTRING_UBERSPLAT_DNSA
+UbersplatTypeDNMA=1,ubersplattype,`DNMA`,WESTRING_UBERSPLAT_DNMA
+UbersplatTypeHSMA=1,ubersplattype,`HSMA`,WESTRING_UBERSPLAT_HSMA
+UbersplatTypeHMED=1,ubersplattype,`HMED`,WESTRING_UBERSPLAT_HMED
+UbersplatTypeHLAR=1,ubersplattype,`HLAR`,WESTRING_UBERSPLAT_HLAR
+UbersplatTypeOSMA=1,ubersplattype,`OSMA`,WESTRING_UBERSPLAT_OSMA
+UbersplatTypeOMED=1,ubersplattype,`OMED`,WESTRING_UBERSPLAT_OMED
+UbersplatTypeOLAR=1,ubersplattype,`OLAR`,WESTRING_UBERSPLAT_OLAR
+UbersplatTypeUSMA=1,ubersplattype,`USMA`,WESTRING_UBERSPLAT_USMA
+UbersplatTypeUMED=1,ubersplattype,`UMED`,WESTRING_UBERSPLAT_UMED
+UbersplatTypeULAR=1,ubersplattype,`ULAR`,WESTRING_UBERSPLAT_ULAR
+UbersplatTypeESMA=1,ubersplattype,`ESMA`,WESTRING_UBERSPLAT_ESMA
+UbersplatTypeEMDA=1,ubersplattype,`EMDA`,WESTRING_UBERSPLAT_EMDA
+UbersplatTypeESMB=1,ubersplattype,`ESMB`,WESTRING_UBERSPLAT_ESMB
+UbersplatTypeEMDB=1,ubersplattype,`EMDB`,WESTRING_UBERSPLAT_EMDB
+UbersplatTypeHTOW=1,ubersplattype,`HTOW`,WESTRING_UBERSPLAT_HTOW
+UbersplatTypeHCAS=1,ubersplattype,`HCAS`,WESTRING_UBERSPLAT_HCAS
+UbersplatTypeNGOL=1,ubersplattype,`NGOL`,WESTRING_UBERSPLAT_NGOL
+UbersplatTypeTHND=1,ubersplattype,`THND`,WESTRING_UBERSPLAT_THND
+UbersplatTypeNDGS=1,ubersplattype,`NDGS`,WESTRING_UBERSPLAT_NDGS
+UbersplatTypeCLTS=1,ubersplattype,`CLTS`,WESTRING_UBERSPLAT_CLTS
+UbersplatTypeHFS1=1,ubersplattype,`HFS1`,WESTRING_UBERSPLAT_HFS1
+UbersplatTypeHFS2=1,ubersplattype,`HFS2`,WESTRING_UBERSPLAT_HFS2
+UbersplatTypeUSBR=1,ubersplattype,`USBR`,WESTRING_UBERSPLAT_USBR
+UbersplatTypeNLAR=1,ubersplattype,`NLAR`,WESTRING_UBERSPLAT_NLAR
+UbersplatTypeNMED=1,ubersplattype,`NMED`,WESTRING_UBERSPLAT_NMED
+UbersplatTypeDPSW=1,ubersplattype,`DPSW`,WESTRING_UBERSPLAT_DPSW
+UbersplatTypeDPSE=1,ubersplattype,`DPSE`,WESTRING_UBERSPLAT_DPSE
+UbersplatTypeNVOL=1,ubersplattype,`NVOL`,WESTRING_UBERSPLAT_NVOL
+UbersplatTypeNVCR=1,ubersplattype,`NVCR`,WESTRING_UBERSPLAT_NVCR
 
 
 //***************************************************************************
@@ -1752,6 +2220,10 @@ TriggerRegisterBuildSubmenuEventBJ=0,nothing
 _TriggerRegisterBuildSubmenuEventBJ_Defaults=
 _TriggerRegisterBuildSubmenuEventBJ_Category=TC_GAME
 
+TriggerRegisterGameEvent=1,gameevent
+_TriggerRegisterGameEvent_Defaults=GameEventTourneyNow
+_TriggerRegisterGameEvent_Category=TC_GAME
+
 
 // Player events
 TriggerRegisterPlayerChatEvent=0,player,string,chatmatchtype
@@ -1789,6 +2261,10 @@ _TriggerRegisterPlayerEventVictory_Category=TC_PLAYER
 TriggerRegisterPlayerEventDefeat=0,player
 _TriggerRegisterPlayerEventDefeat_Defaults=Player00
 _TriggerRegisterPlayerEventDefeat_Category=TC_PLAYER
+
+TriggerRegisterPlayerEventLeave=1,player
+_TriggerRegisterPlayerEventLeave_Defaults=Player00
+_TriggerRegisterPlayerEventLeave_Category=TC_PLAYER
 
 
 // Timer events
@@ -1859,6 +2335,10 @@ _OperatorCompareBoolean_AIDefaults=true,OperatorEqualENE,true
 OperatorCompareAbilityId=1,abilcode,EqualNotEqualOperator,abilcode
 _OperatorCompareAbilityId_Defaults=GetSpellAbilityId,OperatorEqualENE,AUan
 _OperatorCompareAbilityId_Category=TC_CONDITION
+
+OperatorCompareBuffId=1,buffcode,EqualNotEqualOperator,buffcode
+_OperatorCompareBuffId_Defaults=_,OperatorEqualENE,_
+_OperatorCompareBuffId_Category=TC_CONDITION
 
 OperatorCompareDestructible=0,destructable,EqualNotEqualOperator,destructable
 _OperatorCompareDestructible_Defaults=_,OperatorEqualENE,_
@@ -1949,6 +2429,10 @@ _OperatorCompareString_Category=TC_CONDITION
 OperatorCompareTechCode=0,techcode,EqualNotEqualOperator,techcode
 _OperatorCompareTechCode_Defaults=GetResearched,OperatorEqualENE,_
 _OperatorCompareTechCode_Category=TC_CONDITION
+
+OperatorCompareTerrainType=1,terraintype,EqualNotEqualOperator,terraintype
+_OperatorCompareTerrainType_Defaults=GetTerrainTypeBJ,OperatorEqualENE,TerrainTypeLdrt
+_OperatorCompareTerrainType_Category=TC_CONDITION
 
 OperatorCompareTrigger=0,trigger,EqualNotEqualOperator,trigger
 _OperatorCompareTrigger_Defaults=_,OperatorEqualENE,_
@@ -2551,6 +3035,18 @@ TerrainDeformStopAll=1,nothing
 _TerrainDeformStopAll_Defaults=
 _TerrainDeformStopAll_Category=TC_ENVIRONMENT
 
+SetWaterDeforms=1,onoffoption
+_SetWaterDeforms_Defaults=OnOffOn
+_SetWaterDeforms_Category=TC_ENVIRONMENT
+
+SetTerrainTypeBJ=1,location,terraintype,integer,integer,terrainshape
+_SetTerrainTypeBJ_Defaults=GetRectCenter,TerrainTypeLdrt,-1,1,TerrainShapeCircle
+_SetTerrainTypeBJ_Category=TC_ENVIRONMENT
+
+SetTerrainPathableBJ=1,location,pathingtype,onoffoption
+_SetTerrainPathableBJ_Defaults=GetRectCenter,PathingTypeWalkability,OnOffOn
+_SetTerrainPathableBJ_Category=TC_ENVIRONMENT
+
 SetWaterBaseColorBJ=1,real,real,real,real
 _SetWaterBaseColorBJ_Defaults=100,100,100,0
 _SetWaterBaseColorBJ_Limits=0,100,0,100,0,100,0,100
@@ -2577,7 +3073,6 @@ SetBlightRadiusLocBJ=0,createremoveoption,player,location,real
 _SetBlightRadiusLocBJ_Defaults=CreateRemoveCreate,Player00,GetRectCenter,512
 _SetBlightRadiusLocBJ_Limits=_,_,_,_,_,_,0,_
 _SetBlightRadiusLocBJ_Category=TC_ENVIRONMENT
-
 
 // Text Tag actions
 CreateTextTagLocBJ=1,StringExt,location,real,real,real,real,real,real
@@ -2606,6 +3101,38 @@ SetTextTagColorBJ=1,texttag,real,real,real,real
 _SetTextTagColorBJ_Defaults=GetLastCreatedTextTag,100,100,100,0
 _SetTextTagColorBJ_Limits=_,_,0,100,0,100,0,100,0,100
 _SetTextTagColorBJ_Category=TC_TEXTTAG
+
+SetTextTagPosBJ=1,texttag,location,real
+_SetTextTagPosBJ_Defaults=GetLastCreatedTextTag,GetRectCenter,0
+_SetTextTagPosBJ_Category=TC_TEXTTAG
+
+SetTextTagPosUnitBJ=1,texttag,unit,real
+_SetTextTagPosUnitBJ_Defaults=GetLastCreatedTextTag,_,0
+_SetTextTagPosUnitBJ_Category=TC_TEXTTAG
+
+SetTextTagTextBJ=1,texttag,StringExt,real
+_SetTextTagTextBJ_Defaults=GetLastCreatedTextTag,_,10
+_SetTextTagTextBJ_Category=TC_TEXTTAG
+
+SetTextTagSuspendedBJ=1,texttag,enabledisableoption
+_SetTextTagSuspendedBJ_Defaults=GetLastCreatedTextTag,EnableDisableEnable
+_SetTextTagSuspendedBJ_Category=TC_TEXTTAG
+
+SetTextTagPermanentBJ=1,texttag,enabledisableoption
+_SetTextTagPermanentBJ_Defaults=GetLastCreatedTextTag,EnableDisableEnable
+_SetTextTagPermanentBJ_Category=TC_TEXTTAG
+
+SetTextTagLifespanBJ=1,texttag,real
+_SetTextTagLifespanBJ_Defaults=GetLastCreatedTextTag,5
+_SetTextTagLifespanBJ_Category=TC_TEXTTAG
+
+SetTextTagFadepointBJ=1,texttag,real
+_SetTextTagFadepointBJ_Defaults=GetLastCreatedTextTag,4
+_SetTextTagFadepointBJ_Category=TC_TEXTTAG
+
+SetTextTagAgeBJ=1,texttag,real
+_SetTextTagAgeBJ_Defaults=GetLastCreatedTextTag,0
+_SetTextTagAgeBJ_Category=TC_TEXTTAG
 
 
 // Game actions
@@ -2726,6 +3253,26 @@ _SetAllyColorFilterState_Defaults=0
 _SetAllyColorFilterState_Limits=0,2
 _SetAllyColorFilterState_Category=TC_GAME
 
+SetCreepCampFilterState=1,showhideoption
+_SetCreepCampFilterState_Defaults=ShowHideHide
+_SetCreepCampFilterState_Category=TC_GAME
+
+EnableMinimapFilterButtons=1,enabledisableoption,enabledisableoption
+_EnableMinimapFilterButtons_Defaults=EnableDisableDisable,EnableDisableDisable
+_EnableMinimapFilterButtons_Category=TC_GAME
+
+EnableSelect=1,enabledisableoption,enabledisableoption
+_EnableSelect_Defaults=EnableDisableEnable,EnableDisableEnable
+_EnableSelect_Category=TC_GAME
+
+EnableDragSelect=1,enabledisableoption,enabledisableoption
+_EnableDragSelect_Defaults=EnableDisableEnable,EnableDisableEnable
+_EnableDragSelect_Category=TC_GAME
+
+EnablePreSelect=1,enabledisableoption,enabledisableoption
+_EnablePreSelect_Defaults=EnableDisableEnable,EnableDisableEnable
+_EnablePreSelect_Category=TC_GAME
+
 ForceUIKeyBJ=0,player,string
 _ForceUIKeyBJ_Defaults=Player00,"A"
 _ForceUIKeyBJ_Category=TC_GAME
@@ -2745,6 +3292,7 @@ _PreloadEnd_Category=TC_GAME
 Preloader=0,preloadfile
 _Preloader_Defaults=
 _Preloader_Category=TC_GAME
+
 
 // Game Cache actions
 InitGameCacheBJ=0,string
@@ -2775,6 +3323,203 @@ StoreStringBJ=1,string,string,string,gamecache
 _StoreStringBJ_Defaults=_,_,"Category",GetLastCreatedGameCacheBJ
 _StoreStringBJ_Category=TC_GAMECACHE
 
+// Hashtable actions
+InitHashtableBJ=0
+_InitHashtableBJ_Defaults=
+_InitHashtableBJ_Category=TC_HASHTABLE
+
+SaveRealBJ=0,real,integer,integer,hashtable
+_SaveRealBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveRealBJ_Category=TC_HASHTABLE
+
+SaveIntegerBJ=0,integer,integer,integer,hashtable
+_SaveIntegerBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveIntegerBJ_Category=TC_HASHTABLE
+
+SaveBooleanBJ=0,boolean,integer,integer,hashtable
+_SaveBooleanBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveBooleanBJ_Category=TC_HASHTABLE
+
+SaveStringBJ=1,string,integer,integer,hashtable
+_SaveStringBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveStringBJ_Category=TC_HASHTABLE
+
+SavePlayerHandleBJ=0,player,integer,integer,hashtable
+_SavePlayerHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SavePlayerHandleBJ_Category=TC_HASHTABLE
+
+SaveWidgetHandleBJ=0,widget,integer,integer,hashtable
+_SaveWidgetHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveWidgetHandleBJ_Category=TC_HASHTABLE
+
+SaveDestructableHandleBJ=0,destructable,integer,integer,hashtable
+_SaveDestructableHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveDestructableHandleBJ_Category=TC_HASHTABLE
+
+SaveItemHandleBJ=0,item,integer,integer,hashtable
+_SaveItemHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveItemHandleBJ_Category=TC_HASHTABLE
+
+SaveUnitHandleBJ=0,unit,integer,integer,hashtable
+_SaveUnitHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveUnitHandleBJ_Category=TC_HASHTABLE
+
+SaveAbilityHandleBJ=0,ability,integer,integer,hashtable
+_SaveAbilityHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveAbilityHandleBJ_Category=TC_HASHTABLE
+
+SaveTimerHandleBJ=0,timer,integer,integer,hashtable
+_SaveTimerHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTimerHandleBJ_Category=TC_HASHTABLE
+
+//SaveTriggerRegionHandleBJ=0,region,integer,integer,hashtable
+//_SaveTriggerRegionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveTriggerRegionHandleBJ_Category=TC_HASHTABLE
+
+SaveTriggerHandleBJ=0,trigger,integer,integer,hashtable
+_SaveTriggerHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTriggerHandleBJ_Category=TC_HASHTABLE
+
+SaveTriggerConditionHandleBJ=0,triggercondition,integer,integer,hashtable
+_SaveTriggerConditionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTriggerConditionHandleBJ_Category=TC_HASHTABLE
+
+SaveTriggerActionHandleBJ=0,triggeraction,integer,integer,hashtable
+_SaveTriggerActionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTriggerActionHandleBJ_Category=TC_HASHTABLE
+
+SaveTriggerEventHandleBJ=0,eventid,integer,integer,hashtable
+_SaveTriggerEventHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTriggerEventHandleBJ_Category=TC_HASHTABLE
+
+SaveForceHandleBJ=0,force,integer,integer,hashtable
+_SaveForceHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveForceHandleBJ_Category=TC_HASHTABLE
+
+SaveGroupHandleBJ=0,group,integer,integer,hashtable
+_SaveGroupHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveGroupHandleBJ_Category=TC_HASHTABLE
+
+SaveLocationHandleBJ=0,location,integer,integer,hashtable
+_SaveLocationHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveLocationHandleBJ_Category=TC_HASHTABLE
+
+SaveRegionHandleBJ=0,region,integer,integer,hashtable
+_SaveRegionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveRegionHandleBJ_Category=TC_HASHTABLE
+
+SaveRectHandleBJ=0,rect,integer,integer,hashtable
+_SaveRectHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveRectHandleBJ_Category=TC_HASHTABLE
+
+SaveBooleanExprHandleBJ=0,boolexpr,integer,integer,hashtable
+_SaveBooleanExprHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveBooleanExprHandleBJ_Category=TC_HASHTABLE
+
+//SaveConditionFuncHandleBJ=0,conditionfunc,integer,integer,hashtable
+//_SaveConditionFuncHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveConditionFuncHandleBJ_Category=TC_HASHTABLE
+
+//SaveFilterFuncHandleBJ=0,filterfunc,integer,integer,hashtable
+//_SaveFilterFuncHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveFilterFuncHandleBJ_Category=TC_HASHTABLE
+
+SaveSoundHandleBJ=0,sound,integer,integer,hashtable
+_SaveSoundHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveSoundHandleBJ_Category=TC_HASHTABLE
+
+//SaveRaceHandleBJ=0,race,integer,integer,hashtable
+//_SaveRaceHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveRaceHandleBJ_Category=TC_HASHTABLE
+
+SaveEffectHandleBJ=0,effect,integer,integer,hashtable
+_SaveEffectHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveEffectHandleBJ_Category=TC_HASHTABLE
+
+SaveUnitPoolHandleBJ=0,unitpool,integer,integer,hashtable
+_SaveUnitPoolHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveUnitPoolHandleBJ_Category=TC_HASHTABLE
+
+SaveItemPoolHandleBJ=0,itempool,integer,integer,hashtable
+_SaveItemPoolHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveItemPoolHandleBJ_Category=TC_HASHTABLE
+
+SaveQuestHandleBJ=0,quest,integer,integer,hashtable
+_SaveQuestHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveQuestHandleBJ_Category=TC_HASHTABLE
+
+SaveQuestItemHandleBJ=0,questitem,integer,integer,hashtable
+_SaveQuestItemHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveQuestItemHandleBJ_Category=TC_HASHTABLE
+
+SaveDefeatConditionHandleBJ=0,defeatcondition,integer,integer,hashtable
+_SaveDefeatConditionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveDefeatConditionHandleBJ_Category=TC_HASHTABLE
+
+SaveTimerDialogHandleBJ=0,timerdialog,integer,integer,hashtable
+_SaveTimerDialogHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTimerDialogHandleBJ_Category=TC_HASHTABLE
+
+SaveLeaderboardHandleBJ=0,leaderboard,integer,integer,hashtable
+_SaveLeaderboardHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveLeaderboardHandleBJ_Category=TC_HASHTABLE
+
+SaveMultiboardHandleBJ=0,multiboard,integer,integer,hashtable
+_SaveMultiboardHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveMultiboardHandleBJ_Category=TC_HASHTABLE
+
+SaveMultiboardItemHandleBJ=0,multiboarditem,integer,integer,hashtable
+_SaveMultiboardItemHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveMultiboardItemHandleBJ_Category=TC_HASHTABLE
+
+SaveTrackableHandleBJ=0,trackable,integer,integer,hashtable
+_SaveTrackableHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTrackableHandleBJ_Category=TC_HASHTABLE
+
+SaveGameCacheHandleBJ=0,gamecache,integer,integer,hashtable
+_SaveGameCacheHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveGameCacheHandleBJ_Category=TC_HASHTABLE
+
+SaveDialogHandleBJ=0,dialog,integer,integer,hashtable
+_SaveDialogHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveDialogHandleBJ_Category=TC_HASHTABLE
+
+SaveButtonHandleBJ=0,button,integer,integer,hashtable
+_SaveButtonHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveButtonHandleBJ_Category=TC_HASHTABLE
+
+//SaveVersionHandleBJ=0,version,integer,integer,hashtable
+//_SaveVersionHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveVersionHandleBJ_Category=TC_HASHTABLE
+
+//SaveItemTypeHandleBJ=0,itemtype,integer,integer,hashtable
+//_SaveItemTypeHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+//_SaveItemTypeHandleBJ_Category=TC_HASHTABLE
+
+SaveTextTagHandleBJ=0,texttag,integer,integer,hashtable
+_SaveTextTagHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveTextTagHandleBJ_Category=TC_HASHTABLE
+
+SaveLightningHandleBJ=0,lightning,integer,integer,hashtable
+_SaveLightningHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveLightningHandleBJ_Category=TC_HASHTABLE
+
+SaveImageHandleBJ=0,image,integer,integer,hashtable
+_SaveImageHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveImageHandleBJ_Category=TC_HASHTABLE
+
+SaveUbersplatHandleBJ=0,ubersplat,integer,integer,hashtable
+_SaveUbersplatHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveUbersplatHandleBJ_Category=TC_HASHTABLE
+
+SaveFogStateHandleBJ=0,fogstate,integer,integer,hashtable
+_SaveFogStateHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveFogStateHandleBJ_Category=TC_HASHTABLE
+
+SaveFogModifierHandleBJ=0,fogmodifier,integer,integer,hashtable
+_SaveFogModifierHandleBJ_Defaults=_,_,_,GetLastCreatedHashtableBJ
+_SaveFogModifierHandleBJ_Category=TC_HASHTABLE
+
 RestoreUnitLocFacingAngleBJ=0,string,string,gamecache,player,location,real
 _RestoreUnitLocFacingAngleBJ_Defaults=_,"Category",GetLastCreatedGameCacheBJ,Player00,GetRectCenter,0
 _RestoreUnitLocFacingAngleBJ_Category=TC_GAMECACHE
@@ -2794,6 +3539,14 @@ _FlushGameCacheBJ_Category=TC_GAMECACHE
 FlushStoredMissionBJ=1,string,gamecache
 _FlushStoredMissionBJ_Defaults="Category",GetLastCreatedGameCacheBJ
 _FlushStoredMissionBJ_Category=TC_GAMECACHE
+
+FlushParentHashtableBJ=1,hashtable
+_FlushParentHashtableBJ_Defaults=GetLastCreatedHashtableBJ
+_FlushParentHashtableBJ_Category=TC_HASHTABLE
+
+FlushChildHashtableBJ=1,integer,hashtable
+_FlushChildHashtableBJ_Defaults=_,GetLastCreatedHashtableBJ
+_FlushChildHashtableBJ_Category=TC_HASHTABLE
 
 
 // Hero actions
@@ -2898,6 +3651,11 @@ _SetItemLifeBJ_Defaults=GetLastCreatedItem,50
 _SetItemLifeBJ_Limits=_,_,0,_
 _SetItemLifeBJ_Category=TC_ITEM
 
+SetItemCharges=1,item,integer
+_SetItemCharges_Defaults=GetLastCreatedItem,1
+_SetItemCharges_Limits=_,_,0,_
+_SetItemCharges_Category=TC_ITEM
+
 SetItemInvulnerableBJ=0,item,invulnerableoption
 _SetItemInvulnerableBJ_Defaults=GetLastCreatedItem,InvulnerabilityInvulnerable
 _SetItemInvulnerableBJ_Category=TC_ITEM
@@ -2918,6 +3676,10 @@ SetItemPlayerBJ=0,item,player,colorchangeoption
 _SetItemPlayerBJ_Defaults=GetLastCreatedItem,Player00,ChangeColorTrue
 _SetItemPlayerBJ_Category=TC_ITEM
 
+SetItemUserData=1,item,integer
+_SetItemUserData_Defaults=_,0
+_SetItemUserData_Category=TC_ITEM
+
 EnumItemsInRectBJMultiple=1,rect
 _EnumItemsInRectBJMultiple_Defaults=GetPlayableMapRect
 _EnumItemsInRectBJMultiple_Category=TC_ITEM
@@ -2926,6 +3688,48 @@ _EnumItemsInRectBJMultiple_ScriptName=EnumItemsInRectBJ
 EnumItemsInRectBJ=1,rect,code
 _EnumItemsInRectBJ_Defaults=GetPlayableMapRect,DoNothing
 _EnumItemsInRectBJ_Category=TC_ITEM
+
+
+// Image actions
+CreateImageBJ=1,string,real,location,real,imagetype
+_CreateImageBJ_Defaults="ReplaceableTextures\Splats\AuraRune9b.blp",256,GetRectCenter,0,ImageTypeIndicator
+_CreateImageBJ_Category=TC_IMAGE
+
+DestroyImage=1,image
+_DestroyImage_Defaults=GetLastCreatedImage
+_DestroyImage_Category=TC_IMAGE
+
+ShowImageBJ=1,showhideoption,image
+_ShowImageBJ_Defaults=ShowHideShow,GetLastCreatedImage
+_ShowImageBJ_Category=TC_IMAGE
+
+SetImageConstantHeight=1,image,enabledisableoption,real
+_SetImageConstantHeight_Defaults=GetLastCreatedImage,EnableDisableEnable,0
+_SetImageConstantHeight_Category=TC_IMAGE
+
+SetImagePositionBJ=1,image,location,real
+_SetImagePositionBJ_Defaults=GetLastCreatedImage,GetRectCenter,0
+_SetImagePositionBJ_Category=TC_IMAGE
+
+SetImageColorBJ=1,image,real,real,real,real
+_SetImageColorBJ_Defaults=GetLastCreatedImage,100,100,100,0
+_SetImageColorBJ_Category=TC_IMAGE
+
+SetImageRender=1,image,enabledisableoption
+_SetImageRender_Defaults=GetLastCreatedImage,EnableDisableEnable
+_SetImageRender_Category=TC_IMAGE
+
+SetImageRenderAlways=1,image,enabledisableoption
+_SetImageRenderAlways_Defaults=GetLastCreatedImage,EnableDisableEnable
+_SetImageRenderAlways_Category=TC_IMAGE
+
+SetImageAboveWater=1,image,enabledisableoption,enabledisableoption
+_SetImageAboveWater_Defaults=GetLastCreatedImage,EnableDisableEnable,EnableDisableEnable
+_SetImageAboveWater_Category=TC_IMAGE
+
+SetImageType=1,image,imagetype
+_SetImageType_Defaults=GetLastCreatedImage,ImageTypeIndicator
+_SetImageType_Category=TC_IMAGE
 
 
 // Leaderboard actions
@@ -2993,9 +3797,23 @@ LeaderboardSetPlayerItemStyleBJ=0,player,leaderboard,showhideoption,showhideopti
 _LeaderboardSetPlayerItemStyleBJ_Defaults=Player00,GetLastCreatedLeaderboard,ShowHideShow,ShowHideShow,ShowHideShow
 _LeaderboardSetPlayerItemStyleBJ_Category=TC_LEADERBOARD
 
-MultiboardAllowDisplayBJ=1,showhideoption
-_MultiboardAllowDisplayBJ_Defaults=ShowHideHide
-_MultiboardAllowDisplayBJ_Category=TC_LEADERBOARD
+
+// Lightning actions
+AddLightningLoc=1,lightningtype,location,location
+_AddLightningLoc_Defaults=LightningTypeCLPB,GetUnitLoc,GetRectCenter
+_AddLightningLoc_Category=TC_LIGHTNING
+
+DestroyLightningBJ=1,lightning
+_DestroyLightningBJ_Defaults=GetLastCreatedLightningBJ
+_DestroyLightningBJ_Category=TC_LIGHTNING
+
+MoveLightningLoc=1,lightning,location,location
+_MoveLightningLoc_Defaults=GetLastCreatedLightningBJ,GetUnitLoc,GetRectCenter
+_MoveLightningLoc_Category=TC_LIGHTNING
+
+SetLightningColorBJ=1,lightning,real,real,real,real
+_SetLightningColorBJ_Defaults=GetLastCreatedLightningBJ,1,1,1,1
+_SetLightningColorBJ_Category=TC_LIGHTNING
 
 
 // Melee Game actions
@@ -3034,6 +3852,78 @@ _MeleeInitVictoryDefeat_Category=TC_MELEE
 MeleeStartingUnitsForPlayer=1,race,player,location,includeoption
 _MeleeStartingUnitsForPlayer_Defaults=RaceHuman,Player00,GetPlayerStartLocationLoc,InclusionInclude
 _MeleeStartingUnitsForPlayer_Category=TC_MELEE
+
+
+// Multiboard actions
+CreateMultiboardBJ=1,integer,integer,StringExt
+_CreateMultiboardBJ_Defaults=1,1,_
+_CreateMultiboardBJ_Limits=1,16,1,32,_,512
+_CreateMultiboardBJ_Category=TC_MULTIBOARD
+
+DestroyMultiboardBJ=1,multiboard
+_DestroyMultiboardBJ_Defaults=GetLastCreatedMultiboard
+_DestroyMultiboardBJ_Category=TC_MULTIBOARD
+
+MultiboardDisplayBJ=1,showhideoption,multiboard
+_MultiboardDisplayBJ_Defaults=ShowHideHide,GetLastCreatedMultiboard
+_MultiboardDisplayBJ_Category=TC_MULTIBOARD
+
+MultiboardAllowDisplayBJ=1,showhideoption
+_MultiboardAllowDisplayBJ_Defaults=ShowHideHide
+_MultiboardAllowDisplayBJ_Category=TC_MULTIBOARD
+
+MultiboardMinimizeBJ=1,minimizeoption,multiboard
+_MultiboardMinimizeBJ_Defaults=Minimize,GetLastCreatedMultiboard
+_MultiboardMinimizeBJ_Category=TC_MULTIBOARD
+
+MultiboardClear=1,multiboard
+_MultiboardClear_Defaults=GetLastCreatedMultiboard
+_MultiboardClear_Category=TC_MULTIBOARD
+
+MultiboardSetTitleText=1,multiboard,StringExt
+_MultiboardSetTitleText_Defaults=GetLastCreatedMultiboard,_
+_MultiboardSetTitleText_Limits=_,_,_,512
+_MultiboardSetTitleText_Category=TC_MULTIBOARD
+
+MultiboardSetTitleTextColorBJ=1,multiboard,real,real,real,real
+_MultiboardSetTitleTextColorBJ_Defaults=GetLastCreatedMultiboard,100,80,20,0
+_MultiboardSetTitleTextColorBJ_Limits=_,_,0,100,0,100,0,100,0,100
+_MultiboardSetTitleTextColorBJ_Category=TC_MULTIBOARD
+
+MultiboardSetRowCount=1,multiboard,integer
+_MultiboardSetRowCount_Defaults=GetLastCreatedMultiboard,1
+_MultiboardSetRowCount_Limits=_,_,1,32
+_MultiboardSetRowCount_Category=TC_MULTIBOARD
+
+MultiboardSetColumnCount=1,multiboard,integer
+_MultiboardSetColumnCount_Defaults=GetLastCreatedMultiboard,1
+_MultiboardSetColumnCount_Limits=_,_,1,16
+_MultiboardSetColumnCount_Category=TC_MULTIBOARD
+
+MultiboardSetItemStyleBJ=1,multiboard,integer,integer,showhideoption,showhideoption
+_MultiboardSetItemStyleBJ_Defaults=GetLastCreatedMultiboard,1,1,ShowHideShow,ShowHideShow
+_MultiboardSetItemStyleBJ_Limits=_,_,0,_,0,_,_,_,_,_
+_MultiboardSetItemStyleBJ_Category=TC_MULTIBOARD
+
+MultiboardSetItemValueBJ=1,multiboard,integer,integer,StringExt
+_MultiboardSetItemValueBJ_Defaults=GetLastCreatedMultiboard,1,1,_
+_MultiboardSetItemValueBJ_Limits=_,_,0,_,0,_,_,128
+_MultiboardSetItemValueBJ_Category=TC_MULTIBOARD
+
+MultiboardSetItemColorBJ=1,multiboard,integer,integer,real,real,real,real
+_MultiboardSetItemColorBJ_Defaults=GetLastCreatedMultiboard,1,1,100,80,20,0
+_MultiboardSetItemColorBJ_Limits=_,_,0,_,0,_,0,100,0,100,0,100,0,100
+_MultiboardSetItemColorBJ_Category=TC_MULTIBOARD
+
+MultiboardSetItemWidthBJ=1,multiboard,integer,integer,real
+_MultiboardSetItemWidthBJ_Defaults=GetLastCreatedMultiboard,1,1,3
+_MultiboardSetItemWidthBJ_Limits=_,_,0,_,0,_,0,100
+_MultiboardSetItemWidthBJ_Category=TC_MULTIBOARD
+
+MultiboardSetItemIconBJ=1,multiboard,integer,integer,imagefile
+_MultiboardSetItemIconBJ_Defaults=GetLastCreatedMultiboard,1,1,"UI\Feedback\Resources\ResourceGold.blp"
+_MultiboardSetItemIconBJ_Limits=_,_,0,_,0,_,_,_
+_MultiboardSetItemIconBJ_Category=TC_MULTIBOARD
 
 
 // Neutral Building actions
@@ -3128,6 +4018,11 @@ _AdjustPlayerStateBJ_Category=TC_PLAYER
 SetPlayerFlagBJ=0,playerflag,onoffoption,player
 _SetPlayerFlagBJ_Defaults=PlayerFlagGivesBounty,OnOffOff,PlayerNA
 _SetPlayerFlagBJ_Category=TC_PLAYER
+
+SetPlayerTaxRateBJ=1,integer,playerresource,player,player,
+_SetPlayerTaxRateBJ_Defaults=0,PlayerResourceGold,Player00,Player01
+_SetPlayerTaxRateBJ_Limits=0,100,_,_,_,_,_,_
+_SetPlayerTaxRateBJ_Category=TC_PLAYER
 
 EnableCreepSleepBJ=1,enabledisableoption
 _EnableCreepSleepBJ_Defaults=EnableDisableDisable
@@ -3601,6 +4496,18 @@ SetUnitPositionLocFacingLocBJ=0,unit,location,location
 _SetUnitPositionLocFacingLocBJ_Defaults=GetTriggerUnit,GetRectCenter,GetUnitLoc
 _SetUnitPositionLocFacingLocBJ_Category=TC_UNIT
 
+SetUnitRallyPoint=1,unit,location
+_SetUnitRallyPoint_Defaults=GetTriggerUnit,GetRectCenter
+_SetUnitRallyPoint_Category=TC_UNIT
+
+SetUnitRallyUnit=1,unit,unit
+_SetUnitRallyUnit_Defaults=GetTriggerUnit,_
+_SetUnitRallyUnit_Category=TC_UNIT
+
+SetUnitRallyDestructable=1,unit,destructable
+_SetUnitRallyDestructable_Defaults=GetTriggerUnit,_
+_SetUnitRallyDestructable_Category=TC_UNIT
+
 SetUnitLifePercentBJ=0,unit,real
 _SetUnitLifePercentBJ_Defaults=GetTriggerUnit,100
 _SetUnitLifePercentBJ_Limits=_,_,0,100
@@ -3744,6 +4651,10 @@ UnitRemoveBuffsExBJ=1,buffpolarity,buffresist,unit,includeoption,includeoption
 _UnitRemoveBuffsExBJ_Defaults=BuffPolarityEither,BuffResistEither,GetTriggerUnit,InclusionInclude,InclusionInclude
 _UnitRemoveBuffsExBJ_Category=TC_UNIT
 
+UnitRemoveBuffBJ=1,buffcode,unit
+_UnitRemoveBuffBJ_Defaults=_,GetTriggerUnit
+_UnitRemoveBuffBJ_Category=TC_UNIT
+
 UnitAddAbilityBJ=1,abilcode,unit
 _UnitAddAbilityBJ_Defaults=_,GetTriggerUnit
 _UnitAddAbilityBJ_Category=TC_UNIT
@@ -3751,6 +4662,14 @@ _UnitAddAbilityBJ_Category=TC_UNIT
 UnitRemoveAbilityBJ=0,abilcode,unit
 _UnitRemoveAbilityBJ_Defaults=_,GetTriggerUnit
 _UnitRemoveAbilityBJ_Category=TC_UNIT
+
+UnitAddTypeBJ=1,unittype,unit
+_UnitAddTypeBJ_Defaults=UnitTypeMechanical,GetTriggerUnit
+_UnitAddTypeBJ_Category=TC_UNIT
+
+UnitRemoveTypeBJ=1,unittype,unit
+_UnitRemoveTypeBJ_Defaults=UnitTypeMechanical,GetTriggerUnit
+_UnitRemoveTypeBJ_Category=TC_UNIT
 
 IssueTargetOrder=0,unit,unitorderutarg,unit
 _IssueTargetOrder_Defaults=_,UnitOrderAttackUnit,_
@@ -3765,6 +4684,10 @@ _IssuePointOrderLoc_ScriptName=IssuePointOrderLocBJ
 IssueTargetDestructableOrder=0,unit,unitorderdtarg,destructable
 _IssueTargetDestructableOrder_Defaults=_,UnitOrderHarvestDestructible,_
 _IssueTargetDestructableOrder_Category=TC_UNIT
+
+IssueTargetItemOrder=0,unit,unitorderitarg,item
+_IssueTargetItemOrder_Defaults=_,UnitOrderSmartItem,_
+_IssueTargetItemOrder_Category=TC_UNIT
 
 IssueImmediateOrder=0,unit,unitordernotarg
 _IssueImmediateOrder_Defaults=_,UnitOrderStop
@@ -3782,6 +4705,40 @@ _IssueUpgradeOrderByIdBJ_Category=TC_UNIT
 IssueBuildOrderByIdLocBJ=0,unit,unitcode,location
 _IssueBuildOrderByIdLocBJ_Defaults=_,hbar,GetRectCenter
 _IssueBuildOrderByIdLocBJ_Category=TC_UNIT
+
+UnitDropItemPointLoc=1,unit,item,location
+_UnitDropItemPointLoc_Defaults=_,GetLastCreatedItem,GetRectCenter
+_UnitDropItemPointLoc_Category=TC_UNIT
+
+UnitDropItemSlotBJ=1,unit,item,integer
+_UnitDropItemSlotBJ_Defaults=_,GetLastCreatedItem,1
+_UnitDropItemSlotBJ_Limits=_,_,_,_,1,6
+_UnitDropItemSlotBJ_Category=TC_UNIT
+
+UnitDropItemTargetBJ=1,unit,item,unit
+_UnitDropItemTargetBJ_Defaults=_,GetLastCreatedItem,_
+_UnitDropItemTargetBJ_Category=TC_UNIT
+
+UnitDamagePointLoc=1,unit,real,real,location,real,attacktype,damagetype
+_UnitDamagePointLoc_Defaults=GetTriggerUnit,0,500,GetRectCenter,100,AttackTypeNormal,DamageTypeNormal
+_UnitDamagePointLoc_Category=TC_UNIT
+
+UnitDamageTargetBJ=1,unit,unit,real,attacktype,damagetype
+_UnitDamageTargetBJ_Defaults=GetTriggerUnit,GetTriggerUnit,500,AttackTypeNormal,DamageTypeNormal
+_UnitDamageTargetBJ_Category=TC_UNIT
+
+DecUnitAbilityLevelSwapped=1,abilcode,unit
+_DecUnitAbilityLevelSwapped_Defaults=_,GetTriggerUnit
+_DecUnitAbilityLevelSwapped_Category=TC_UNIT
+
+IncUnitAbilityLevelSwapped=1,abilcode,unit
+_IncUnitAbilityLevelSwapped_Defaults=_,GetTriggerUnit
+_IncUnitAbilityLevelSwapped_Category=TC_UNIT
+
+SetUnitAbilityLevelSwapped=1,abilcode,unit,integer
+_SetUnitAbilityLevelSwapped_Defaults=_,GetTriggerUnit,1
+_SetUnitAbilityLevelSwapped_Limits=_,_,_,_,1,_
+_SetUnitAbilityLevelSwapped_Category=TC_UNIT
 
 
 // Unit Group actions
@@ -3830,6 +4787,10 @@ GroupTargetDestructableOrder=0,group,unitorderdtarg,destructable
 _GroupTargetDestructableOrder_Defaults=GetUnitsInRectAll,UnitOrderHarvestDestructible,_
 _GroupTargetDestructableOrder_Category=TC_UNITGROUP
 
+GroupTargetItemOrder=0,group,unitorderitarg,item
+_GroupTargetItemOrder_Defaults=GetUnitsInRectAll,UnitOrderAttackItem,_
+_GroupTargetItemOrder_Category=TC_UNITGROUP
+
 GroupImmediateOrder=0,group,unitordernotarg
 _GroupImmediateOrder_Defaults=GetUnitsInRectAll,UnitOrderStop
 _GroupImmediateOrder_Category=TC_UNITGROUP
@@ -3838,6 +4799,36 @@ _GroupImmediateOrder_ScriptName=GroupImmediateOrderBJ
 GroupTrainOrderByIdBJ=0,group,unitcode
 _GroupTrainOrderByIdBJ_Defaults=GetUnitsInRectAll,hfoo
 _GroupTrainOrderByIdBJ_Category=TC_UNITGROUP
+
+
+// Ubersplat actions
+CreateUbersplatBJ=1,location,ubersplattype,real,real,real,real,enabledisableoption,enabledisableoption
+_CreateUberSplatBJ_Defaults=GetRectCenter,UbersplatTypeNGOL,100,100,100,0,EnableDisableDisable,EnableDisableDisable
+_CreateUberSplatBJ_Category=TC_UBERSPLAT
+
+DestroyUbersplat=1,ubersplat
+_DestroyUbersplat_Defaults=GetLastCreatedUbersplat
+_DestroyUbersplat_Category=TC_UBERSPLAT
+
+ResetUbersplat=1,ubersplat
+_ResetUbersplat_Defaults=GetLastCreatedUbersplat
+_ResetUbersplat_Category=TC_UBERSPLAT
+
+FinishUbersplat=1,ubersplat
+_FinishUbersplat_Defaults=GetLastCreatedUbersplat
+_FinishUbersplat_Category=TC_UBERSPLAT
+
+ShowUbersplatBJ=1,showhideoption,ubersplat
+_ShowUbersplatBJ_Defaults=ShowHideShow,GetLastCreatedUbersplat
+_ShowUbersplatBJ_Category=TC_UBERSPLAT
+
+SetUbersplatRender=1,ubersplat,enabledisableoption
+_SetUbersplatRender_Defaults=GetLastCreatedUbersplat,EnableDisableEnable
+_SetUbersplatRender_Category=TC_UBERSPLAT
+
+SetUbersplatRenderAlways=1,ubersplat,enabledisableoption
+_SetUbersplatRenderAlways_Defaults=GetLastCreatedUbersplat,EnableDisableEnable
+_SetUbersplatRenderAlways_Category=TC_UBERSPLAT
 
 
 // Visibility actions
@@ -3914,6 +4905,14 @@ IsDestructableInvulnerableBJ=0,0,boolean,destructable
 _IsDestructableInvulnerableBJ_Defaults=GetLastCreatedDestructable
 _IsDestructableInvulnerableBJ_Category=TC_DESTRUCT
 
+IsPointBlightedBJ=1,1,boolean,location
+_IsPointBlightedBJ_Defaults=GetRectCenter
+_IsPointBlightedBJ_Category=TC_ENVIRONMENT
+
+IsTerrainPathableBJ=1,1,boolean,location,pathingtype
+_IsTerrainPathableBJ_Defaults=GetRectCenter,PathingTypeWalkability
+_IsTerrainPathableBJ_Category=TC_ENVIRONMENT
+
 IsMapFlagSet=0,1,boolean,mapflag
 _IsMapFlagSet_Defaults=MapFlagUseHandicaps
 _IsMapFlagSet_Category=TC_GAME
@@ -3923,6 +4922,9 @@ _IsCustomCampaignButtonVisibile_Defaults=1
 _IsCustomCampaignButtonVisibile_Limits=1,_
 _IsCustomCampaignButtonVisibile_Category=TC_GAME
 
+GetCreepCampFilterState=1,1,boolean
+_GetCreepCampFilterState_Category=TC_GAME
+
 SaveGameExists=1,0,boolean,anyfile
 _SaveGameExists_Defaults=_
 _SaveGameExists_Category=TC_GAME
@@ -3931,9 +4933,210 @@ GetStoredBooleanBJ=0,0,boolean,string,string,gamecache
 _GetStoredBooleanBJ_Defaults=_,"Category",GetLastCreatedGameCacheBJ
 _GetStoredBooleanBJ_Category=TC_GAMECACHE
 
+// Hashtable
+GetHandleIdBJ=1,1,integer,handle
+_GetHandleIdBJ_Defaults=
+_GetHandleIdBJ_Category=TC_HASHTABLE
+
+StringHashBJ=1,1,integer,string
+_StringHashBJ_Defaults=
+_StringHashBJ_Category=TC_HASHTABLE
+
+LoadIntegerBJ=0,0,integer,integer,integer,hashtable
+_LoadIntegerBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadIntegerBJ_Category=TC_HASHTABLE
+
+LoadRealBJ=0,0,real,integer,integer,hashtable
+_LoadRealBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadRealBJ_Category=TC_HASHTABLE
+
+LoadStringBJ=1,0,string,integer,integer,hashtable
+_LoadStringBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadStringBJ_Category=TC_HASHTABLE
+
+LoadBooleanBJ=0,0,boolean,integer,integer,hashtable
+_LoadBooleanBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadBooleanBJ_Category=TC_HASHTABLE
+
+LoadPlayerHandleBJ=0,0,player,integer,integer,hashtable
+_LoadPlayerHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadPlayerHandleBJ_Category=TC_HASHTABLE
+
+LoadWidgetHandleBJ=0,0,widget,integer,integer,hashtable
+_LoadWidgetHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadWidgetHandleBJ_Category=TC_HASHTABLE
+
+LoadDestructableHandleBJ=0,0,destructable,integer,integer,hashtable
+_LoadDestructableHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadDestructableHandleBJ_Category=TC_HASHTABLE
+
+LoadItemHandleBJ=0,0,item,integer,integer,hashtable
+_LoadItemHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadItemHandleBJ_Category=TC_HASHTABLE
+
+LoadUnitHandleBJ=0,0,unit,integer,integer,hashtable
+_LoadUnitHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadUnitHandleBJ_Category=TC_HASHTABLE
+
+LoadAbilityHandleBJ=0,0,ability,integer,integer,hashtable
+_LoadAbilityHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadAbilityHandleBJ_Category=TC_HASHTABLE
+
+LoadTimerHandleBJ=0,0,timer,integer,integer,hashtable
+_LoadTimerHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTimerHandleBJ_Category=TC_HASHTABLE
+
+//LoadTriggerRegionHandleBJ=0,0,region,integer,integer,hashtable
+//_LoadTriggerRegionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadTriggerRegionHandleBJ_Category=TC_HASHTABLE
+
+LoadTriggerHandleBJ=0,0,trigger,integer,integer,hashtable
+_LoadTriggerHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTriggerHandleBJ_Category=TC_HASHTABLE
+
+LoadTriggerConditionHandleBJ=0,0,triggercondition,integer,integer,hashtable
+_LoadTriggerConditionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTriggerConditionHandleBJ_Category=TC_HASHTABLE
+
+LoadTriggerActionHandleBJ=0,0,triggeraction,integer,integer,hashtable
+_LoadTriggerActionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTriggerActionHandleBJ_Category=TC_HASHTABLE
+
+LoadTriggerEventHandleBJ=0,0,eventid,integer,integer,hashtable
+_LoadTriggerEventHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTriggerEventHandleBJ_Category=TC_HASHTABLE
+
+LoadForceHandleBJ=0,0,force,integer,integer,hashtable
+_LoadForceHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadForceHandleBJ_Category=TC_HASHTABLE
+
+LoadGroupHandleBJ=0,0,group,integer,integer,hashtable
+_LoadGroupHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadGroupHandleBJ_Category=TC_HASHTABLE
+
+LoadLocationHandleBJ=0,0,location,integer,integer,hashtable
+_LoadLocationHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadLocationHandleBJ_Category=TC_HASHTABLE
+
+LoadRegionHandleBJ=0,0,region,integer,integer,hashtable
+_LoadRegionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadRegionHandleBJ_Category=TC_HASHTABLE
+
+LoadRectHandleBJ=0,0,rect,integer,integer,hashtable
+_LoadRectHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadRectHandleBJ_Category=TC_HASHTABLE
+
+LoadBooleanExprHandleBJ=0,0,boolexpr,integer,integer,hashtable
+_LoadBooleanExprHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadBooleanExprHandleBJ_Category=TC_HASHTABLE
+
+//LoadConditionFuncHandleBJ=0,0,conditionfunc,integer,integer,hashtable
+//_LoadConditionFuncHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadConditionFuncHandleBJ_Category=TC_HASHTABLE
+
+//LoadFilterFuncHandleBJ=0,0,filterfunc,integer,integer,hashtable
+//_LoadFilterFuncHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadFilterFuncHandleBJ_Category=TC_HASHTABLE
+
+LoadSoundHandleBJ=0,0,sound,integer,integer,hashtable
+_LoadSoundHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadSoundHandleBJ_Category=TC_HASHTABLE
+
+//LoadRaceHandleBJ=0,0,race,integer,integer,hashtable
+//_LoadRaceHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadRaceHandleBJ_Category=TC_HASHTABLE
+
+LoadEffectHandleBJ=0,0,effect,integer,integer,hashtable
+_LoadEffectHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadEffectHandleBJ_Category=TC_HASHTABLE
+
+LoadUnitPoolHandleBJ=0,0,unitpool,integer,integer,hashtable
+_LoadUnitPoolHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadUnitPoolHandleBJ_Category=TC_HASHTABLE
+
+LoadItemPoolHandleBJ=0,0,itempool,integer,integer,hashtable
+_LoadItemPoolHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadItemPoolHandleBJ_Category=TC_HASHTABLE
+
+LoadQuestHandleBJ=0,0,quest,integer,integer,hashtable
+_LoadQuestHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadQuestHandleBJ_Category=TC_HASHTABLE
+
+LoadQuestItemHandleBJ=0,0,questitem,integer,integer,hashtable
+_LoadQuestItemHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadQuestItemHandleBJ_Category=TC_HASHTABLE
+
+LoadDefeatConditionHandleBJ=0,0,defeatcondition,integer,integer,hashtable
+_LoadDefeatConditionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadDefeatConditionHandleBJ_Category=TC_HASHTABLE
+
+LoadTimerDialogHandleBJ=0,0,timerdialog,integer,integer,hashtable
+_LoadTimerDialogHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTimerDialogHandleBJ_Category=TC_HASHTABLE
+
+LoadLeaderboardHandleBJ=0,0,leaderboard,integer,integer,hashtable
+_LoadLeaderboardHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadLeaderboardHandleBJ_Category=TC_HASHTABLE
+
+LoadMultiboardHandleBJ=0,0,multiboard,integer,integer,hashtable
+_LoadMultiboardHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadMultiboardHandleBJ_Category=TC_HASHTABLE
+
+LoadMultiboardItemHandleBJ=0,0,multiboarditem,integer,integer,hashtable
+_LoadMultiboardItemHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadMultiboardItemHandleBJ_Category=TC_HASHTABLE
+
+LoadTrackableHandleBJ=0,0,trackable,integer,integer,hashtable
+_LoadTrackableHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTrackableHandleBJ_Category=TC_HASHTABLE
+
+LoadDialogHandleBJ=0,0,dialog,integer,integer,hashtable
+_LoadDialogHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadDialogHandleBJ_Category=TC_HASHTABLE
+
+LoadButtonHandleBJ=0,0,button,integer,integer,hashtable
+_LoadButtonHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadButtonHandleBJ_Category=TC_HASHTABLE
+
+//LoadVersionHandleBJ=0,0,version,integer,integer,hashtable
+//_LoadVersionHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadVersionHandleBJ_Category=TC_HASHTABLE
+
+//LoadItemTypeHandleBJ=0,0,itemtype,integer,integer,hashtable
+//_LoadItemTypeHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+//_LoadItemTypeHandleBJ_Category=TC_HASHTABLE
+
+LoadTextTagHandleBJ=0,0,texttag,integer,integer,hashtable
+_LoadTextTagHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadTextTagHandleBJ_Category=TC_HASHTABLE
+
+LoadLightningHandleBJ=0,0,lightning,integer,integer,hashtable
+_LoadLightningHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadLightningHandleBJ_Category=TC_HASHTABLE
+
+LoadImageHandleBJ=0,0,image,integer,integer,hashtable
+_LoadImageHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadImageHandleBJ_Category=TC_HASHTABLE
+
+LoadUbersplatHandleBJ=0,0,ubersplat,integer,integer,hashtable
+_LoadUbersplatHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadUbersplatHandleBJ_Category=TC_HASHTABLE
+
+LoadFogStateHandleBJ=0,0,fogstate,integer,integer,hashtable
+_LoadFogStateHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadFogStateHandleBJ_Category=TC_HASHTABLE
+
+LoadFogModifierHandleBJ=0,0,fogmodifier,integer,integer,hashtable
+_LoadFogModifierHandleBJ_Defaults=_,_,GetLastCreatedHashtableBJ
+_LoadFogModifierHandleBJ_Category=TC_HASHTABLE
+
 HaveStoredValue=1,0,boolean,string,cachevaluetype,string,gamecache
 _HaveStoredValue_Defaults=_,CacheValueTypeUnit,"Category",GetLastCreatedGameCacheBJ
 _HaveStoredValue_Category=TC_GAMECACHE
+
+HaveSavedValue=1,0,boolean,integer,hashtablevaluetype,integer,hashtable
+_HaveSavedValue_Defaults=_,HashtableValueTypeHandle,_,GetLastCreatedHashtableBJ
+_HaveSavedValue_Category=TC_HASHTABLE
 
 UnitHasItem=0,1,boolean,unit,item
 _UnitHasItem_Defaults=GetTriggerUnit,GetLastCreatedItem
@@ -3974,6 +5177,14 @@ _IsItemInvulnerable_Category=TC_ITEM
 LeaderboardHasPlayerItemBJ=0,0,boolean,leaderboard,player
 _LeaderboardHasPlayerItemBJ_Defaults=GetLastCreatedLeaderboard,Player00
 _LeaderboardHasPlayerItemBJ_Category=TC_LEADERBOARD
+
+IsMultiboardDisplayed=1,0,boolean,multiboard
+_IsMultiboardDisplayed_Defaults=GetLastCreatedMultiboard
+_IsMultiboardDisplayed_Category=TC_MULTIBOARD
+
+IsMultiboardMinimized=1,0,boolean,multiboard
+_IsMultiboardMinimized_Defaults=GetLastCreatedMultiboard
+_IsMultiboardMinimized_Category=TC_MULTIBOARD
 
 WaygateIsActiveBJ=0,0,boolean,unit
 _WaygateIsActiveBJ_Defaults=_
@@ -4115,6 +5326,10 @@ IsUnitEnemy=0,1,boolean,unit,player
 _IsUnitEnemy_Defaults=GetTriggerUnit,Player00
 _IsUnitEnemy_Category=TC_UNIT
 
+UnitHasBuffBJ=1,1,boolean,unit,buffcode
+_UnitHasBuffBJ_Defaults=GetTriggerUnit,_
+_UnitHasBuffBJ_Category=TC_UNIT
+
 IsUnitGroupEmptyBJ=0,1,boolean,group
 _IsUnitGroupEmptyBJ_Defaults=_
 _IsUnitGroupEmptyBJ_Category=TC_UNITGROUP
@@ -4178,6 +5393,10 @@ GetForLoopIndexB=0,0,integer
 _GetForLoopIndexB_Defaults=
 _GetForLoopIndexB_Category=TC_FORLOOP
 
+StringLength=1,1,integer,string
+_StringLength_Defaults=GetEventPlayerChatString
+_StringLength_Category=TC_NOTHING
+
 R2I=0,1,integer,real
 _R2I_Defaults=GetUnitStateSwap
 _R2I_Category=TC_CONVERSION
@@ -4194,6 +5413,10 @@ GetTerrainCliffLevelBJ=1,1,integer,location
 _GetTerrainCliffLevelBJ_Defaults=GetRectCenter
 _GetTerrainCliffLevelBJ_Category=TC_ENVIRONMENT
 
+GetTerrainVarianceBJ=1,1,integer,location
+_GetTerrainVarianceBJ_Defaults=GetRectCenter
+_GetTerrainVarianceBJ_Category=TC_ENVIRONMENT
+
 GetLearnedSkillLevel=0,0,integer
 _GetLearnedSkillLevel_Defaults=
 _GetLearnedSkillLevel_Category=TC_EVENTRESPONSE
@@ -4209,6 +5432,14 @@ _GetTeams_Category=TC_GAME
 GetAllyColorFilterState=1,1,integer
 _GetAllyColorFilterState_Defaults=
 _GetAllyColorFilterState_Category=TC_GAME
+
+GetTournamentFinishNowRule=1,0,integer
+_GetTournamentFinishNowRule_Defaults=
+_GetTournamentFinishNowRule_Category=TC_GAME
+
+GetTournamentScore=1,0,integer,player
+_GetTournamentScore_Defaults=Player00
+_GetTournamentScore_Category=TC_GAME
 
 GetStoredIntegerBJ=0,0,integer,string,string,gamecache
 _GetStoredIntegerBJ_Defaults=_,"Category",GetLastCreatedGameCacheBJ
@@ -4233,6 +5464,14 @@ _GetHeroSkillPoints_Category=TC_HERO
 GetItemLevel=1,1,integer,item
 _GetItemLevel_Defaults=GetLastCreatedItem
 _GetItemLevel_Category=TC_ITEM
+
+GetItemCharges=1,1,integer,item
+_GetItemCharges_Defaults=GetLastCreatedItem
+_GetItemCharges_Category=TC_ITEM
+
+GetItemUserData=1,1,integer,item
+_GetItemUserData_Defaults=_
+_GetItemUserData_Category=TC_ITEM
 
 LeaderboardGetPlayerIndexBJ=0,0,integer,player,leaderboard
 _LeaderboardGetPlayerIndexBJ_Defaults=Player00,GetLastCreatedLeaderboard
@@ -4262,6 +5501,14 @@ ModuloInteger=0,1,integer,integer,integer
 _ModuloInteger_Defaults=_,_
 _ModuloInteger_Category=TC_MATH
 
+MultiboardGetRowCount=1,1,integer,multiboard
+_MultiboardGetRowCount_Defaults=GetLastCreatedMultiboard
+_MultiboardGetRowCount_Category=TC_MULTIBOARD
+
+MultiboardGetColumnCount=1,1,integer,multiboard
+_MultiboardGetColumnCount_Defaults=GetLastCreatedMultiboard
+_MultiboardGetColumnCount_Category=TC_MULTIBOARD
+
 GetResourceAmount=0,1,integer,unit
 _GetResourceAmount_Defaults=_
 _GetResourceAmount_Category=TC_NEUTRALBUILDING
@@ -4269,6 +5516,14 @@ _GetResourceAmount_Category=TC_NEUTRALBUILDING
 GetPlayerState=0,1,integer,player,playerstate
 _GetPlayerState_Defaults=Player00,PlayerStateGold
 _GetPlayerState_Category=TC_PLAYER
+
+GetPlayerTaxRateBJ=1,1,integer,playerresource,player,player
+_GetPlayerTaxRateBJ_Defaults=PlayerResourceGold,Player00,Player01
+_GetPlayerTaxRateBJ_Category=TC_PLAYER
+
+GetPlayerScore=1,1,integer,player,playerscore
+_GetPlayerScore_Defaults=Player00,PlayerScoreTotal
+_GetPlayerScore_Category=TC_PLAYER
 
 GetConvertedPlayerId=0,1,integer,player
 _GetConvertedPlayerId_Defaults=GetTriggerPlayer
@@ -4333,6 +5588,22 @@ _GetUnitPointValueByType_Category=TC_UNIT
 GetUnitUserData=1,1,integer,unit
 _GetUnitUserData_Defaults=_
 _GetUnitUserData_Category=TC_UNIT
+
+GetUnitLevel=1,1,integer,unit
+_GetUnitLevel_Defaults=GetTriggerUnit
+_GetUnitLevel_Category=TC_UNIT
+
+GetUnitAbilityLevelSwapped=1,1,integer,abilcode,unit
+_GetUnitAbilityLevelSwapped_Defaults=_,GetTriggerUnit
+_GetUnitAbilityLevelSwapped_Category=TC_UNIT
+
+UnitInventoryCount=1,1,integer,unit
+_UnitInventoryCount_Defaults=GetTriggerUnit
+_UnitInventoryCount_Category=TC_UNIT
+
+UnitInventorySizeBJ=1,1,integer,unit
+_UnitInventorySizeBJ_Defaults=GetTriggerUnit
+_UnitInventorySizeBJ_Category=TC_UNIT
 
 UnitCountBuffsExBJ=1,1,integer,buffpolarity,buffresist,unit,includeoption,includeoption
 _UnitCountBuffsExBJ_Defaults=BuffPolarityEither,BuffResistEither,GetTriggerUnit,InclusionInclude,InclusionInclude
@@ -4444,6 +5715,10 @@ GetEventDamage=0,0,real
 _GetEventDamage_Defaults=
 _GetEventDamage_Category=TC_EVENTRESPONSE
 
+GetTournamentFinishSoonTimeRemaining=1,0,real
+_GetTournamentFinishSoonTimeRemaining_Defaults=
+_GetTournamentFinishSoonTimeRemaining_Category=TC_EVENTRESPONSE
+
 GetTimeOfDay=0,1,real
 _GetTimeOfDay_Defaults=
 _GetTimeOfDay_Category=TC_GAME
@@ -4459,6 +5734,22 @@ _GetStoredRealBJ_Category=TC_GAMECACHE
 GetItemLifeBJ=0,0,real,item
 _GetItemLifeBJ_Defaults=GetLastCreatedItem
 _GetItemLifeBJ_Category=TC_ITEM
+
+GetLightningColorRBJ=1,0,real,lightning
+_GetLightningColorRBJ_Defaults=GetLastCreatedLightningBJ
+_GetLightningColorRBJ_Category=TC_LIGHTNING
+
+GetLightningColorGBJ=1,0,real,lightning
+_GetLightningColorGBJ_Defaults=GetLastCreatedLightningBJ
+_GetLightningColorGBJ_Category=TC_LIGHTNING
+
+GetLightningColorBBJ=1,0,real,lightning
+_GetLightningColorBBJ_Defaults=GetLastCreatedLightningBJ
+_GetLightningColorBBJ_Category=TC_LIGHTNING
+
+GetLightningColorABJ=1,0,real,lightning
+_GetLightningColorABJ_Defaults=GetLastCreatedLightningBJ
+_GetLightningColorABJ_Category=TC_LIGHTNING
 
 GetRandomReal=0,1,real,real,real
 _GetRandomReal_Defaults=0,1
@@ -4653,6 +5944,8 @@ SubStringBJ=0,1,string,string,integer,integer
 _SubStringBJ_Defaults=_,1,5
 _SubStringBJ_Category=TC_NOTHING
 
+
+
 I2S=0,1,string,integer
 _I2S_Defaults=GetConvertedPlayerId
 _I2S_Category=TC_CONVERSION
@@ -4678,6 +5971,14 @@ StringIdentity=1,0,string,StringExt
 _StringIdentity_Defaults=_
 _StringIdentity_Category=TC_CONVERSION
 
+StringCase=1,1,string,StringExt,stringcaseoption
+_StringCase_Defaults=_,StringCaseLower
+_StringCase_Category=TC_CONVERSION
+
+GetDestructableName=1,1,string,destructable
+_GetDestructableName_Defaults=GetLastCreatedDestructable
+_GetDestructableName_Category=TC_DESTRUCT
+
 GetEventPlayerChatString=0,0,string
 _GetEventPlayerChatString_Defaults=
 _GetEventPlayerChatString_Category=TC_EVENTRESPONSE
@@ -4690,13 +5991,41 @@ GetSaveBasicFilename=1,0,string
 _GetSaveBasicFilename_Defaults=
 _GetSaveBasicFilename_Category=TC_EVENTRESPONSE
 
+GetAbilityName=1,1,string,abilcode
+_GetAbilityName_Defaults=_
+_GetAbilityName_Category=TC_GAME
+
+GetAbilityEffectBJ=1,1,string,abilcode,effecttype,integer
+_GetAbilityEffectBJ_Defaults=_,EffectTypeEffect,0
+_GetAbilityEffectBJ_Category=TC_GAME
+
+GetAbilitySoundBJ=1,1,string,abilcode,soundtype
+_GetAbilitySoundBJ_Defaults=_,SoundTypeEffect
+_GetAbilitySoundBJ_Category=TC_GAME
+
 GetStoredStringBJ=1,0,string,string,string,gamecache
 _GetStoredStringBJ_Defaults=_,"Category",GetLastCreatedGameCacheBJ
 _GetStoredStringBJ_Category=TC_GAMECACHE
 
+GetHeroProperName=1,1,string,unit
+_GetHeroProperName_Defaults=GetTriggerUnit
+_GetHeroProperName_Category=TC_HERO
+
+GetItemName=1,1,string,item
+_GetItemName_Defaults=GetLastCreatedItem
+_GetItemName_Category=TC_ITEM
+
+MultiboardGetTitleText=1,1,string,multiboard
+_MultiboardGetTitleText_Defaults=GetLastCreatedMultiboard
+_MultiboardGetTitleText_Category=TC_MULTIBOARD
+
 GetPlayerName=0,1,string,player
 _GetPlayerName_Defaults=GetTriggerPlayer
 _GetPlayerName_Category=TC_PLAYER
+
+GetTriggerName=1,1,string
+_GetTriggerName_Defaults=
+_GetTriggerName_Category=TC_TRIGGER
 
 GetUnitName=0,1,string,unit
 _GetUnitName_Defaults=GetTriggerUnit
@@ -4744,6 +6073,10 @@ GetOrderPointLoc=0,0,location
 _GetOrderPointLoc_Defaults=
 _GetOrderPointLoc_Category=TC_EVENTRESPONSE
 
+GetSpellTargetLoc=1,0,location
+_GetSpellTargetLoc_Defaults=
+_GetSpellTargetLoc_Category=TC_EVENTRESPONSE
+
 GetItemLoc=0,1,location,item
 _GetItemLoc_Defaults=GetLastCreatedItem
 _GetItemLoc_Category=TC_ITEM
@@ -4759,6 +6092,10 @@ _GetPlayerStartLocationLoc_Category=TC_PLAYER
 GetUnitLoc=0,1,location,unit
 _GetUnitLoc_Defaults=GetTriggerUnit
 _GetUnitLoc_Category=TC_UNIT
+
+GetUnitRallyPoint=1,1,location,unit
+_GetUnitRallyPoint_Defaults=GetTriggerUnit
+_GetUnitRallyPoint_Category=TC_UNIT
 
 
 // returns rect
@@ -4852,6 +6189,10 @@ GetConstructedStructure=0,0,unit
 _GetConstructedStructure_Defaults=
 _GetConstructedStructure_Category=TC_EVENTRESPONSE
 
+GetEventDamageSource=1,0,unit
+_GetEventDamageSource_Defaults=
+_GetEventDamageSource_Category=TC_EVENTRESPONSE
+
 GetDecayingUnit=0,0,unit
 _GetDecayingUnit_Defaults=
 _GetDecayingUnit_Category=TC_EVENTRESPONSE
@@ -4928,6 +6269,10 @@ GetOrderTargetUnit=0,0,unit
 _GetOrderTargetUnit_Defaults=
 _GetOrderTargetUnit_Category=TC_EVENTRESPONSE
 
+GetSpellTargetUnit=1,0,unit
+_GetSpellTargetUnit_Defaults=
+_GetSpellTargetUnit_Category=TC_EVENTRESPONSE
+
 GetEventTargetUnit=0,0,unit
 _GetEventTargetUnit_Defaults=
 _GetEventTargetUnit_Category=TC_EVENTRESPONSE
@@ -4943,6 +6288,10 @@ _GetTransportUnitBJ_Category=TC_EVENTRESPONSE
 GetTriggerUnit=0,0,unit
 _GetTriggerUnit_Defaults=
 _GetTriggerUnit_Category=TC_EVENTRESPONSE
+
+GetUnitRallyUnit=1,0,unit,unit
+_GetUnitRallyUnit_Defaults=GetTriggerUnit
+_GetUnitRallyUnit_Category=TC_UNIT
 
 
 // returns unitcode
@@ -4981,6 +6330,10 @@ GetIssuedOrderIdBJ=0,0,ordercode
 _GetIssuedOrderIdBJ_Defaults=
 _GetIssuedOrderIdBJ_Category=TC_EVENTRESPONSE
 
+GetUnitCurrentOrder=1,0,ordercode,unit
+_GetUnitCurrentOrder_Defaults=GetTriggerUnit
+_GetUnitCurrentOrder_Category=TC_UNIT
+
 
 // returns destructable
 GetLastCreatedDestructable=0,0,destructable
@@ -5010,6 +6363,14 @@ _GetDyingDestructable_Category=TC_EVENTRESPONSE
 GetOrderTargetDestructable=0,0,destructable
 _GetOrderTargetDestructable_Defaults=
 _GetOrderTargetDestructable_Category=TC_EVENTRESPONSE
+
+GetSpellTargetDestructable=1,0,destructable
+_GetSpellTargetDestructable_Defaults=
+_GetSpellTargetDestructable_Category=TC_EVENTRESPONSE
+
+GetUnitRallyDestructable=1,0,destructable,unit
+_GetUnitRallyDestructable_Defaults=GetTriggerUnit
+_GetUnitRallyDestructable_Category=TC_UNIT
 
 
 // returns destructablecode
@@ -5063,6 +6424,10 @@ _GetSoldItem_Category=TC_EVENTRESPONSE
 GetOrderTargetItem=0,0,item
 _GetOrderTargetItem_Defaults=
 _GetOrderTargetItem_Category=TC_EVENTRESPONSE
+
+GetSpellTargetItem=1,0,item
+_GetSpellTargetItem_Defaults=
+_GetSpellTargetItem_Category=TC_EVENTRESPONSE
 
 
 // returns itemtype
@@ -5293,6 +6658,24 @@ _GetLastCreatedEffectBJ_Defaults=
 _GetLastCreatedEffectBJ_Category=TC_LAST
 
 
+// returns lightning
+GetLastCreatedLightningBJ=1,0,lightning
+_GetLastCreatedLightningBJ_Defaults=
+_GetLastCreatedLightningBJ_Category=TC_LAST
+
+
+// returns image
+GetLastCreatedImage=1,0,image
+_GetLastCreatedImage_Defaults=
+_GetLastCreatedImage_Category=TC_LAST
+
+
+// returns ubersplat
+GetLastCreatedUbersplat=1,0,ubersplat
+_GetLastCreatedUbersplat_Defaults=
+_GetLastCreatedUbersplat_Category=TC_LAST
+
+
 // returns weathereffect
 GetLastCreatedWeatherEffect=0,0,weathereffect
 _GetLastCreatedWeatherEffect_Defaults=
@@ -5303,6 +6686,12 @@ _GetLastCreatedWeatherEffect_Category=TC_LAST
 GetLastCreatedTerrainDeformation=1,0,terraindeformation
 _GetLastCreatedTerrainDeformation_Defaults=
 _GetLastCreatedTerrainDeformation_Category=TC_LAST
+
+
+// returns terraintype
+GetTerrainTypeBJ=1,1,terraintype,location
+_GetTerrainTypeBJ_Defaults=GetRectCenter
+_GetTerrainTypeBJ_Category=TC_ENVIRONMENT
 
 
 // returns sound
@@ -5361,6 +6750,12 @@ _PlayerGetLeaderboardBJ_Defaults=Player00
 _PlayerGetLeaderboardBJ_Category=TC_NOTHING
 
 
+// returns multiboard
+GetLastCreatedMultiboard=1,0,multiboard
+_GetLastCreatedMultiboard_Defaults=
+_GetLastCreatedMultiboard_Category=TC_LAST
+
+
 // returns timer
 GetLastCreatedTimerBJ=0,0,timer
 _GetLastCreatedTimerBJ_Defaults=
@@ -5381,6 +6776,11 @@ _GetLastCreatedTimerDialogBJ_Category=TC_LAST
 GetLastCreatedGameCacheBJ=0,0,gamecache
 _GetLastCreatedGameCacheBJ_Defaults=
 _GetLastCreatedGameCacheBJ_Category=TC_LAST
+
+// returns hashtable
+GetLastCreatedHashtableBJ=0,0,hashtable
+_GetLastCreatedHashtableBJ_Defaults=
+_GetLastCreatedHashtableBJ_Category=TC_LAST
 
 
 // returns texttag

@@ -91,17 +91,50 @@ namespace WC3ProjectManager.Map.Import
             WC3Import imp = new WC3Import();
 
             //ini
+            if (!dir.EndsWith("\\")) { dir += "\\"; }
             IniFile[] files = IniFile.LoadFromDir(dir);
-            foreach (IniFile f in files)
+            foreach (IniFile ini in files)
             {
-                //Записи
-                foreach (var en in f.Entries)
+                foreach (var en in ini.Entries)
                 {
-                    WC3ImportRecord r = new WC3ImportRecord();
-                    r.DiscPath = en.Name;
-                    r.ImportPath = en.Value;
-                    r.FileData = File.ReadAllBytes(dir + "\\" + r.DiscPath);
-                    imp.Records.Add(r);
+                    //Обычная запись
+                    int discStarInx = en.Name.IndexOf('*');
+                    int impStarInx = en.Value.IndexOf('*');
+                    if (discStarInx == -1)
+                    {
+                        WC3ImportRecord r = new WC3ImportRecord();
+                        r.DiscPath = en.Name;
+                        r.ImportPath = en.Value;
+                        r.FileData = File.ReadAllBytes(dir + r.DiscPath);
+                        imp.Records.Add(r);
+                    }
+                    //Запись со звёздочкой
+                    else
+                    {
+                        //Пути к файлам
+                        string fDir = dir+en.Name[0..discStarInx];
+                        string fPattern = en.Name[discStarInx..];
+                        string[] pathes = Directory.GetFiles(fDir, fPattern);
+
+                        //Перечисление файлов
+                        foreach (string fPath in pathes)
+                        {
+                            //Имя
+                            string name = fPath.Remove(0, fDir.Length);
+                            name = name.Remove(name.Length-fPattern.Length+1);
+
+                            //Запись
+                            WC3ImportRecord r = new WC3ImportRecord();
+                            imp.Records.Add(r);
+
+                            //Пути
+                            r.DiscPath = fPath.Remove(0, dir.Length);
+                            r.ImportPath = en.Value[0..impStarInx] + name + en.Value[(impStarInx+1)..];
+
+                            //Данные
+                            r.FileData = File.ReadAllBytes(fPath);
+                        }
+                    }
                 }
             }
             return imp;

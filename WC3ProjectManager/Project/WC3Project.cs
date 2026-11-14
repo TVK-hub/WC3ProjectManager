@@ -181,7 +181,7 @@ namespace WC3ProjectManager.Project
                 if (cf != null) { m.Config.Inject(cf); }
 
                 //Объекты
-                if (objs!=null) { m.Objects.Inject(objs);  }
+                if (objs!=null) { m.Objects.Inject(objs); }
 
                 //Триггеры
                 if (triggers != null) { m.Triggers.Inject(triggers); }

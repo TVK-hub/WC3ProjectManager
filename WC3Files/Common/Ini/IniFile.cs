@@ -28,13 +28,6 @@ namespace WC3Files.Common.Ini
             get;
         } = new List<IniSection>();
 
-        //Форматирование
-        public bool SpacesAroundDelimiter
-        {
-            get;
-            set;
-        } = true;
-
         //Загрузка
         public static IniFile Load(string path)
         {
@@ -82,7 +75,7 @@ namespace WC3Files.Common.Ini
         }
 
         //Сохранение
-        public void Save(string path)
+        public void Save(string path, bool spacesDel=true)
         {
             //Директория
             string? dir = Path.GetDirectoryName(path);
@@ -92,17 +85,17 @@ namespace WC3Files.Common.Ini
             using (FileStream stream = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
                 IniWriter writer = new IniWriter(stream);
-                writer.WriteFile(this);
+                writer.WriteFile(this, spacesDel);
                 writer.Dispose();
             }
         }
-        public void SaveToMPQ(MpqArchive mpq, string path)
+        public void SaveToMPQ(MpqArchive mpq, string path, bool spacesDel=true)
         {
             byte[] data = null;
             using (MemoryStream stream = new MemoryStream())
             {
                 IniWriter writer = new IniWriter(stream);
-                writer.WriteFile(this);
+                writer.WriteFile(this, spacesDel);
                 writer.Dispose();
                 data = stream.ToArray();
             }
@@ -113,7 +106,6 @@ namespace WC3Files.Common.Ini
         public IniFile Clone()
         {
             IniFile clone = new();
-            clone.SpacesAroundDelimiter = SpacesAroundDelimiter;
             foreach (IniSection sec in this.Sections)
             {
                 IniSection secClone = sec.Clone();

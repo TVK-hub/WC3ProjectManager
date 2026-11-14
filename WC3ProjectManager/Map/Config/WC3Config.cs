@@ -1,6 +1,5 @@
 ﻿using WC3Files.Common.Ini;
 using WC3Files.Common.MPQ;
-using WC3ProjectManager.Map.Objects;
 using WC3ProjectManager.Map.Strings;
 namespace WC3ProjectManager.Map.Config
 {
@@ -27,8 +26,6 @@ namespace WC3ProjectManager.Map.Config
             //Файлы
             cf.Misc = IniFile.LoadFromMPQ(mpq, "war3mapMisc.txt");
             cf.Skin = IniFile.LoadFromMPQ(mpq, "war3mapSkin.txt");
-            if (cf.Misc != null) cf.Misc.SpacesAroundDelimiter = false;
-            if (cf.Skin != null) cf.Skin.SpacesAroundDelimiter = false;
             if (cf.Skin != null && strings != null)
             {
                 foreach (var en in cf.Skin.Entries)
@@ -46,8 +43,6 @@ namespace WC3ProjectManager.Map.Config
             //Файлы
             if (File.Exists(dir + "\\" + "war3mapMisc.txt")) cf.Misc = IniFile.Load(dir + "\\" + "war3mapMisc.txt");
             if (File.Exists(dir + "\\" + "war3mapSkin.txt")) cf.Skin = IniFile.Load(dir + "\\" + "war3mapSkin.txt");
-            if (cf.Misc != null) cf.Misc.SpacesAroundDelimiter = false;
-            if (cf.Skin != null) cf.Skin.SpacesAroundDelimiter = false;
             return cf;
         }
 
@@ -56,13 +51,13 @@ namespace WC3ProjectManager.Map.Config
         {
             string miscPath = "war3mapMisc.txt";
             string skinPath = "war3mapSkin.txt";
-            if (Misc != null) { Misc.SaveToMPQ(mpq, miscPath); } else { mpq.DeleteFile(miscPath); }
-            if (Skin != null) { Skin.SaveToMPQ(mpq, skinPath); } else { mpq.DeleteFile(skinPath); }
+            if (Misc != null) { Misc.SaveToMPQ(mpq, miscPath, false); } else { mpq.DeleteFile(miscPath); }
+            if (Skin != null) { Skin.SaveToMPQ(mpq, skinPath, false); } else { mpq.DeleteFile(skinPath); }
         }
         public void SaveToProject(string dir)
         {
-            Misc?.Save(dir+"\\war3mapMisc.txt");
-            Skin?.Save(dir+"\\war3mapSkin.txt");
+            Misc?.Save(dir+"\\war3mapMisc.txt", false);
+            Skin?.Save(dir+"\\war3mapSkin.txt", false);
         }
 
         //Внедрить
