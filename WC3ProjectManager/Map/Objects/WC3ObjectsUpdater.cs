@@ -223,13 +223,18 @@ namespace WC3ProjectManager.Map.Objects
         //PMini
         public void FromPMini(string dir)
         {
+            //Метаданные
             var metaLst = Objs.Metadata;
-            IniFile[] inis = IniFile.LoadFromDir(dir, true);
-            foreach (IniFile ini in inis)
+            WC3Objects baseObjects = WC3ObjectsSet.Base[Objs.GameVers][Objs.Type];
+
+            //Загрузка из файлов Ini
+            List<WC3Object> objsWithParent = new();
+            foreach (IniFile ini in IniFile.LoadFromDir(dir, true))
             {
                 //Поля
                 string? objId = null;
                 string? objBaseId = null;
+                string? objParentId = null;
                 List <WC3ObjectField> fields = new();
                 Dictionary<string, int> idsCount = new();
                 foreach (IniEntry e in ini.Entries)
@@ -284,18 +289,49 @@ namespace WC3ProjectManager.Map.Objects
                     {
                         objBaseId = f.Value.ToString();
                     }
+                    else if (id == "ID_Parent")
+                    {
+                        objParentId = f.Value.ToString();
+                    }
                 }
 
                 //Объект
                 if (objId != null)
                 {
+                    //Получить объект
                     WC3Object? obj;
                     if (!Objs.TryGetValue(objId, out obj))
                     {
                         obj = new WC3Object(Objs.Type);
                         Objs.Add(objId, obj);
                     }
+
+                    //Добавить поля
                     foreach(var f in fields)
+                    {
+                        obj.Fields[f.Id, f.Level] = f;
+                    }
+
+                    //Кастомный ID?
+                    if (objParentId != null)
+                    {
+                        objsWithParent.Add(obj);
+                    }
+                }
+            }
+
+            //Обновление объектов с кастомными родителями
+            foreach (WC3Object obj in objsWithParent)
+            {
+                //Родитель
+                string parentId = obj.ParentId;
+                WC3Object parent = Objs[parentId];
+
+                //Добавить недостающие поля от родителя
+                obj.BaseId = (string.IsNullOrEmpty(parent.BaseId)) ? parent.Id : parent.BaseId;
+                foreach (WC3ObjectField f in parent.Fields.Values)
+                {
+                    if (obj.Fields.GetByIdLvl(f.Id, f.Level) == null)
                     {
                         obj.Fields[f.Id, f.Level] = f;
                     }

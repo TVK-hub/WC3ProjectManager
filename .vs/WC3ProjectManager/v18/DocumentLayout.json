@@ -3,44 +3,16 @@
   "WorkspaceRootPath": "C:\\Development\\VisualStudio\\WC3ProjectManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\metadata\\triggers\\trgmetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\metadata\\triggers\\trgmetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\objects\\wc3objectsupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\objects\\wc3objectsupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\metadata\\wc3metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\metadata\\wc3metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\objects\\wc3object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\objects\\wc3object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\triggers\\wtg\\wtgreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\triggers\\wtg\\wtgreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\triggers\\wtg\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\triggers\\wtg\\wtgfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\metadata\\triggers\\trgmetadatareader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\metadata\\triggers\\trgmetadatareader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\import\\wc3import.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\import\\wc3import.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3files\\common\\ini\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C4E85D4-FB71-486F-AAC0-91B53BB118BA}|WC3Files\\WC3Files.csproj|solutionrelative:wc3files\\common\\ini\\inifile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\wc3map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\wc3map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\project\\wc3project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\project\\wc3project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\config\\wc3config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\config\\wc3config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|c:\\development\\visualstudio\\wc3projectmanager\\wc3projectmanager\\map\\objects\\wc3objectsset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6011FA5C-AECD-4A8B-A29C-487887F99E3C}|WC3ProjectManager\\WC3ProjectManager.csproj|solutionrelative:wc3projectmanager\\map\\objects\\wc3objectsset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,136 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WC3Metadata.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\WC3Metadata.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Metadata\\WC3Metadata.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\WC3Metadata.cs",
-              "RelativeToolTip": "WC3Files\\Metadata\\WC3Metadata.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAtwC4AAAAXAAAAAAAAAA==",
+              "Title": "WC3Object.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3Object.cs",
+              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\Objects\\WC3Object.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3Object.cs",
+              "RelativeToolTip": "WC3ProjectManager\\Map\\Objects\\WC3Object.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T17:58:26.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TrgMetadataReader.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\Triggers\\TrgMetadataReader.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Metadata\\Triggers\\TrgMetadataReader.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\Triggers\\TrgMetadataReader.cs",
-              "RelativeToolTip": "WC3Files\\Metadata\\Triggers\\TrgMetadataReader.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAtwB8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T17:57:42.189Z",
+              "WhenOpened": "2026-11-14T21:20:40.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TrgMetadata.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\Triggers\\TrgMetadata.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Metadata\\Triggers\\TrgMetadata.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Metadata\\Triggers\\TrgMetadata.cs",
-              "RelativeToolTip": "WC3Files\\Metadata\\Triggers\\TrgMetadata.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAtwAwAAAAMAAAAAAAAAA==",
+              "Title": "WC3ObjectsUpdater.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3ObjectsUpdater.cs",
+              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\Objects\\WC3ObjectsUpdater.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3ObjectsUpdater.cs",
+              "RelativeToolTip": "WC3ProjectManager\\Map\\Objects\\WC3ObjectsUpdater.cs",
+              "ViewState": "AgIAADwBAAAAAAAAAAArwEMBAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T17:57:32.328Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WtgFile.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgFile.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Triggers\\Wtg\\WtgFile.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgFile.cs",
-              "RelativeToolTip": "WC3Files\\Triggers\\Wtg\\WtgFile.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAtwCcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T17:57:23.462Z",
+              "WhenOpened": "2026-11-14T20:35:43.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "WtgReader.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgReader.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Triggers\\Wtg\\WtgReader.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Triggers\\Wtg\\WtgReader.cs",
-              "RelativeToolTip": "WC3Files\\Triggers\\Wtg\\WtgReader.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAtwDQAAAAQAAAAAAAAAA==",
+              "Title": "WC3ObjectsSet.cs",
+              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3ObjectsSet.cs",
+              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\Objects\\WC3ObjectsSet.cs",
+              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Objects\\WC3ObjectsSet.cs",
+              "RelativeToolTip": "WC3ProjectManager\\Map\\Objects\\WC3ObjectsSet.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T17:56:57.124Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WC3Import.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Import\\WC3Import.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\Import\\WC3Import.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Import\\WC3Import.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Map\\Import\\WC3Import.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAtwHgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T08:40:13.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IniFile.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Common\\Ini\\IniFile.cs",
-              "RelativeDocumentMoniker": "WC3Files\\Common\\Ini\\IniFile.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3Files\\Common\\Ini\\IniFile.cs",
-              "RelativeToolTip": "WC3Files\\Common\\Ini\\IniFile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T08:20:36.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WC3Map.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\WC3Map.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\WC3Map.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\WC3Map.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Map\\WC3Map.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAArwDIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T11:15:01.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WC3Config.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Config\\WC3Config.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Map\\Config\\WC3Config.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Map\\Config\\WC3Config.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Map\\Config\\WC3Config.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAMAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T16:07:19.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "WC3Project.cs",
-              "DocumentMoniker": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Project\\WC3Project.cs",
-              "RelativeDocumentMoniker": "WC3ProjectManager\\Project\\WC3Project.cs",
-              "ToolTip": "C:\\Development\\VisualStudio\\WC3ProjectManager\\WC3ProjectManager\\Project\\WC3Project.cs",
-              "RelativeToolTip": "WC3ProjectManager\\Project\\WC3Project.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAtwL0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-13T15:31:44.155Z",
+              "WhenOpened": "2026-11-14T20:35:30.968Z",
               "EditorCaption": ""
             }
           ]

@@ -31,7 +31,26 @@ namespace WC3ProjectManager.Map.Objects
             set
             {
                 var f = Fields.GetByName("ID_Base");
-                f.Value = value;
+                if (f == null) { Fields.Create("", "ID_Base", value, 0); }
+                else { f.Value = value; }
+            }
+        }
+
+        //Родительский Id
+        public string ParentId
+        {
+            get
+            {
+                string id = "";
+                var f = Fields.GetByName("ID_Parent");
+                if (f != null) { id = f.Value.ToString(); }
+                return id;
+            }
+            set
+            {
+                var f = Fields.GetByName("ID_Parent");
+                if (f == null) { Fields.Create("", "ID_Parent", value, 0); }
+                else { f.Value = value; }
             }
         }
 
