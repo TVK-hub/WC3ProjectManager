@@ -17,8 +17,18 @@
                 case "int":
                 case "bool":
                 case "attackBits":
-                case "deathType":
                 case "teamColor":
+                case "deathType":
+                case "detectionType":
+                case "defenseTypeInt":
+                case "channelType":
+                case "channelFlags":
+                case "interactionFlags":
+                case "morphFlags":
+                case "stackFlags":
+                case "silenceFlags":
+                case "fullFlags":
+                case "pickFlags":
                     valueType = W3objValueType.Int;
                     break;
                 case "real":

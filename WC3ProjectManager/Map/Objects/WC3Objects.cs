@@ -264,6 +264,7 @@ namespace WC3ProjectManager.Map.Objects
                         modField.DataPointer = meta.Data;
 
                         //Значение
+                        if (Type == W3objTypes.Unit && f.Id == "udp1" && f.Value.ToString().IndexOf(",") > 0) { }
                         modField.ValueType = W3objValueTypeEx.FromMetaType(meta.Type);
                         string? vStr = f.Value?.ToString();
                         switch (modField.ValueType)
@@ -282,11 +283,12 @@ namespace WC3ProjectManager.Map.Objects
                             case W3objValueType.Real:
                             case W3objValueType.Unreal:
                                 {
+                                    vStr = vStr.Replace(',', '.');
                                     float v; if (!float.TryParse(vStr, CultureInfo.InvariantCulture, out v))
                                     {
                                         meta.Fields.TryGetValue("minVal", out ObjMetadataField? fMin);
                                         vStr = fMin?.Value?.ToString();
-                                        v = float.Parse(vStr);
+                                        v = float.Parse(vStr.Replace(',', '.'));
                                     }
                                     modField.Value = v;
                                 }
