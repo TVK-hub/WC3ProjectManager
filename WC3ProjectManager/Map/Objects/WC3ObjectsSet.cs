@@ -29,7 +29,7 @@ namespace WC3ProjectManager.Map.Objects
         }
 
         //Загрузка
-        public static WC3ObjectsSet LoadFromMPQ(MpqArchive mpq, string gameVer)
+        public static WC3ObjectsSet LoadFromMPQ(MpqArchive mpq, string gameVer, WC3Strings strings)
         {
             WC3ObjectsSet baseObjects = Base[gameVer];
             WC3ObjectsSet objs = baseObjects.Clone();
@@ -53,7 +53,7 @@ namespace WC3ProjectManager.Map.Objects
                 //Обновление
                 if (file != null)
                 {
-                    objs[objType].UpdateFromW3obj(file);
+                    objs[objType].UpdateFromW3obj(file, strings);
                 }
             }
             return objs;
@@ -100,7 +100,7 @@ namespace WC3ProjectManager.Map.Objects
         }
 
         //Сохранить
-        public void SaveToProject(string dir, WC3Strings strings)
+        public void SaveToProject(string dir)
         {
             foreach (var itm in this)
             {
@@ -130,7 +130,7 @@ namespace WC3ProjectManager.Map.Objects
                         path += "\\Destructable";
                         break;
                 }
-                objs.SaveToPMini(path, strings);
+                objs.SaveToPMini(path);
             }
         }
         public void SaveToMPQ(MpqArchive mpq)

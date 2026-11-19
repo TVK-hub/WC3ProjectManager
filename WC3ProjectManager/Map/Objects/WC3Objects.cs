@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Microsoft.VisualBasic;
+using System.Globalization;
 using WC3Files;
 using WC3Files.Common.Ini;
 using WC3Files.Common.SLK;
@@ -63,32 +64,32 @@ namespace WC3ProjectManager.Map.Objects
         }
 
         //Обновить
-        public void UpdateFromW3slk(string slkPath, bool baseTable=false)
+        public void UpdateFromW3slk(string slkPath, WC3Strings strings, bool baseTable=false)
         {
             SlkFile slk = SlkFile.Load(slkPath);
             string slkName = Path.GetFileNameWithoutExtension(slkPath);
-            WC3ObjectsUpdater upd = new(this);
+            WC3ObjectsUpdater upd = new(this, strings);
             upd.FromW3slk(slk, slkName, baseTable);
         }
-        public void UpdateFromW3ini(string iniPath)
+        public void UpdateFromW3ini(string iniPath, WC3Strings strings)
         {
             IniFile ini = IniFile.Load(iniPath);
-            WC3ObjectsUpdater upd = new(this);
+            WC3ObjectsUpdater upd = new(this, strings);
             upd.FromW3ini(ini);
         }
-        public void UpdateFromW3obj(W3objFile w3obj)
+        public void UpdateFromW3obj(W3objFile w3obj, WC3Strings strings)
         {
-            WC3ObjectsUpdater upd = new(this);
+            WC3ObjectsUpdater upd = new(this, strings);
             upd.FromW3obj(w3obj);
         }
         public void UpdateFromPMini(string dir)
         {
-            WC3ObjectsUpdater upd = new(this);
+            WC3ObjectsUpdater upd = new(this, null);
             upd.FromPMini(dir);
         }
 
         //Сохранить
-        public void SaveToPMini(string dir, WC3Strings strings)
+        public void SaveToPMini(string dir)
         {
             foreach (var obj in Values)
             {
@@ -128,108 +129,17 @@ namespace WC3ProjectManager.Map.Objects
                 {
                     path += "\\Items";
                 }
-
                 //Название
                 path += $"\\[{obj.Id}]";
                 if (!string.IsNullOrEmpty(obj.Name))
                 {
-                    string name = strings.Resolve(obj.Name);
+                    string name = obj.Name;
                     path += $" {name.ToFileName()}";
                 }
                 path += ".ini";
 
-                //Файл
-                IniFile ini = new IniFile();
-
-                //Записи
-                int nameMaxLen = 0;
-                Dictionary<IniEntry, WC3ObjectField> fieldsDict = new();
-                WC3ObjectField? fLvls = obj.Fields.GetByName("levels");
-                if (fLvls==null) fLvls = obj.Fields.GetByName("numVar");
-                foreach (WC3ObjectField f in obj.Fields.Values)
-                {
-                    //Лишний уровень?
-                    if (fLvls != null && f.Level > (int)fLvls.Value) { continue; }
-
-                    //Секция
-                    WC3ObjectFieldLayout layout = WC3ObjectLayout.GetFieldLayout(f);
-                    IniSection? sec = ini.Sections.FirstOrDefault(itm => itm.Name == layout.SectionName);
-                    if (sec == null)
-                    {
-                        sec = new IniSection(layout.SectionName);
-                        ini.Sections.Add(sec);
-                    }
-
-                    //Запись
-                    IniEntry e = new IniEntry(sec); fieldsDict[e] = f;
-                    sec.Entries.Add(e);
-
-                    //Имя
-                    if (!string.IsNullOrEmpty(layout.Name))
-                    {
-                        e.Name = layout.Name;
-                    }
-                    else
-                    {
-                        e.Name = f.Name;
-                    }
-                    if (f.Level > 0) { e.Name += " " + f.Level; }
-                    if (!string.IsNullOrEmpty(f.Id)) { e.Name = f.Id + " | " + e.Name; }
-                    nameMaxLen = Math.Max(nameMaxLen, e.Name.Length);
-
-                    //Значение
-                    string v = "_";
-                    if (f.Value != null)
-                    {
-                        Type type = f.Value.GetType();
-                        if (type == typeof(float))
-                        {
-                            float real = (float)f.Value; 
-                            v = real.ToString(CultureInfo.InvariantCulture);
-                        }
-                        else
-                        {
-                            v = strings.Resolve(f.Value.ToString());
-                        }
-                    }
-                    e.Value = v;
-                }
-
-                //Отступы
-                foreach (IniEntry e in ini.Entries)
-                {
-                    while (e.Name.Length < nameMaxLen)
-                    {
-                        e.Name += " ";
-                    }
-                }
-
-                //Сортировка
-                ini.Sections.Sort(
-                    delegate (IniSection sec1, IniSection sec2)
-                    {
-                        var lay1 = WC3ObjectLayout.GetFieldLayout(fieldsDict[sec1.Entries[0]]);
-                        var lay2 = WC3ObjectLayout.GetFieldLayout(fieldsDict[sec2.Entries[0]]);
-                        return lay1.SectionIndex.CompareTo(lay2.SectionIndex);
-                    }
-                );
-                foreach (IniSection sec in ini.Sections)
-                {
-                    sec.Entries.Sort(delegate (IniEntry e1, IniEntry e2) {
-                        WC3ObjectField f1 = fieldsDict[e1];
-                        WC3ObjectField f2 = fieldsDict[e2];
-                        var lay1 = WC3ObjectLayout.GetFieldLayout(f1);
-                        var lay2 = WC3ObjectLayout.GetFieldLayout(f2);
-                        int i1 = lay1.Index*100 + f1.Level;
-                        int i2 = lay2.Index*100 + f2.Level;
-                        return i1.CompareTo(i2);
-                    });
-                }
-
-                //Сохранение
-                string? pathDir = Path.GetDirectoryName(path);
-                if (pathDir != null) Directory.CreateDirectory(pathDir);
-                ini.Save(path);
+                //Сохранить в файл
+                obj.Save(path);
             }
         }
 

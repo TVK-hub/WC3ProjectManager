@@ -132,7 +132,7 @@ namespace WC3ProjectManager.Project
             //Объекты
             if (dataType.HasFlag(WC3DataType.Objects))
             {
-                map.Objects.SaveToProject(Dirs.Objects, map.Strings);
+                map.Objects.SaveToProject(Dirs.Objects);
             }
 
             //Триггеры

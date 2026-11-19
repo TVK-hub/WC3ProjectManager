@@ -5,6 +5,7 @@ using WC3Files.Common.Ini;
 using WC3Files.Common.SLK;
 using WC3Files.Metadata.Objects;
 using WC3Files.Objects;
+using WC3ProjectManager.Map.Strings;
 using WC3ProjectManager.Project;
 namespace WC3ProjectManager.Map.Objects
 {
@@ -12,11 +13,13 @@ namespace WC3ProjectManager.Map.Objects
     {
         //Объекты
         WC3Objects Objs;
+        WC3Strings Strings;
 
         //Конструктор
-        public WC3ObjectsUpdater(WC3Objects objs)
+        public WC3ObjectsUpdater(WC3Objects objs, WC3Strings strings)
         {
             Objs = objs;
+            Strings = strings;
         }
 
         //W3slk
@@ -36,7 +39,8 @@ namespace WC3ProjectManager.Map.Objects
                 WC3Object? obj;
                 if (!Objs.TryGetValue(objId, out obj) && baseTable)
                 {
-                    obj = new WC3Object(Objs.Type);
+                    obj = new WC3Object();
+                    obj.WC3Type = Objs.Type;
                     obj.Fields["ID", 0] = new WC3ObjectField()
                     {
                         Name = "ID",
@@ -64,6 +68,7 @@ namespace WC3ProjectManager.Map.Objects
 
                     //Значение
                     object? value = slk[r, c];
+                    if (value is string s) { value = Strings.Resolve(s); }
                     if (value == null) { continue; }
 
                     //Поле
@@ -122,10 +127,11 @@ namespace WC3ProjectManager.Map.Objects
                             if (name != meta.Name) { i--; break; }
 
                             //Значение
-                            string v = ent.Value.Trim('"');
+                            string value = ent.Value.Trim('"');
+                            if (value is string s) { value = Strings.Resolve(s); }
 
                             //Поле
-                            obj.Fields.Create(meta.Id, name, v, lvl);
+                            obj.Fields.Create(meta.Id, name, value, lvl);
                         }
                     }
                     else if ((int?)meta.GetFieldValue("repeat") > 0)
@@ -302,7 +308,8 @@ namespace WC3ProjectManager.Map.Objects
                     WC3Object? obj;
                     if (!Objs.TryGetValue(objId, out obj))
                     {
-                        obj = new WC3Object(Objs.Type);
+                        obj = new WC3Object();
+                        obj.WC3Type = Objs.Type;
                         Objs.Add(objId, obj);
                     }
 
