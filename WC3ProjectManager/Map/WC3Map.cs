@@ -86,10 +86,10 @@ namespace WC3ProjectManager.Map
             {
                 m.Info     = W3iFile.LoadFromMPQ(mpq);
                 m.Strings  = WC3Strings.LoadFromMPQ(mpq, m.GameVers);
-                m.Config   = allowedData.HasFlag(WC3DataType.Config)   ? WC3Config.LoadFromMPQ(mpq, m.Strings)      : new();
-                m.Objects  = allowedData.HasFlag(WC3DataType.Objects ) ? WC3ObjectsSet.LoadFromMPQ(mpq, m.GameVers) : new(m.GameVers);
-                m.Triggers = allowedData.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromMPQ(mpq, gameVer)      : new();
-                m.Import   = allowedData.HasFlag(WC3DataType.Import  ) ? WC3Import.LoadFromMPQ(mpq)                 : new();
+                m.Config   = allowedData.HasFlag(WC3DataType.Config)   ? WC3Config.LoadFromMPQ(mpq, m.Strings)                 : new();
+                m.Objects  = allowedData.HasFlag(WC3DataType.Objects ) ? WC3ObjectsSet.LoadFromMPQ(mpq, m.GameVers, m.Strings) : new(m.GameVers);
+                m.Triggers = allowedData.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromMPQ(mpq, gameVer)                 : new();
+                m.Import   = allowedData.HasFlag(WC3DataType.Import  ) ? WC3Import.LoadFromMPQ(mpq)                            : new();
             }
             return m;
         }
