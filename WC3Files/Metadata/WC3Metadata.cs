@@ -1,5 +1,6 @@
 ﻿using WC3Files.Metadata.Objects;
 using WC3Files.Metadata.Triggers;
+using WC3Files.Objects;
 namespace WC3Files.Metadata
 {
     public class WC3Metadata
@@ -10,32 +11,7 @@ namespace WC3Files.Metadata
             get;
             private set;
         }
-        public ObjMetadata Units
-        {
-            get;
-            private set;
-        }
-        public ObjMetadata Abilities
-        {
-            get;
-            private set;
-        }
-        public ObjMetadata Buffs
-        {
-            get;
-            private set;
-        }
-        public ObjMetadata Upgrades
-        {
-            get;
-            private set;
-        }
-        public ObjMetadata Doodads
-        {
-            get;
-            private set;
-        }
-        public ObjMetadata Destructables
+        public Dictionary<W3objTypes, ObjMetadata> Objects
         {
             get;
             private set;
@@ -45,12 +21,14 @@ namespace WC3Files.Metadata
         public void Load(string dir)
         {
             Triggers = TrgMetadata.LoadFromFile(dir+"TriggerData.txt");
-            Units = ObjMetadata.LoadFromFile(dir+"UnitMetaData.slk");
-            Abilities = ObjMetadata.LoadFromFile(dir+"AbilityMetaData.slk");
-            Buffs = ObjMetadata.LoadFromFile(dir+"AbilityBuffMetaData.slk");
-            Upgrades = ObjMetadata.LoadFromFile(dir+"UpgradeMetaData.slk");
-            Doodads = ObjMetadata.LoadFromFile(dir+"DoodadMetaData.slk");
-            Destructables = ObjMetadata.LoadFromFile(dir+"DestructableMetaData.slk");
+            Objects = new Dictionary<W3objTypes, ObjMetadata>();
+            Objects[W3objTypes.Unit] = ObjMetadata.LoadFromFile(dir+"UnitMetaData.slk");
+            Objects[W3objTypes.Item] = ObjMetadata.LoadFromFile(dir+"UnitMetaData.slk");
+            Objects[W3objTypes.Ability] = ObjMetadata.LoadFromFile(dir + "AbilityMetaData.slk");
+            Objects[W3objTypes.Buff] = ObjMetadata.LoadFromFile(dir + "AbilityBuffMetaData.slk");
+            Objects[W3objTypes.Upgrade] = ObjMetadata.LoadFromFile(dir + "UpgradeMetaData.slk");
+            Objects[W3objTypes.Doodad] = ObjMetadata.LoadFromFile(dir + "DoodadMetaData.slk");
+            Objects[W3objTypes.Destructable] = ObjMetadata.LoadFromFile(dir + "DestructableMetaData.slk");
         }
 
         //Получить по версии

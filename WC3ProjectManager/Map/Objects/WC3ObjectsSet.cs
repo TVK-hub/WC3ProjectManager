@@ -1,4 +1,5 @@
-﻿using WC3Files.Common.MPQ;
+﻿using WC3Files;
+using WC3Files.Common.MPQ;
 using WC3Files.Objects;
 using WC3ProjectManager.Map.Strings;
 namespace WC3ProjectManager.Map.Objects
@@ -60,41 +61,24 @@ namespace WC3ProjectManager.Map.Objects
         }
         public static WC3ObjectsSet LoadFromDir(string dir, string gameVer)
         {
+            //Сет
             WC3ObjectsSet objSet = new(gameVer);
-            foreach (var t in Enum.GetValues<W3objTypes>())
-            {
-                //Путь
-                if (t == W3objTypes.All) { continue; }
-                string path = dir;
-                switch (t)
-                {
-                    case W3objTypes.Unit:
-                        path += "\\Units";
-                        break;
-                    case W3objTypes.Item:
-                        path += "\\Items";
-                        break;
-                    case W3objTypes.Ability:
-                        path += "\\Abilities";
-                        break;
-                    case W3objTypes.Buff:
-                        path += "\\Buffs";
-                        break;
-                    case W3objTypes.Upgrade:
-                        path += "\\Upgrades";
-                        break;
-                    case W3objTypes.Doodad:
-                        path += "\\Doodads";
-                        break;
-                    case W3objTypes.Destructable:
-                        path += "\\Destructable";
-                        break;
-                }
 
-                //Объекты
-                WC3Objects objs = new(t, gameVer);
-                objs.UpdateFromPMini(path);
-                objSet[t] = objs;
+            //Файлы
+            SearchOption opt = SearchOption.AllDirectories;
+            FileInfo[] files = new DirectoryInfo(dir).GetFiles("*.ini", opt);
+            foreach (FileInfo file in files)
+            {
+                //Загрузка
+                WC3Object obj = WC3Object.Load(file.FullName);
+                
+                //Добавить в коллекцию
+                if (!objSet.TryGetValue(obj.WC3Type, out WC3Objects objs))
+                {
+                    objs = new WC3Objects(obj.WC3Type, gameVer);
+                    objSet[obj.WC3Type] = objs;
+                }
+                objs[obj.Id] = obj;
             }
             return objSet;
         }
@@ -105,32 +89,81 @@ namespace WC3ProjectManager.Map.Objects
             foreach (var itm in this)
             {
                 WC3Objects objs = itm.Value;
-                string path = dir;
-                switch (objs.Type)
+                foreach (WC3Object obj in objs.Values)
                 {
-                    case W3objTypes.Unit:
-                        path += "\\Units";
-                        break;
-                    case W3objTypes.Item:
+                    //Путь
+                    string path = dir;
+                    switch (obj.WC3Type)
+                    {
+                        case W3objTypes.Unit:
+                            path += "\\Units";
+                            break;
+                        case W3objTypes.Item:
+                            path += "\\Items";
+                            break;
+                        case W3objTypes.Ability:
+                            path += "\\Abilities";
+                            break;
+                        case W3objTypes.Buff:
+                            path += "\\Buffs";
+                            break;
+                        case W3objTypes.Upgrade:
+                            path += "\\Upgrades";
+                            break;
+                        case W3objTypes.Doodad:
+                            path += "\\Doodads";
+                            break;
+                        case W3objTypes.Destructable:
+                            path += "\\Destructable";
+                            break;
+                    }
+
+                    //Раса
+                    if (obj.Fields.TryGetByName("race", out WC3ObjectField? fRace))
+                    {
+                        string race = (string)fRace.Value;
+                        race = char.ToUpper(race[0]) + race[1..];
+                        path += $"\\{race}";
+                    }
+
+                    //Каталог
+                    if (obj.Fields.TryGetByName("isbldg", out WC3ObjectField? fBuilding) && (int)fBuilding.Value == 1)
+                    {
+                        path += "\\Buildings";
+                    }
+                    else if (obj.Fields.TryGetByName("campaign", out WC3ObjectField? fCampaign) && (int)fCampaign.Value == 1)
+                    {
+                        path += "\\Campaign";
+                    }
+                    else if (obj.Fields.TryGetByName("special", out WC3ObjectField? fSpecial) && (int)fSpecial.Value == 1)
+                    {
+                        path += "\\Special";
+                    }
+                    else if (obj.Fields.TryGetByName("hero", out WC3ObjectField? fHero) && (int)fHero.Value == 1)
+                    {
+                        path += "\\Heroes";
+                    }
+                    else if (obj.WC3Type == W3objTypes.Unit && char.IsUpper(obj.Id[0]))
+                    {
+                        path += "\\Heroes";
+                    }
+                    else if (obj.Fields.TryGetByName("item", out WC3ObjectField? fItem) && (int)fItem.Value == 1)
+                    {
                         path += "\\Items";
-                        break;
-                    case W3objTypes.Ability:
-                        path += "\\Abilities";
-                        break;
-                    case W3objTypes.Buff:
-                        path += "\\Buffs";
-                        break;
-                    case W3objTypes.Upgrade:
-                        path += "\\Upgrades";
-                        break;
-                    case W3objTypes.Doodad:
-                        path += "\\Doodads";
-                        break;
-                    case W3objTypes.Destructable:
-                        path += "\\Destructable";
-                        break;
+                    }
+
+                    //Название
+                    path += $"\\[{obj.Id}]";
+                    if (!string.IsNullOrEmpty(obj.Name))
+                    {
+                        string name = obj.Name;
+                        path += $" {name.ToFileName()}";
+                    }
+                    path += ".ini";
+
+                    //Сохранение
+                    obj.Save(path);
                 }
-                objs.SaveToPMini(path);
             }
         }
         public void SaveToMPQ(MpqArchive mpq)
@@ -148,8 +181,8 @@ namespace WC3ProjectManager.Map.Objects
             foreach (WC3Objects objs in Values)
             {
                 W3objFile w3obj = objs.ToW3obj();
-                string path = pathes[objs.Type];
-                w3obj.SaveToMPQ(mpq, path, objs.Type);
+                string path = pathes[objs.WC3Type];
+                w3obj.SaveToMPQ(mpq, path, objs.WC3Type);
             }
         }
 
@@ -160,7 +193,7 @@ namespace WC3ProjectManager.Map.Objects
             {
                 foreach (WC3Object obj in objs.Values)
                 {
-                    this[objs.Type][obj.Id] = obj;
+                    this[objs.WC3Type][obj.Id] = obj;
                 }
             }
         }
@@ -172,7 +205,7 @@ namespace WC3ProjectManager.Map.Objects
             foreach (var objs in Values)
             {
                 objs.Clear();
-                foreach (var item in baseObjects[objs.Type])
+                foreach (var item in baseObjects[objs.WC3Type])
                 {
                     objs[item.Key] = item.Value.Clone();
                 }

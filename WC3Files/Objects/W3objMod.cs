@@ -13,6 +13,10 @@
             get;
             set;
         } = "\0\0\0\0";
+        public bool IsCustom()
+        {
+            return CustomId != "\0\0\0\0";
+        }
 
         //Поля
         public List<W3objField> Fields

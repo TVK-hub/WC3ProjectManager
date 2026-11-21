@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using System.Security.Cryptography;
-using System.Xml.Linq;
+﻿using System.Security.AccessControl;
 using WC3Files.Common.Ini;
 using WC3Files.Common.SLK;
+using WC3Files.Metadata;
 using WC3Files.Metadata.Objects;
 using WC3Files.Objects;
 using WC3ProjectManager.Map.Strings;
@@ -26,7 +25,9 @@ namespace WC3ProjectManager.Map.Objects
         public void FromW3slk(SlkFile slk, string slkName, bool baseTable = false)
         {
             //Мета
-            var metaLst = Objs.Metadata.SlkRecords[slkName];
+            string gameVer = WC3Project.Current.BaseBuild.GameVersion;
+            ObjMetadata metadata = WC3Metadata.GetByVers(gameVer).Objects[Objs.WC3Type];
+            var metaLst = metadata.SlkRecords[slkName];
 
             //Записи
             for (int r = 1; r < slk.RowsCount; r++)
@@ -40,7 +41,7 @@ namespace WC3ProjectManager.Map.Objects
                 if (!Objs.TryGetValue(objId, out obj) && baseTable)
                 {
                     obj = new WC3Object();
-                    obj.WC3Type = Objs.Type;
+                    obj.WC3Type = Objs.WC3Type;
                     obj.Fields["ID", 0] = new WC3ObjectField()
                     {
                         Name = "ID",
@@ -84,7 +85,9 @@ namespace WC3ProjectManager.Map.Objects
         public void FromW3ini(IniFile ini)
         {
             //Мета
-            var metaLst = Objs.Metadata.SlkRecords["Profile"];
+            string gameVer = WC3Project.Current.BaseBuild.GameVersion;
+            ObjMetadata metadata = WC3Metadata.GetByVers(gameVer).Objects[Objs.WC3Type];
+            var metaLst = metadata.SlkRecords["Profile"];
 
             //Записи
             foreach (var sec in ini.Sections)
@@ -195,7 +198,7 @@ namespace WC3ProjectManager.Map.Objects
                 //Объект
                 if (!Objs.TryGetValue(id, out WC3Object? obj))
                 {
-                    WC3Objects baseObjects = WC3ObjectsSet.Base[Objs.GameVers][Objs.Type];
+                    WC3Objects baseObjects = WC3ObjectsSet.Base[Objs.GameVers][Objs.WC3Type];
                     if (custom && baseObjects.TryGetValue(m.BaseId, out WC3Object? objBase))
                     {
                         obj = objBase.Clone();
@@ -213,7 +216,9 @@ namespace WC3ProjectManager.Map.Objects
                 foreach (W3objField f in m.Fields)
                 {
                     //Поле
-                    var fMeta = Objs.Metadata.Records[f.Id];
+                    string gameVer = WC3Project.Current.BaseBuild.GameVersion;
+                    ObjMetadata metadata = WC3Metadata.GetByVers(gameVer).Objects[Objs.WC3Type];
+                    var fMeta = metadata.Records[f.Id];
                     WC3ObjectField? objField; if (!obj.Fields.TryGetByIdLvl(fMeta.Id, f.Level, out objField))
                     {
                         obj.Fields.Create(fMeta.Id, fMeta.Name, f.Value, f.Level);
@@ -221,126 +226,6 @@ namespace WC3ProjectManager.Map.Objects
                     else
                     {
                         objField.Value = f.Value;
-                    }
-                }
-            }
-        }
-
-        //PMini
-        public void FromPMini(string dir)
-        {
-            //Метаданные
-            var metaLst = Objs.Metadata;
-            WC3Objects baseObjects = WC3ObjectsSet.Base[Objs.GameVers][Objs.Type];
-
-            //Загрузка из файлов Ini
-            List<WC3Object> objsWithParent = new();
-            foreach (IniFile ini in IniFile.LoadFromDir(dir, true))
-            {
-                //Поля
-                string? objId = null;
-                string? objBaseId = null;
-                string? objParentId = null;
-                List <WC3ObjectField> fields = new();
-                Dictionary<string, int> idsCount = new();
-                foreach (IniEntry e in ini.Entries)
-                {
-                    //Поле
-                    WC3ObjectField f = new WC3ObjectField();
-                    fields.Add(f);
-
-                    //Id
-                    string id = e.Name;
-                    int inx = id.IndexOf('|');
-                    if (inx > 0) { id = id[..inx]; }
-                    id = id.Trim();
-                    f.Id = id;
-
-                    //Мета
-                    ObjMetadataRecord? meta = null;
-                    metaLst.Records.TryGetValue(id, out meta);
-
-                    //Имя
-                    if (meta != null)
-                    {
-                        f.Name = meta.Name;
-                    }
-                    else
-                    {
-                        f.Name = id;
-                        f.Id = "";
-                    }
-
-                    //Уровень
-                    int count; idsCount.TryGetValue(id, out count);
-                    if (meta != null && (int?)meta.GetFieldValue("repeat") > 0)
-                    {
-                        f.Level = count + 1;
-                    }
-                    else
-                    {
-                        f.Level = count;
-                    }
-                    idsCount[id] = count+1;
-
-                    //Значение
-                    f.Value = e.Value.Trim();
-
-                    //Поле - ID?
-                    if (id == "ID")
-                    {
-                        objId = f.Value.ToString();
-                    }
-                    else if (id == "ID_Base")
-                    {
-                        objBaseId = f.Value.ToString();
-                    }
-                    else if (id == "ID_Parent")
-                    {
-                        objParentId = f.Value.ToString();
-                    }
-                }
-
-                //Объект
-                if (objId != null)
-                {
-                    //Получить объект
-                    WC3Object? obj;
-                    if (!Objs.TryGetValue(objId, out obj))
-                    {
-                        obj = new WC3Object();
-                        obj.WC3Type = Objs.Type;
-                        Objs.Add(objId, obj);
-                    }
-
-                    //Добавить поля
-                    foreach(var f in fields)
-                    {
-                        obj.Fields[f.Id, f.Level] = f;
-                    }
-
-                    //Кастомный ID?
-                    if (objParentId != null)
-                    {
-                        objsWithParent.Add(obj);
-                    }
-                }
-            }
-
-            //Обновление объектов с кастомными родителями
-            foreach (WC3Object obj in objsWithParent)
-            {
-                //Родитель
-                string parentId = obj.ParentId;
-                WC3Object parent = Objs[parentId];
-
-                //Добавить недостающие поля от родителя
-                obj.BaseId = (string.IsNullOrEmpty(parent.BaseId)) ? parent.Id : parent.BaseId;
-                foreach (WC3ObjectField f in parent.Fields.Values)
-                {
-                    if (obj.Fields.GetByIdLvl(f.Id, f.Level) == null)
-                    {
-                        obj.Fields[f.Id, f.Level] = f;
                     }
                 }
             }

@@ -1,7 +1,10 @@
 ﻿using Microsoft.VisualBasic;
 using System.Globalization;
 using WC3Files.Common.Ini;
+using WC3Files.Metadata;
+using WC3Files.Metadata.Objects;
 using WC3Files.Objects;
+using WC3ProjectManager.Project;
 
 namespace WC3ProjectManager.Map.Objects
 {
@@ -62,15 +65,26 @@ namespace WC3ProjectManager.Map.Objects
         {
             get
             {
-                W3objTypes t = W3objTypes.All;
+                return W3objTypesEx.Parse(WC3TypeStr);
+            }
+            set
+            {
+                WC3TypeStr = W3objTypesEx.ToString(value);
+            }
+        }
+        public string WC3TypeStr
+        {
+            get
+            {
+                string str = "";
                 var f = Fields.GetByName("Type");
-                if (f != null) { t = W3objTypesEx.Parse((string)f.Value); }
-                return t;
+                if (f != null) { str = (string)f.Value; }
+                return str;
             }
             set
             {
                 var f = Fields.GetByName("Type");
-                if (f == null) { Fields.Create("", "Type", W3objTypesEx.ToString(value), 0); }
+                if (f == null) { Fields.Create("", "Type", value, 0); }
                 else { f.Value = value; }
             }
         }
@@ -142,101 +156,134 @@ namespace WC3ProjectManager.Map.Objects
 
         }
 
-        //Сохранить
+        //Сериализация
         public void Save(string path)
         {
-            //Файл
-            IniFile ini = new IniFile();
+            WC3ObjectSerializer.Save(this, path);
+        }
+        public static WC3Object Load(string path)
+        {
+            return WC3ObjectSerializer.Load(path);
+        }
 
-            //Записи
-            int nameMaxLen = 0;
-            Dictionary<IniEntry, WC3ObjectField> fieldsDict = new();
-            WC3ObjectField? fLvls = Fields.GetByName("levels");
-            if (fLvls == null) fLvls = Fields.GetByName("numVar");
-            foreach (WC3ObjectField f in Fields.Values)
+        //В модификатор
+        public W3objMod? ToMod(WC3Objects objs)
+        {
+            //Метаданные
+            string gameVer = WC3Project.Current.BaseBuild.GameVersion;
+            ObjMetadata metadata = WC3Metadata.GetByVers(gameVer).Objects[WC3Type];
+
+            //Есть родитель?
+            bool hasParent = !string.IsNullOrEmpty(ParentId);
+            WC3Object? parent = (hasParent) ? objs[ParentId] : null;
+
+            //Кастомный объект?
+            bool isCustom = hasParent || !string.IsNullOrEmpty(BaseId);
+
+            //Базовый объект
+            WC3Object baseObj;
+            WC3Objects baseObjects = WC3ObjectsSet.Base[gameVer][WC3Type];
+            if (isCustom)
             {
-                //Лишний уровень?
-                if (fLvls != null && f.Level > (int)fLvls.Value) { continue; }
-
-                //Секция
-                WC3ObjectFieldLayout layout = WC3ObjectLayout.GetFieldLayout(f);
-                IniSection? sec = ini.Sections.FirstOrDefault(itm => itm.Name == layout.SectionName);
-                if (sec == null)
+                if (!hasParent)
                 {
-                    sec = new IniSection(layout.SectionName);
-                    ini.Sections.Add(sec);
-                }
-
-                //Запись
-                IniEntry e = new IniEntry(sec); fieldsDict[e] = f;
-                sec.Entries.Add(e);
-
-                //Имя
-                if (!string.IsNullOrEmpty(layout.Name))
-                {
-                    e.Name = layout.Name;
+                    baseObj = baseObjects[BaseId];
                 }
                 else
                 {
-                    e.Name = f.Name;
+                    baseObj = baseObjects[(!string.IsNullOrEmpty(parent.BaseId)) ? parent.BaseId : parent.Id];
                 }
-                if (f.Level > 0) { e.Name += " " + f.Level; }
-                if (!string.IsNullOrEmpty(f.Id)) { e.Name = f.Id + " | " + e.Name; }
-                nameMaxLen = Math.Max(nameMaxLen, e.Name.Length);
-
-                //Значение
-                string v = "_";
-                if (f.Value != null)
-                {
-                    Type type = f.Value.GetType();
-                    if (type == typeof(float))
-                    {
-                        float real = (float)f.Value;
-                        v = real.ToString(CultureInfo.InvariantCulture);
-                    }
-                    else
-                    {
-                        v = f.Value.ToString();
-                    }
-                }
-                e.Value = v;
             }
-
-            //Отступы
-            foreach (IniEntry e in ini.Entries)
+            else
             {
-                while (e.Name.Length < nameMaxLen)
-                {
-                    e.Name += " ";
-                }
+                baseObj = baseObjects[Id];
             }
 
-            //Сортировка
-            ini.Sections.Sort(
-                delegate (IniSection sec1, IniSection sec2)
-                {
-                    var lay1 = WC3ObjectLayout.GetFieldLayout(fieldsDict[sec1.Entries[0]]);
-                    var lay2 = WC3ObjectLayout.GetFieldLayout(fieldsDict[sec2.Entries[0]]);
-                    return lay1.SectionIndex.CompareTo(lay2.SectionIndex);
-                }
-            );
-            foreach (IniSection sec in ini.Sections)
+            //Поля
+            List<W3objField> modFields = new();
+            ToMod_AddFields(this, baseObj, modFields, metadata);
+            if (hasParent){ ToMod_AddFields(parent, baseObj, modFields, metadata); }
+
+            //Модификация
+            W3objMod? mod = null;
+            if (modFields.Count > 0)
             {
-                sec.Entries.Sort(delegate (IniEntry e1, IniEntry e2) {
-                    WC3ObjectField f1 = fieldsDict[e1];
-                    WC3ObjectField f2 = fieldsDict[e2];
-                    var lay1 = WC3ObjectLayout.GetFieldLayout(f1);
-                    var lay2 = WC3ObjectLayout.GetFieldLayout(f2);
-                    int i1 = lay1.Index * 100 + f1.Level;
-                    int i2 = lay2.Index * 100 + f2.Level;
-                    return i1.CompareTo(i2);
-                });
+                mod = new W3objMod();
+                mod.Fields.AddRange(modFields);
+                if (!isCustom)
+                {
+                    mod.BaseId = Id;
+                }
+                else
+                {
+                    mod.BaseId = baseObj.Id;
+                    mod.CustomId = Id;
+                }
             }
+            return mod;
+        }
+        private void ToMod_AddFields(WC3Object source, WC3Object baseObj, List<W3objField> modFields, ObjMetadata metadata)
+        {
+            foreach (var key in source.Fields.Keys)
+            {
+                //Текущее поле
+                WC3ObjectField? f = source.Fields.GetByIdLvl(key.Id, key.Level);
+                if (string.IsNullOrEmpty(f.Id)) { continue; }
+                if (this != source && Fields.Keys.Contains(key)) { continue; }
 
-            //Сохранение
-            string? pathDir = Path.GetDirectoryName(path);
-            if (pathDir != null) Directory.CreateDirectory(pathDir);
-            ini.Save(path);
+                //Базовое поле
+                WC3ObjectField? fBase = baseObj.Fields.GetByIdLvl(key.Id, key.Level);
+
+                //Значения различаются?
+                if (fBase == null || f.Value.ToString().Trim() != fBase.Value.ToString().Trim())
+                {
+                    //Метаданные
+                    ObjMetadataRecord meta = metadata.Records[f.Id];
+
+                    //Изменение
+                    W3objField modField = new();
+                    modField.Id = f.Id;
+                    modField.Level = f.Level;
+                    modField.DataPointer = meta.Data;
+
+                    //Значение
+                    modField.ValueType = W3objValueTypeEx.FromMetaType(meta.Type);
+                    string? vStr = f.Value?.ToString();
+                    switch (modField.ValueType)
+                    {
+                        case W3objValueType.Int:
+                            {
+                                int v; if (!int.TryParse(vStr, out v))
+                                {
+                                    meta.Fields.TryGetValue("minVal", out ObjMetadataField? fMin);
+                                    vStr = fMin.Value.ToString();
+                                    v = int.Parse(vStr);
+                                }
+                                modField.Value = v;
+                            }
+                            break;
+                        case W3objValueType.Real:
+                        case W3objValueType.Unreal:
+                            {
+                                vStr = vStr.Replace(',', '.');
+                                float v; if (!float.TryParse(vStr, CultureInfo.InvariantCulture, out v))
+                                {
+                                    meta.Fields.TryGetValue("minVal", out ObjMetadataField? fMin);
+                                    vStr = fMin?.Value?.ToString();
+                                    v = float.Parse(vStr.Replace(',', '.'));
+                                }
+                                modField.Value = v;
+                            }
+                            break;
+                        case W3objValueType.String:
+                            modField.Value = vStr;
+                            break;
+                    }
+
+                    //В список
+                    modFields.Add(modField);
+                }
+            }
         }
 
         //Клонировать
