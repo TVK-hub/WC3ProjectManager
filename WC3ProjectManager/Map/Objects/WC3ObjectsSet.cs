@@ -2,6 +2,7 @@
 using WC3Files.Common.MPQ;
 using WC3Files.Objects;
 using WC3ProjectManager.Map.Strings;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace WC3ProjectManager.Map.Objects
 {
     public class WC3ObjectsSet : Dictionary<W3objTypes, WC3Objects>
@@ -59,26 +60,29 @@ namespace WC3ProjectManager.Map.Objects
             }
             return objs;
         }
-        public static WC3ObjectsSet LoadFromDir(string dir, string gameVer)
+        public static WC3ObjectsSet LoadFromDirs(IEnumerable<string> dirs, string gameVer)
         {
             //Сет
             WC3ObjectsSet objSet = new(gameVer);
 
             //Файлы
-            SearchOption opt = SearchOption.AllDirectories;
-            FileInfo[] files = new DirectoryInfo(dir).GetFiles("*.ini", opt);
-            foreach (FileInfo file in files)
+            foreach (var dir in dirs)
             {
-                //Загрузка
-                WC3Object obj = WC3Object.Load(file.FullName);
-                
-                //Добавить в коллекцию
-                if (!objSet.TryGetValue(obj.WC3Type, out WC3Objects objs))
+                SearchOption opt = SearchOption.AllDirectories;
+                FileInfo[] files = new DirectoryInfo(dir).GetFiles("*.ini", opt);
+                foreach (FileInfo file in files)
                 {
-                    objs = new WC3Objects(obj.WC3Type, gameVer);
-                    objSet[obj.WC3Type] = objs;
+                    //Загрузка
+                    WC3Object obj = WC3Object.Load(file.FullName);
+
+                    //Добавить в коллекцию
+                    if (!objSet.TryGetValue(obj.WC3Type, out WC3Objects objs))
+                    {
+                        objs = new WC3Objects(obj.WC3Type, gameVer);
+                        objSet[obj.WC3Type] = objs;
+                    }
+                    objs[obj.Id] = obj;
                 }
-                objs[obj.Id] = obj;
             }
             return objSet;
         }

@@ -28,9 +28,9 @@ namespace WC3ProjectManager.Project
         }
 
         /// <summary>
-        /// Путь к проекту
+        /// Директория проекта
         /// </summary>
-        public string Path
+        public string Dir
         {
             set;
             get;
@@ -58,13 +58,13 @@ namespace WC3ProjectManager.Project
         public int BaseBuildIndex = 0;
 
         /// <summary>
-        /// Директории проекта
+        /// Пути к разделам проекта
         /// </summary>
-        public WC3ProjectDirectories Dirs
+        public WC3ProjectPaths Paths
         {
-            private set;
             get;
-        }
+            set;
+        } = new();
 
         //Конструктор
         public WC3Project()
@@ -74,15 +74,15 @@ namespace WC3ProjectManager.Project
         public static WC3Project? Current;
 
         //Загрузка
-        public static WC3Project Load(string path)
+        public static WC3Project Load(string dir)
         {
             //Загрузка из JSON
-            string json = File.ReadAllText(path+"/project.json");
+            string json = File.ReadAllText(dir+"/project.json");
             WC3Project? prj = JsonSerializer.Deserialize<WC3Project>(json);
 
             //Директория
-            prj.Path = path;
-            prj.Dirs = new WC3ProjectDirectories(prj);
+            prj.Dir = dir;
+            prj.Paths.Init(dir);
             return prj;
         }
         public static bool TryLoad(string path, out WC3Project? prj)
@@ -112,13 +112,13 @@ namespace WC3ProjectManager.Project
             WC3Map map;
             if (string.IsNullOrEmpty(path))
             {
-                map = WC3Map.FirstFromDir(Dirs.Maps, BaseBuild.GameVersion, dataType);
+                map = WC3Map.FirstFromDir(Paths.Maps, BaseBuild.GameVersion, dataType);
             }
             else
             {
                 if (!File.Exists(path))
                 {
-                    path = Dirs.Maps + "\\" + path;
+                    path = Paths.Maps + "\\" + path;
                 }
                 map = WC3Map.FromFile(path, BaseBuild.GameVersion, dataType);
             }
@@ -126,25 +126,25 @@ namespace WC3ProjectManager.Project
             //Конфигурация
             if (dataType.HasFlag(WC3DataType.Config))
             {
-                map.Config.SaveToProject(Dirs.Config);
+                map.Config.SaveToProject(Paths.Config);
             }
 
             //Объекты
             if (dataType.HasFlag(WC3DataType.Objects))
             {
-                map.Objects.SaveToProject(Dirs.Objects);
+                map.Objects.SaveToProject(Paths.Objects.First());
             }
 
             //Триггеры
             if (dataType.HasFlag(WC3DataType.Triggers))
             {
-                map.Triggers.SaveToProject(Dirs.Triggers);
+                map.Triggers.SaveToProject(Paths.Triggers.First());
             }
 
             //Импорт
             if (dataType.HasFlag(WC3DataType.Import))
             {
-                map.Import.SaveToProject(Dirs.Import);
+                map.Import.SaveToProject(Paths.Import);
             }
         }
 
@@ -154,22 +154,22 @@ namespace WC3ProjectManager.Project
         public void Inject(string path, WC3DataType dataType)
         {
             //Данные на внедрение
-            WC3Config?     cf = dataType.HasFlag(WC3DataType.Config) ? WC3Config.LoadFromDir(Dirs.Config) : null;
-            WC3ObjectsSet? objs = dataType.HasFlag(WC3DataType.Objects) ? WC3ObjectsSet.LoadFromDir(Dirs.Objects, BaseBuild.GameVersion) : null;
-            WC3Triggers?   triggers = dataType.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromDir(Dirs.Triggers) : null;
-            WC3Import?     import   = dataType.HasFlag(WC3DataType.Import)   ? WC3Import.LoadFromDir(Dirs.Import) : null;
+            WC3Config?     cf = dataType.HasFlag(WC3DataType.Config) ? WC3Config.LoadFromDir(Paths.Config) : null;
+            WC3ObjectsSet? objs = dataType.HasFlag(WC3DataType.Objects) ? WC3ObjectsSet.LoadFromDirs(Paths.Objects, BaseBuild.GameVersion) : null;
+            WC3Triggers?   triggers = dataType.HasFlag(WC3DataType.Triggers) ? WC3Triggers.LoadFromDirs(Paths.Triggers) : null;
+            WC3Import?     import   = dataType.HasFlag(WC3DataType.Import)   ? WC3Import.LoadFromDir(Paths.Import) : null;
 
             //Карты
             WC3Map[] maps;
             if (string.IsNullOrEmpty(path))
             {
-                maps = WC3Map.FromDir(Dirs.Maps, BaseBuild.GameVersion, dataType);
+                maps = WC3Map.FromDir(Paths.Maps, BaseBuild.GameVersion, dataType);
             }
             else
             {
                 if (!File.Exists(path))
                 {
-                    path = Dirs.Maps+"\\"+path;
+                    path = Paths.Maps+"\\"+path;
                 }
                 maps = [WC3Map.FromFile(path, BaseBuild.GameVersion, dataType)];
             }
@@ -203,13 +203,13 @@ namespace WC3ProjectManager.Project
             WC3Map[] maps;
             if (string.IsNullOrEmpty(path))
             {
-                maps = WC3Map.FromDir(Dirs.Maps, BaseBuild.GameVersion, dataType);
+                maps = WC3Map.FromDir(Paths.Maps, BaseBuild.GameVersion, dataType);
             }
             else
             {
                 if (!File.Exists(path))
                 {
-                    path = Dirs.Maps + "\\" + path;
+                    path = Paths.Maps + "\\" + path;
                 }
                 maps = [WC3Map.FromFile(path, BaseBuild.GameVersion, dataType)];
             }
@@ -240,8 +240,8 @@ namespace WC3ProjectManager.Project
         public void Check()
         {
             //Тестовый файл
-            WC3Triggers triggers = WC3Triggers.LoadFromDir(Dirs.Triggers);
-            JassFile testFile = JassFile.Build(Path + "\\test.j", triggers);
+            WC3Triggers triggers = WC3Triggers.LoadFromDirs(Paths.Triggers);
+            JassFile testFile = JassFile.Build(Dir + "\\test.j", triggers);
 
             //Проверка
             testFile.Check();

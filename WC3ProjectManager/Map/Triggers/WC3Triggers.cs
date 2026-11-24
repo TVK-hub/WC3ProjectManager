@@ -1,5 +1,6 @@
 ﻿using WC3Files.Common.MPQ;
 using WC3Files.Triggers;
+using WC3ProjectManager.Map.Objects;
 namespace WC3ProjectManager.Map.Triggers
 {
     public class WC3Triggers
@@ -166,36 +167,37 @@ namespace WC3ProjectManager.Map.Triggers
             WctFile wct = WctFile.LoadFromMPQ(mpq);
             return Load(wtg, wct);
         }
-        public static WC3Triggers LoadFromDir(string dir)
+        public static WC3Triggers LoadFromDirs(string[] dirs)
         {
             //Триггеры
-            WC3Triggers t = new WC3Triggers();
+            WC3Triggers trgrs = new WC3Triggers();
 
-            //Заголовок
-            string? codePath = Directory.GetFiles(dir, "code.*").FirstOrDefault();
-            if (!string.IsNullOrEmpty(codePath))
+            //Директории
+            for (int i = 0; i < dirs.Length; i++)
             {
-                t.Header = WC3Trigger.FromFile(codePath);
-            }
+                //Директория
+                string dir = dirs[i];
+                string name = Path.GetFileName(dir);
 
-            //Папки
-            DirectoryInfo[] folders = new DirectoryInfo(dir).GetDirectories();
-            for (int i = 0; i < folders.Length; i++)
-            {
-                //Папка
-                DirectoryInfo folder = folders[i];
-                
                 //Файлы
-                List<WC3Trigger> trgsLst = new(WC3Trigger.FromDir(folder.FullName));
+                List<WC3Trigger> trgsLst = new(WC3Trigger.FromDir(dir));
+
+                //Заголовок
+                WC3Trigger? trgCode = trgsLst.Find(t => t.Name=="code");
+                if (trgCode != null)
+                {
+                    trgrs.Header = trgCode;
+                    trgsLst.Remove(trgCode);
+                }
 
                 //Категория
                 WC3TriggerCategory cat = new WC3TriggerCategory();
                 cat.Id = 1 + i;
-                cat.Name = folder.Name;
+                cat.Name = name;
                 cat.Triggers.AddRange(trgsLst);
-                t.Categories.Add(cat);
+                trgrs.Categories.Add(cat);
             }
-            return t;
+            return trgrs;
         }
 
         //Сохранить
